@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Metas Page details-->
-    <title>Success Planet</title>
-    <meta name="description" content="UX designer and web developer" />
-    <meta name="author" content="" />
+    <title>Success Planet - Online Learning Platform for 10th Standard Students</title>
+    <meta name="description" content="Comprehensive online learning platform for 10th standard students. Expert teachers, video lessons, practice tests, and study materials for Mathematics, Science, English, and Social Studies." />
+    <meta name="author" content="Success Planet" />
     <!-- Mobile Specific Metas-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--main style-->
@@ -33,23 +33,44 @@
     />
     <!--google font style-->
     <link
-      href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
       rel="stylesheet"
       type="text/css"
     />
     <!--font-family: 'Metrophobic', sans-serif;-->
     <link
-      href="http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600italic,600,700italic,700"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600italic,600,700italic,700"
       rel="stylesheet"
       type="text/css"
     />
     <!--font-family: 'Open Sans', sans-serif; -->
     <link
-      href="http://fonts.googleapis.com/css?family=Roboto:400,700,400italic,500,300italic,300,100,500italic"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,500,300italic,300,100,500italic"
       rel="stylesheet"
       type="text/css"
     />
     <!--font-family: 'Roboto', sans-serif; -->
+    <style>
+      .membership_listing:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      }
+      #courses .col-xs-12.col-sm-6.col-md-4.col-lg-4 > div:hover {
+        transform: translateY(-5px);
+      }
+      .navbar-nav li a:hover {
+        color: #4CAF50 !important;
+        transition: color 0.3s;
+      }
+      .heading h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+      }
+      .heading p {
+        font-size: 1.1em;
+        line-height: 1.8;
+      }
+    </style>
 
     <!-- font icon css style-->
     <link rel="stylesheet" href="css/font-awesome.min.css" />
@@ -95,17 +116,19 @@
                             <a href="#wrapper">Home</a>
                           </li>
                           <li class="menuItem">
-                            <a href="#courses">courses</a>
+                            <a href="#course" class="smooth">Courses</a>
                           </li>
                           <li class="menuItem">
-                            <a href="#testimonial">Testimonial</a>
+                            <a href="#testimonial" class="smooth">Testimonial</a>
                           </li>
                           <li class="menuItem">
                             <a href="login_new.html">Login</a>
                           </li>
-                          <li><a href="register.html">Register</a></li>
                           <li class="menuItem">
-                            <a href="#contact">Contact</a>
+                            <a href="register.html">Register</a>
+                          </li>
+                          <li class="menuItem">
+                            <a href="#contact" class="smooth">Contact</a>
                           </li>
                         </ul>
                       </div>
@@ -130,13 +153,12 @@
           </div>
           <div class="container hedaer-inner">
             <div class="bannerText">
-              <h3>Learning Online Becomes Easier</h3>
-              <p>
-                Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua2.
+              <h3 style="font-size: 3.5em; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); margin-bottom: 20px;">Learning Online Becomes Easier</h3>
+              <p style="font-size: 1.3em; line-height: 1.6; margin-bottom: 30px;">
+                Master 10th Standard subjects with expert teachers, interactive video lessons, and comprehensive study materials. Start your journey to academic excellence today!
               </p>
               <p>
-                <a href="#course" class="smooth"
+                <a href="#course" class="smooth" style="background: #4CAF50; color: white; padding: 15px 35px; border-radius: 5px; text-decoration: none; font-size: 1.1em; display: inline-block; transition: all 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.2);"
                   >View Courses <i class="fa fa-angle-right"></i
                 ></a>
               </p>
@@ -151,72 +173,64 @@
           <div class="heading">
             <h1><span>Memberships</span>Include</h1>
             <p>
-              Phasellus non dolor nibh. Nullam elementum tellus pretium
-              feugiat.<br />
-              Cras dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed
-              tincidunt tristique enim sed sollcitudin.
+              Get access to comprehensive learning resources designed specifically for 10th standard students.<br />
+              Our platform offers everything you need to excel in your board exams and build a strong foundation for your future.
             </p>
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <div class="membership_listing">
-                <span><i class="fa fa-unlock-alt"></i></span>
-                <h3>Unlimited access</h3>
-                <p>
-                  Morbi leo risus, porta ac consectetur, vestibulum at eros.
-                  Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+              <div class="membership_listing" style="text-align: center; padding: 30px 20px; transition: transform 0.3s;">
+                <span style="font-size: 3em; color: #4CAF50; display: block; margin-bottom: 20px;"><i class="fa fa-unlock-alt"></i></span>
+                <h3 style="color: #333; margin-bottom: 15px;">Unlimited Access</h3>
+                <p style="color: #666; line-height: 1.6;">
+                  Access all course materials, video lectures, practice tests, and study resources 24/7. Learn at your own pace from anywhere, anytime.
                 </p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <div class="membership_listing">
-                <span><i class="fa fa-video-camera"></i></span>
-                <h3>4500 video courses</h3>
-                <p>
-                  Morbi leo risus, porta ac consectetur, vestibulum at eros.
-                  Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+              <div class="membership_listing" style="text-align: center; padding: 30px 20px; transition: transform 0.3s;">
+                <span style="font-size: 3em; color: #2196F3; display: block; margin-bottom: 20px;"><i class="fa fa-video-camera"></i></span>
+                <h3 style="color: #333; margin-bottom: 15px;">500+ Video Lessons</h3>
+                <p style="color: #666; line-height: 1.6;">
+                  High-quality video lectures covering all 10th standard subjects including Mathematics, Science, English, Social Studies, and more.
                 </p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <div class="membership_listing">
-                <span><i class="fa fa-microphone"></i></span>
-                <h3>Expert teachers</h3>
-                <p>
-                  Morbi leo risus, porta ac consectetur, vestibulum at eros.
-                  Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+              <div class="membership_listing" style="text-align: center; padding: 30px 20px; transition: transform 0.3s;">
+                <span style="font-size: 3em; color: #FF9800; display: block; margin-bottom: 20px;"><i class="fa fa-microphone"></i></span>
+                <h3 style="color: #333; margin-bottom: 15px;">Expert Teachers</h3>
+                <p style="color: #666; line-height: 1.6;">
+                  Learn from experienced educators with years of teaching experience. Our teachers are experts in their subjects and understand board exam patterns.
                 </p>
               </div>
             </div>
           </div>
           <div class="row sec_top_gp">
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <div class="membership_listing">
-                <span><i class="fa fa-file-text-o"></i></span>
-                <h3>Valid Certification</h3>
-                <p>
-                  Morbi leo risus, porta ac consectetur, vestibulum at eros.
-                  Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+              <div class="membership_listing" style="text-align: center; padding: 30px 20px; transition: transform 0.3s;">
+                <span style="font-size: 3em; color: #9C27B0; display: block; margin-bottom: 20px;"><i class="fa fa-file-text-o"></i></span>
+                <h3 style="color: #333; margin-bottom: 15px;">Valid Certification</h3>
+                <p style="color: #666; line-height: 1.6;">
+                  Receive course completion certificates that validate your learning. These certificates can be added to your academic portfolio.
                 </p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <div class="membership_listing">
-                <span><i class="fa fa-mobile"></i></span>
-                <h3>On-the-go learning</h3>
-                <p>
-                  Morbi leo risus, porta ac consectetur, vestibulum at eros.
-                  Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+              <div class="membership_listing" style="text-align: center; padding: 30px 20px; transition: transform 0.3s;">
+                <span style="font-size: 3em; color: #E91E63; display: block; margin-bottom: 20px;"><i class="fa fa-mobile"></i></span>
+                <h3 style="color: #333; margin-bottom: 15px;">On-the-Go Learning</h3>
+                <p style="color: #666; line-height: 1.6;">
+                  Study on any device - smartphone, tablet, or computer. Download lessons for offline viewing and learn even without internet.
                 </p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <div class="membership_listing">
-                <span><i class="fa fa-life-ring"></i></span>
-                <h3>24x7 Super Support</h3>
-                <p>
-                  Morbi leo risus, porta ac consectetur, vestibulum at eros.
-                  Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+              <div class="membership_listing" style="text-align: center; padding: 30px 20px; transition: transform 0.3s;">
+                <span style="font-size: 3em; color: #00BCD4; display: block; margin-bottom: 20px;"><i class="fa fa-life-ring"></i></span>
+                <h3 style="color: #333; margin-bottom: 15px;">24x7 Super Support</h3>
+                <p style="color: #666; line-height: 1.6;">
+                  Get instant help with your doubts through our support team. Ask questions anytime and get detailed explanations from our experts.
                 </p>
               </div>
             </div>
@@ -230,10 +244,8 @@
           <div class="heading">
             <h1><span>Available</span>Courses</h1>
             <p>
-              Phasellus non dolor nibh. Nullam elementum tellus pretium
-              feugiat.<br />
-              Cras dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed
-              tincidunt tristique enim sed sollcitudin.
+              Explore our comprehensive course catalog designed for 10th standard students.<br />
+              Each course includes video lectures, study materials, practice tests, and doubt-solving sessions.
             </p>
           </div>
           <div class="row">
@@ -246,7 +258,7 @@
                     aria-controls="graphicesigning"
                     role="tab"
                     data-toggle="tab"
-                    >HTML</a
+                    >Mathematics</a
                   >
                 </li>
                 <li role="presentation">
@@ -255,7 +267,7 @@
                     aria-controls="onlinemarketing"
                     role="tab"
                     data-toggle="tab"
-                    >CSS</a
+                    >Science</a
                   >
                 </li>
                 <li role="presentation">
@@ -264,7 +276,7 @@
                     aria-controls="brandstrategy"
                     role="tab"
                     data-toggle="tab"
-                    >Science</a
+                    >English & Social</a
                   >
                 </li>
               </ul>
@@ -284,21 +296,12 @@
                       <img src="images/graphic-design.jpg" alt="" />
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-                      <h3>HTML</h3>
-                      <p>
-                        Cras dictum tellus dui, vitae sollicitudin ipsum
-                        tincidunt adipiscing atgfnte varius at. Sed mollis
-                        vestibulum sapien sed mattis.Cras dictum tellus duvi,
-                        vitae sollicitudin ipsum tincidunt adipiscing ante
-                        varius at. Sed mollis ves tibulum sapien sed mattis.
+                      <h3 style="color: #333; font-size: 2em; margin-bottom: 20px;">Mathematics</h3>
+                      <p style="color: #666; line-height: 1.8; margin-bottom: 15px;">
+                        Master all concepts of 10th standard Mathematics including Algebra, Geometry, Trigonometry, and Statistics. Our comprehensive course covers NCERT syllabus with detailed explanations, solved examples, and practice problems.
                       </p>
-                      <p>
-                        Cras dictum tellus dui, vitae sollicitudin ipsum
-                        tincidunt adipiscing atgfnte tibulum sapien sed
-                        mattis.Cras dictum tellus dui. Sed mollis vestibulum
-                        sapien rthsed mattis.Cras dictum tellus duvi, vitae
-                        sollicitudin ipsum tincidunt adipiscing tibulum sapien
-                        sed mattis.
+                      <p style="color: #666; line-height: 1.8;">
+                        Features include: 120+ video lessons, chapter-wise tests, previous year question papers, quick revision notes, and doubt clearing sessions. Perfect for board exam preparation!
                       </p>
                     </div>
                   </div>
@@ -311,21 +314,12 @@
                       <img src="images/internet-marketing.jpg" alt="" />
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-                      <h3>CSS</h3>
-                      <p>
-                        Cras dictum tellus dui, vitae sollicitudin ipsum
-                        tincidunt adipiscing atgfnte varius at. Sed mollis
-                        vestibulum sapien sed mattis.Cras dictum tellus duvi,
-                        vitae sollicitudin ipsum tincidunt adipiscing ante
-                        varius at. Sed mollis ves tibulum sapien sed mattis.
+                      <h3 style="color: #333; font-size: 2em; margin-bottom: 20px;">Science</h3>
+                      <p style="color: #666; line-height: 1.8; margin-bottom: 15px;">
+                        Comprehensive Science course covering Physics, Chemistry, and Biology as per 10th standard curriculum. Learn complex concepts through animated videos, practical demonstrations, and interactive experiments.
                       </p>
-                      <p>
-                        Cras dictum tellus dui, vitae sollicitudin ipsum
-                        tincidunt adipiscing atgfnte tibulum sapien sed
-                        mattis.Cras dictum tellus dui. Sed mollis vestibulum
-                        sapien rthsed mattis.Cras dictum tellus duvi, vitae
-                        sollicitudin ipsum tincidunt adipiscing tibulum sapien
-                        sed mattis.
+                      <p style="color: #666; line-height: 1.8;">
+                        Course includes: 150+ video lessons, lab experiments, concept maps, important formulas, sample papers, and expert tips for scoring high in board exams. Ideal for both CBSE and state board students.
                       </p>
                     </div>
                   </div>
@@ -338,21 +332,12 @@
                       <img src="images/branding.jpg" alt="" />
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-                      <h3>Science</h3>
-                      <p>
-                        Cras dictum tellus dui, vitae sollicitudin ipsum
-                        tincidunt adipiscing atgfnte varius at. Sed mollis
-                        vestibulum sapien sed mattis.Cras dictum tellus duvi,
-                        vitae sollicitudin ipsum tincidunt adipiscing ante
-                        varius at. Sed mollis ves tibulum sapien sed mattis.
+                      <h3 style="color: #333; font-size: 2em; margin-bottom: 20px;">English & Social Studies</h3>
+                      <p style="color: #666; line-height: 1.8; margin-bottom: 15px;">
+                        Enhance your language skills and master Social Studies with our expert-designed courses. English course covers grammar, literature, writing skills, and comprehension. Social Studies includes History, Geography, Civics, and Economics.
                       </p>
-                      <p>
-                        Cras dictum tellus dui, vitae sollicitudin ipsum
-                        tincidunt adipiscing atgfnte tibulum sapien sed
-                        mattis.Cras dictum tellus dui. Sed mollis vestibulum
-                        sapien rthsed mattis.Cras dictum tellus duvi, vitae
-                        sollicitudin ipsum tincidunt adipiscing tibulum sapien
-                        sed mattis.
+                      <p style="color: #666; line-height: 1.8;">
+                        Features: Grammar lessons, literature analysis, map work, historical timelines, writing practice, sample essays, and comprehensive study guides. Boost your scores in these scoring subjects!
                       </p>
                     </div>
                   </div>
@@ -369,9 +354,41 @@
       <!--/Available course end-->
       <!--popup video end -->
       <!--popular courses start-->
-      <section class="grey_section section_gap" id="courses">
+      <section class="white_section section_gap" id="courses" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
         <div class="container">
-          <div class="heading">
+          <div class="heading" style="color: white;">
+            <h1 style="color: white;"><span>Popular</span>Courses</h1>
+            <p style="color: rgba(255,255,255,0.9);">
+              Most enrolled courses by 10th standard students<br />
+              Join thousands of students who are already learning with us
+            </p>
+          </div>
+          <div class="row" style="margin-top: 50px;">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
+              <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); text-align: center; transition: transform 0.3s;">
+                <i class="fa fa-calculator" style="font-size: 3em; color: #4CAF50; margin-bottom: 20px;"></i>
+                <h3 style="color: #333; margin-bottom: 15px;">Complete Mathematics</h3>
+                <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">All chapters covered with 120+ video lessons</p>
+                <a href="#course" class="smooth" style="background: #4CAF50; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block;">Enroll Now</a>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
+              <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); text-align: center; transition: transform 0.3s;">
+                <i class="fa fa-flask" style="font-size: 3em; color: #2196F3; margin-bottom: 20px;"></i>
+                <h3 style="color: #333; margin-bottom: 15px;">Science Mastery</h3>
+                <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">Physics, Chemistry & Biology in one course</p>
+                <a href="#course" class="smooth" style="background: #2196F3; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block;">Enroll Now</a>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
+              <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); text-align: center; transition: transform 0.3s;">
+                <i class="fa fa-book" style="font-size: 3em; color: #FF9800; margin-bottom: 20px;"></i>
+                <h3 style="color: #333; margin-bottom: 15px;">English Excellence</h3>
+                <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">Grammar, Literature & Writing Skills</p>
+                <a href="#course" class="smooth" style="background: #FF9800; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block;">Enroll Now</a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <!--/popular courses end-->
@@ -382,12 +399,10 @@
       <section class="grey_section section_gap" id="teachers">
         <div class="container">
           <div class="heading">
-            <h1>Testimonial</h1>
+            <h1>Our Top Students</h1>
             <p>
-              Phasellus non dolor nibh. Nullam elementum tellus pretium
-              feugiat.<br />
-              Cras dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed
-              tincidunt tristique enim sed sollcitudin.
+              Meet our star performers who achieved excellent results in their 10th board exams.<br />
+              These students utilized our platform effectively and secured top ranks in their schools.
             </p>
           </div>
           <ul class="hover_listing row">
@@ -410,10 +425,9 @@
                   </li>
                 </ul>
               </div>
-              <h3 class="uppercase">Biswajeet Chakra (8A)</h3>
+              <h3 class="uppercase">Biswajeet Chakra (10A)</h3>
               <p>
-                tincidunt adipiscing atgfnte varius at. Sed mollis vestibulum
-                sapien
+                Scored 95% in board exams. Mathematics and Science courses helped me understand complex concepts easily.
               </p>
             </li>
             <!-- Teacher 01 details end-->
@@ -436,10 +450,9 @@
                   </li>
                 </ul>
               </div>
-              <h3 class="uppercase">Arnav Kumar (8A)</h3>
+              <h3 class="uppercase">Arnav Kumar (10A)</h3>
               <p>
-                tincidunt adipiscing atgfnte varius at. Sed mollis vestibulum
-                sapien
+                Achieved 92% marks. The video lessons and practice tests were extremely helpful for my exam preparation.
               </p>
             </li>
             <!-- Teacher 02 details end-->
@@ -458,10 +471,8 @@
           <div class="heading">
             <h1>What our Students Say</h1>
             <p>
-              Phasellus non dolor nibh. Nullam elementum tellus pretium
-              feugiat.<br />
-              Cras dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed
-              tincidunt tristique enim sed sollcitudin.
+              Read testimonials from our successful students who have benefited from our courses.<br />
+              Their success stories inspire thousands of students to achieve their academic goals.
             </p>
           </div>
           <div class="imageSlide">
@@ -551,92 +562,63 @@
             <ul class="slides testimonialText list-unstyled">
               <li>
                 <p class="font-openBold">
-                  Phasellus non dolor nibh. Nullam elementum tellus pretium
-                  feugiat. Cras dictum tellus dui, vitae sollicitudin ipsum
-                  tincidunt in. Sed tincidunt tristique enim sed sollcitudin.
-                  Nullam elementum tellus pretium feugiat
+                  Success Planet transformed my learning experience! The Mathematics course helped me score 96% in my board exams. The video explanations are clear, and the practice tests prepared me perfectly. Highly recommended for all 10th standard students!
                 </p>
-                <h3 class="uppercase">Jessie Pinkman, MDM Inc.</h3>
+                <h3 class="uppercase">Priya Sharma, Delhi Public School</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Phasellus non dolor nibh. Nullam elementum tellus pretium
-                  feugiat. Cras dictum tellus dui, vitae sollicitudin ipsum
-                  tincidunt in. Sed tincidunt tristique enim sed
-                  sollcitudin.Nunc pretium est quis placerat congue. Nam dui
-                  lectus, pretium get elit id, interdum ultricies neque.
+                  I was struggling with Science concepts, but Success Planet's comprehensive course made everything crystal clear. The animated videos and practical demonstrations helped me understand even the most difficult topics. I improved from 75% to 91%!
                 </p>
-                <h3 class="uppercase">Rene Brown</h3>
+                <h3 class="uppercase">Rahul Verma, Kendriya Vidyalaya</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Phasellus non dolor nibh. Nullam elementum tellus pretium
-                  feugiat. Cras dictum tellus dui, vitae sollicitudin ipsum
-                  tincidunt in. Sed tincidunt tristique enim sed sollcitudin.
+                  The best part about Success Planet is learning at my own pace. I could rewatch difficult lessons and practice as many times as needed. The expert teachers are amazing, and their doubt-clearing sessions are very helpful.
                 </p>
-                <h3 class="uppercase">Johnathan, Lexodia</h3>
+                <h3 class="uppercase">Ananya Patel, St. Mary's School</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Phasellus non dolor nibh. Nullam elementum tellus pretium
-                  feugiat. Cras dictum tellus dui, vitae sollicitudin ipsum
-                  tincidunt in. Sed tincidunt tristique enim sed sollcitudin.
+                  Success Planet's study materials and previous year question papers were game-changers for my exam preparation. I could practice extensively and identify my weak areas. Scored 94% overall!
                 </p>
-                <h3 class="uppercase">Jinia Doe, Marco Media</h3>
+                <h3 class="uppercase">Kavya Reddy, DAV Public School</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Cras dictum tellus dui, vitae sollicitudin ipsum. Phasellus
-                  non dolor nibh. Nullam elementum tellus pretium feugiat.
-                  tincidunt in. Sed tincidunt tristique enim sed shasellus non
-                  dolor nibh. Nullam elementum tellus pretium feugiat.
+                  The mobile app feature is fantastic! I could study during my commute and even download lessons for offline viewing. The 24/7 support team always helped me whenever I had doubts. Excellent platform!
                 </p>
-                <h3 class="uppercase">Brain Rice, Mark Media</h3>
+                <h3 class="uppercase">Aditya Singh, Modern School</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Vivamus finibus neque tempus enim mattis pellentesque eget
-                  eget turpis. In a urna vel felis ultricies scelerisque nec nec
-                  ex. Phasellus non dolor nibh. Nullam elementu vitae
-                  sollicitudin ipsum tincidunt in. Sed tincidunt tristique enim
-                  sed sollcitudin.
+                  English was my weak subject, but Success Planet's comprehensive course improved my grammar, writing skills, and literature understanding significantly. The sample essays and writing practice were particularly helpful.
                 </p>
-                <h3 class="uppercase">Jenny Park, Oham Marketing</h3>
+                <h3 class="uppercase">Meera Nair, Chinmaya Vidyalaya</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Donec id viverra diam. Ut quis augue feugiat Phasellus non
-                  dolor nibh. Nullam elementum tellus pretium feugiat. Cras
-                  dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed
-                  tincidunt tristique enim sed sollcitudin.
+                  I loved the Social Studies course! The map work tutorials, historical timelines, and comprehensive notes made studying so much easier. The teachers explain everything in a way that's easy to remember for exams.
                 </p>
-                <h3 class="uppercase">Johann Doe</h3>
+                <h3 class="uppercase">Vikram Joshi, Ryan International</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Phasellus non dolor nibh. Nullam elementum tellus pretium
-                  feugiat. Cras dictum tellus dui, vitae sollicitudin ipsum
-                  tincidunt in. Sed tincidunt tristique enim sed sollcitudin.
+                  The certification I received after completing the courses added value to my academic profile. The platform is user-friendly, and the quality of content is outstanding. Worth every penny!
                 </p>
-                <h3 class="uppercase">Danny Wahel, Crikinfo</h3>
+                <h3 class="uppercase">Sneha Desai, Podar International</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Maecenas nec gravida metus, vitae euismod nisi. nibh. Nullam
-                  elementum tellus pretium feugiat. Cras dictum tellus dui,
-                  vitae sollicitudin ipsum tincidunt in. Sed tincidunt tristique
-                  enim sed sollcitudin.
+                  Success Planet helped me balance my studies with other activities. The flexible learning schedule allowed me to study when convenient. The quick revision notes before exams were a lifesaver!
                 </p>
-                <h3 class="uppercase">Andi Simond</h3>
+                <h3 class="uppercase">Arjun Mehta, GD Goenka School</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elitPhasellus non dolor nibh. Nullam elementum tellus pretium
-                  feugiat. Cras dictum tellus dui, vitae sollicitudin ipsum
-                  tincidunt in. Sed tincidunt tristique enim sed sollcitudin.
+                  As a parent, I'm extremely satisfied with Success Planet. My daughter's confidence and grades improved significantly. The platform provides excellent value for money with quality education and comprehensive support.
                 </p>
-                <h3 class="uppercase">Kristy Gabbor, Martix Media</h3>
+                <h3 class="uppercase">Parent Review - Mrs. Geeta Kapoor</h3>
               </li>
             </ul>
           </div>
@@ -690,12 +672,10 @@
       <section class="grey_section section_gap" id="contact">
         <div class="container">
           <div class="heading">
-            <h1><span>Have</span>Question</h1>
+            <h1><span>Have</span>Questions?</h1>
             <p>
-              Phasellus non dolor nibh. Nullam elementum tellus pretium
-              feugiat.<br />
-              Cras dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed
-              tincidunt tristique enim sed sollcitudin.
+              We're here to help! Get in touch with us for any queries about courses, enrollment, or technical support.<br />
+              Our team responds within 24 hours and is always ready to assist you in your learning journey.
             </p>
           </div>
           <div class="row">
@@ -764,8 +744,7 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 bottomAbout">
               <h5 class="heading">About us</h5>
               <p>
-                Phasellus mattis felis quis enim viverratys accumsan. Nullam
-                porta risus felis, vitaeuik dapibus arcu viverra eu.
+                Success Planet is a leading online learning platform dedicated to helping 10th standard students excel in their board exams. We provide comprehensive courses, expert guidance, and quality educational resources to ensure academic success.
               </p>
               <h5>We Are Social On</h5>
               <div class="socialshare">
@@ -780,19 +759,19 @@
             <!-- Footer About us end-->
             <!-- Footer Recent news start-->
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-              <h5 class="heading">Recent News</h5>
+              <h5 class="heading">Recent Updates</h5>
               <ul class="footerLinks">
                 <li>
-                  <a href="#">Standred post with featured image</a>
-                  <span>by <a href="#">Mike Doe</a> on June 24, 2014</span>
+                  <a href="#">New Mathematics Course Launched</a>
+                  <span>by <a href="#">Admin</a> on March 15, 2024</span>
                 </li>
                 <li>
-                  <a href="#">Standred post with featured image</a>
-                  <span>by <a href="#">Mike Doe</a> on June 24, 2014</span>
+                  <a href="#">Board Exam Preparation Tips</a>
+                  <span>by <a href="#">Expert Team</a> on March 10, 2024</span>
                 </li>
                 <li>
-                  <a href="#">Standred post with featured image</a>
-                  <span>by <a href="#">Mike Doe</a> on June 24, 2014</span>
+                  <a href="#">Student Success Stories - 2024</a>
+                  <span>by <a href="#">Success Planet</a> on March 5, 2024</span>
                 </li>
               </ul>
             </div>
@@ -801,23 +780,21 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
               <h5 class="heading">How it Works?</h5>
               <p>
-                Phasellus mattis felis quis enim viverratys accumsan. Nullam
-                porta risus felis, vitaeuik dapibus arcu viverra eu.
+                Getting started with Success Planet is easy! Follow these simple steps to begin your learning journey.
               </p>
               <ul class="list">
-                <li>Phasellus mattis felis quis enim</li>
-                <li>Nullam porta risus vitaeuik dapibus</li>
-                <li>Phasellus mattis felis quis enim</li>
-                <li>Vivamus sit amet ligulague semper</li>
+                <li>Register and create your account</li>
+                <li>Choose your preferred courses</li>
+                <li>Access video lessons and study materials</li>
+                <li>Take practice tests and track progress</li>
               </ul>
             </div>
             <!-- Footer How it works end-->
             <!-- Footer we accept start-->
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 contactInfo">
-              <h5 class="heading">We Accept</h5>
+              <h5 class="heading">Payment Options</h5>
               <p>
-                Phasellus mattis felis quis enim viverratys accumsan. Nullam
-                porta risus felis, vitaeuik dapibus arcu viverra eu.
+                We offer flexible payment options to make quality education accessible to everyone. Choose from various payment methods for your convenience.
               </p>
               <ul>
                 <li>
@@ -852,7 +829,7 @@
         <div class="container">
           <div class="row">
             <div class="pull-left">
-              <p>&copy; 2015 eLearn Theme. All Rights Reserved</p>
+              <p>&copy; 2024 Success Planet. All Rights Reserved | Designed for 10th Standard Students</p>
             </div>
             <div class="pull-right">
               <a class="gototop smooth" href="#wrapper"

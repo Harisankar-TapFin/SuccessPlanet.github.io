@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Metas Page details-->
+    <title>Register - Success Planet</title>
+    <meta name="description" content="Create your account on Success Planet and start your learning journey today!" />
+    <meta name="author" content="Success Planet" />
+    <!-- Mobile Specific Metas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--main style-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="css/skins/default.css"
+      data-name="skins"
+    />
+    <!--google font style-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600italic,600,700italic,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,500,300italic,300,100,500italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- font icon css style-->
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style>
+      body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        font-family: 'Open Sans', sans-serif;
+      }
+      .register-container {
+        padding: 60px 0;
+      }
+      .register-box {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        padding: 40px;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .register-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .register-header h2 {
+        color: #333;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      .register-header p {
+        color: #666;
+        font-size: 1.1em;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 8px;
+        display: block;
+      }
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 1em;
+        transition: all 0.3s;
+      }
+      .form-group input:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+      .btn-register {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 10px;
+      }
+      .btn-register:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      }
+      .login-link {
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 25px;
+        border-top: 1px solid #e0e0e0;
+      }
+      .login-link a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .login-link a:hover {
+        text-decoration: underline;
+      }
+      .logo-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .logo-header a {
+        color: white;
+        font-size: 2em;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .logo-header .img-circle {
+        background: white;
+        color: #667eea;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: inline-block;
+        line-height: 50px;
+        margin-right: 10px;
+        font-weight: bold;
+      }
+      .form-row {
+        display: flex;
+        gap: 15px;
+      }
+      .form-row .form-group {
+        flex: 1;
+      }
+      .password-requirements {
+        font-size: 0.85em;
+        color: #666;
+        margin-top: 5px;
+      }
+      /* Preloader styles */
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+        z-index: 9999999999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #status {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #667eea;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      /* Ensure preloader can be hidden */
+      #preloader.hidden {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!--wrapper start-->
+    <div class="wrapper" id="wrapper">
+      <!-- Preloader removed for faster loading -->
+
+      <!--Header start -->
+      <header>
+        <div class="logo-header">
+          <a href="index.html">
+            <span class="img-circle">S</span>uccess Planet
+          </a>
+        </div>
+
+        <!--Register form -->
+        <div class="register-container">
+          <div class="container">
+            <div class="register-box">
+              <div class="register-header">
+                <h2>Create Account</h2>
+                <p>Join Success Planet and start your learning journey today!</p>
+              </div>
+
+              <form id="registerForm" method="POST" action="#">
+                <div class="form-group">
+                  <label for="fullName">Full Name <span style="color: red;">*</span></label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Enter your full name"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email Address <span style="color: red;">*</span></label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="class">Class <span style="color: red;">*</span></label>
+                  <select id="class" name="class" required>
+                    <option value="">Select Class</option>
+                    <option value="7">7th Standard</option>
+                    <option value="8">8th Standard</option>
+                    <option value="9">9th Standard</option>
+                    <option value="10">10th Standard</option>
+                    <option value="11">11th Standard</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="password">Password <span style="color: red;">*</span></label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a strong password"
+                    required
+                    minlength="8"
+                  />
+                  <div class="password-requirements">
+                    Password must be at least 8 characters long
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="confirmPassword">Confirm Password <span style="color: red;">*</span></label>
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="Re-enter your password"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>
+                    <input type="checkbox" name="terms" required style="width: auto; margin-right: 8px;" />
+                    I agree to the <a href="#" style="color: #667eea;">Terms & Conditions</a> and <a href="#" style="color: #667eea;">Privacy Policy</a>
+                  </label>
+                </div>
+
+                <button type="submit" class="btn-register">
+                  <i class="fa fa-user-plus"></i> Create Account
+                </button>
+
+                <div class="login-link">
+                  <p>Already have an account? <a href="login_new.html">Login here</a></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--/Register form -->
+      </header>
+      <!--Header end -->
+
+      <!--Footer start-->
+      <footer class="footer" style="background: transparent; color: white; margin-top: 40px;">
+        <div class="container">
+          <div class="row">
+            <div class="pull-left">
+              <p>&copy; 2024 Success Planet. All Rights Reserved</p>
+            </div>
+            <div class="pull-right">
+              <a href="index.html" style="color: white; text-decoration: none;">
+                <i class="fa fa-home"></i> Back to Home
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!--Footer end -->
+    </div>
+    <!--wrapper end-->
+
+    <!--modernizr js-->
+    <script type="text/javascript" src="js/modernizr.custom.26633.js"></script>
+    <!--jquary min js-->
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!--for placeholder jquery-->
+    <script type="text/javascript" src="js/jquery.placeholder.js"></script>
+
+
+    <!-- Registration form validation -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#registerForm').on('submit', function(e) {
+          var password = $('#password').val();
+          var confirmPassword = $('#confirmPassword').val();
+          
+          if (password !== confirmPassword) {
+            e.preventDefault();
+            alert('Passwords do not match! Please try again.');
+            $('#confirmPassword').focus();
+            return false;
+          }
+          
+          if (password.length < 8) {
+            e.preventDefault();
+            alert('Password must be at least 8 characters long!');
+            $('#password').focus();
+            return false;
+          }
+          
+          alert('Registration successful! Redirecting to login page...');
+          setTimeout(function() {
+            window.location.href = 'login_new.html';
+          }, 1000);
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -49,74 +49,91 @@
     />
     <style>
       body {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: #fafafb;
         min-height: 100vh;
         font-family: 'Open Sans', sans-serif;
+        padding-top: 80px;
+      }
+      .menu {
+        background: #f5d76e;
+        padding: 0;
+        margin-top: 0;
+      }
+      .navbar-wrapper {
+        background: #f5d76e;
       }
       .login-container {
-        padding: 60px 0;
+        padding: 80px 0;
+        background: #fafafb;
       }
       .login-box {
         background: white;
-        border-radius: 15px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        padding: 50px 40px;
         max-width: 450px;
         margin: 0 auto;
+        border-top: 4px solid #f5d76e;
       }
       .login-header {
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 35px;
       }
       .login-header h2 {
-        color: #333;
+        color: #273342;
         font-size: 2.5em;
         margin-bottom: 10px;
         font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
       }
       .login-header p {
-        color: #666;
+        color: #8c9099;
         font-size: 1.1em;
       }
       .form-group {
         margin-bottom: 20px;
       }
       .form-group label {
-        color: #333;
+        color: #273342;
         font-weight: 600;
         margin-bottom: 8px;
         display: block;
+        font-family: 'Montserrat', sans-serif;
       }
       .form-group input {
         width: 100%;
         padding: 12px 15px;
         border: 2px solid #e0e0e0;
-        border-radius: 8px;
+        border-radius: 5px;
         font-size: 1em;
         transition: all 0.3s;
         box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
       }
       .form-group input:focus {
         outline: none;
-        border-color: #667eea;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        border-color: #f5d76e;
+        box-shadow: 0 0 0 3px rgba(245, 215, 110, 0.1);
       }
       .btn-login {
         width: 100%;
         padding: 15px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: #4CAF50;
         color: white;
         border: none;
-        border-radius: 8px;
+        border-radius: 5px;
         font-size: 1.1em;
         font-weight: bold;
         cursor: pointer;
         transition: all 0.3s;
         margin-top: 10px;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
       }
       .btn-login:hover {
+        background: #45a049;
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
       }
       .register-link {
         text-align: center;
@@ -125,34 +142,13 @@
         border-top: 1px solid #e0e0e0;
       }
       .register-link a {
-        color: #667eea;
+        color: #f5d76e;
         text-decoration: none;
         font-weight: 600;
       }
       .register-link a:hover {
         text-decoration: underline;
-      }
-      .logo-header {
-        text-align: center;
-        margin-bottom: 30px;
-        padding-top: 20px;
-      }
-      .logo-header a {
-        color: white;
-        font-size: 2em;
-        font-weight: bold;
-        text-decoration: none;
-      }
-      .logo-header .img-circle {
-        background: white;
-        color: #667eea;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: inline-block;
-        line-height: 50px;
-        margin-right: 10px;
-        font-weight: bold;
+        color: #f4c430;
       }
       .forgot-password {
         text-align: right;
@@ -160,12 +156,13 @@
         margin-bottom: 20px;
       }
       .forgot-password a {
-        color: #667eea;
+        color: #f5d76e;
         text-decoration: none;
         font-size: 0.9em;
       }
       .forgot-password a:hover {
         text-decoration: underline;
+        color: #f4c430;
       }
       .remember-me {
         display: flex;
@@ -197,7 +194,7 @@
         width: 50px;
         height: 50px;
         border: 4px solid #f3f3f3;
-        border-top: 4px solid #667eea;
+        border-top: 4px solid #f5d76e;
         border-radius: 50%;
         animation: spin 1s linear infinite;
       }
@@ -219,11 +216,63 @@
       </div>
       <!--Header start -->
       <header>
-        <div class="logo-header">
-          <a href="index.html">
-            <span class="img-circle">S</span>uccess Planet
-          </a>
+        <!--menu start-->
+        <div class="menu">
+          <div class="navbar-wrapper">
+            <div class="container">
+              <!-- Navbar start -->
+              <div class="navwrapper">
+                <div class="navbar navbar-inverse navbar-static-top">
+                  <div class="container">
+                    <div class="logo">
+                      <a href="index.html"
+                        ><span class="img-circle">S</span>uccess Planet</a
+                      >
+                    </div>
+                    <nav class="navArea">
+                      <div class="navbar-header">
+                        <button
+                          type="button"
+                          class="navbar-toggle"
+                          data-toggle="collapse"
+                          data-target=".navbar-collapse"
+                        >
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                      </div>
+                      <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav" id="navigation">
+                          <li class="menuItem">
+                            <a href="index.html">Home</a>
+                          </li>
+                          <li class="menuItem">
+                            <a href="index.html#course">Courses</a>
+                          </li>
+                          <li class="menuItem">
+                            <a href="index.html#testimonial">Testimonial</a>
+                          </li>
+                          <li class="menuItem">
+                            <a href="login_new.html">Login</a>
+                          </li>
+                          <li class="menuItem">
+                            <a href="register.html">Register</a>
+                          </li>
+                          <li class="menuItem">
+                            <a href="index.html#contact">Contact</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              <!-- Navbar end -->
+            </div>
+          </div>
         </div>
+        <!--menu end-->
 
         <!--Login form -->
         <div class="login-container">
@@ -281,14 +330,14 @@
       </header>
       <!--Header end -->
       <!--Footer start-->
-      <footer class="footer" style="background: transparent; color: white; margin-top: 40px;">
+      <footer class="footer" style="background: #2f4e71; color: white; margin-top: 60px; padding: 30px 0;">
         <div class="container">
           <div class="row">
             <div class="pull-left">
-              <p>&copy; 2024 Success Planet. All Rights Reserved</p>
+              <p style="color: white; margin: 0;">&copy; 2024 Success Planet. All Rights Reserved</p>
             </div>
             <div class="pull-right">
-              <a href="index.html" style="color: white; text-decoration: none;">
+              <a href="index.html" style="color: #f5d76e; text-decoration: none;">
                 <i class="fa fa-home"></i> Back to Home
               </a>
             </div>

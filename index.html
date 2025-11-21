@@ -70,6 +70,178 @@
         font-size: 1.1em;
         line-height: 1.8;
       }
+      
+      /* Hero Section Animations */
+      .bannerText h3 {
+        animation: fadeInUp 1s ease-out, slideInLeft 1s ease-out;
+      }
+      .bannerText p {
+        animation: fadeInUp 1.2s ease-out 0.3s both, slideInLeft 1.2s ease-out 0.3s both;
+      }
+      .bannerText p:last-child {
+        animation: fadeInUp 1.5s ease-out 0.6s both, slideInLeft 1.5s ease-out 0.6s both;
+      }
+      
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      /* Typewriter Effect for Heading */
+      .typewriter {
+        overflow: hidden;
+        border-right: 3px solid #fff;
+        white-space: nowrap;
+        animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+      }
+      
+      @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+      }
+      
+      @keyframes blink-caret {
+        from, to { border-color: transparent; }
+        50% { border-color: #fff; }
+      }
+      
+      /* Animated Background Gradient */
+      .header_v5 {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .header_v5::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f5d76e 100%);
+        background-size: 200% 200%;
+        animation: gradientShift 15s ease infinite;
+        opacity: 0.3;
+        z-index: 1;
+      }
+      
+      .header_v5 > * {
+        position: relative;
+        z-index: 2;
+      }
+      
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      /* Floating Animation for Button */
+      .bannerText a {
+        animation: float 3s ease-in-out infinite;
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+      
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .bannerText h3 {
+          font-size: 2em !important;
+        }
+        .bannerText p {
+          font-size: 1em !important;
+        }
+      }
+      
+      /* Image Fade In */
+      .header-image img {
+        animation: fadeIn 2s ease-in;
+        transition: transform 0.5s ease;
+      }
+      
+      .header-image:hover img {
+        transform: scale(1.05);
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      /* Section Animations on Scroll */
+      .section_gap {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.8s ease-out;
+      }
+      
+      /* Only hide if JavaScript is enabled and element hasn't been animated yet */
+      .section_gap:not(.animate):not(.no-animate) {
+        opacity: 1;
+      }
+      
+      .section_gap.animate {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Membership Cards Animation */
+      .membership_listing {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.6s ease-out;
+      }
+      
+      /* Only hide if JavaScript is enabled */
+      .membership_listing:not(.animate):not(.no-animate) {
+        opacity: 1;
+      }
+      
+      .membership_listing.animate {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Pulse Animation for Icons */
+      .membership_listing span i {
+        animation: pulse 2s ease-in-out infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+      }
     </style>
 
     <!-- font icon css style-->
@@ -143,25 +315,82 @@
         <!--menu end-->
 
         <!--Header Video v5-->
-        <div class="header_v5">
-          <div id="banner" class="video-header" style="background-size: cover">
-            <!--Header Video start -->
-            <div class="header-image">
-              <img src="images/home-image.jpg" />
-            </div>
-            <!--Header Video end -->
+        <div class="header_v5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 600px; position: relative; overflow: hidden;">
+          <!-- Animated Background Elements -->
+          <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; z-index: 1;">
+            <div style="position: absolute; width: 300px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 50%; top: -150px; right: -150px; animation: float 6s ease-in-out infinite;"></div>
+            <div style="position: absolute; width: 200px; height: 200px; background: rgba(245,215,110,0.2); border-radius: 50%; bottom: -100px; left: -100px; animation: float 8s ease-in-out infinite reverse;"></div>
+            <div style="position: absolute; width: 150px; height: 150px; background: rgba(76,175,80,0.15); border-radius: 50%; top: 50%; right: 10%; animation: float 7s ease-in-out infinite;"></div>
           </div>
-          <div class="container hedaer-inner">
-            <div class="bannerText">
-              <h3 style="font-size: 3.5em; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); margin-bottom: 20px;">Learning Online Becomes Easier</h3>
-              <p style="font-size: 1.3em; line-height: 1.6; margin-bottom: 30px;">
-                Master 10th Standard subjects with expert teachers, interactive video lessons, and comprehensive study materials. Start your journey to academic excellence today!
-              </p>
-              <p>
-                <a href="#course" class="smooth" style="background: #4CAF50; color: white; padding: 15px 35px; border-radius: 5px; text-decoration: none; font-size: 1.1em; display: inline-block; transition: all 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.2);"
-                  >View Courses <i class="fa fa-angle-right"></i
-                ></a>
-              </p>
+          
+          <div class="container" style="position: relative; z-index: 2; padding: 100px 0;">
+            <div class="row" style="align-items: center;">
+              <!-- Left Side - Text Content -->
+              <div class="col-md-6 col-sm-12" style="padding: 40px;">
+                <div class="bannerText" style="border-left: 5px solid #f5d76e; padding-left: 30px;">
+                  <h3 id="animated-heading" style="font-size: 3.5em; font-weight: bold; margin-bottom: 25px; color: #fff; line-height: 1.2;">
+                    Learning for Every Step of<br>
+                    <span style="color: #f5d76e;">Your Career</span>
+                  </h3>
+                  <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 40px; color: #f0f0f0;">
+                    Fulfil your aspirations and transform your life with one of India's leading learning platforms for 10th standard students.
+                  </p>
+                  
+                  <!-- Key Features Stats -->
+                  <div class="row" style="margin-bottom: 40px;">
+                    <div class="col-xs-12 col-sm-4" style="margin-bottom: 20px;">
+                      <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
+                        <div style="font-size: 2.5em; font-weight: bold; color: #f5d76e; margin-bottom: 5px;">500+</div>
+                        <div style="font-size: 0.9em; color: #fff;">Video Lessons</div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4" style="margin-bottom: 20px;">
+                      <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
+                        <div style="font-size: 2.5em; font-weight: bold; color: #f5d76e; margin-bottom: 5px;">10K+</div>
+                        <div style="font-size: 0.9em; color: #fff;">Students</div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4" style="margin-bottom: 20px;">
+                      <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
+                        <div style="font-size: 2.5em; font-weight: bold; color: #f5d76e; margin-bottom: 5px;">24/7</div>
+                        <div style="font-size: 0.9em; color: #fff;">Support</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Call to Action Buttons -->
+                  <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="#course" class="smooth" style="background: #4CAF50; color: white; padding: 15px 35px; border-radius: 8px; text-decoration: none; font-size: 1.1em; font-weight: bold; display: inline-block; transition: all 0.3s; box-shadow: 0 4px 15px rgba(76,175,80,0.4); text-transform: uppercase; letter-spacing: 1px;">
+                      Choose Your Course <i class="fa fa-arrow-right"></i>
+                    </a>
+                    <a href="register.html" style="background: transparent; color: white; padding: 15px 35px; border-radius: 8px; text-decoration: none; font-size: 1.1em; font-weight: bold; display: inline-block; transition: all 0.3s; border: 2px solid white; text-transform: uppercase; letter-spacing: 1px;">
+                      Get Started <i class="fa fa-user-plus"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Right Side - Visual Content -->
+              <div class="col-md-6 col-sm-12" style="padding: 40px; text-align: center;">
+                <div style="position: relative; animation: fadeInRight 1s ease-out;">
+                  <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                       alt="Online Learning" 
+                       style="width: 100%; max-width: 600px; height: auto; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); transform: perspective(1000px) rotateY(-5deg); transition: transform 0.5s;" 
+                       onmouseover="this.style.transform='perspective(1000px) rotateY(0deg) scale(1.05)'"
+                       onmouseout="this.style.transform='perspective(1000px) rotateY(-5deg)'" />
+                  
+                  <!-- Floating Icons -->
+                  <div style="position: absolute; top: 10%; right: 10%; background: #f5d76e; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(245,215,110,0.5); animation: float 3s ease-in-out infinite;">
+                    <i class="fa fa-graduation-cap" style="font-size: 1.5em; color: #fff;"></i>
+                  </div>
+                  <div style="position: absolute; bottom: 20%; left: 5%; background: #4CAF50; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(76,175,80,0.5); animation: float 4s ease-in-out infinite reverse;">
+                    <i class="fa fa-book" style="font-size: 1.3em; color: #fff;"></i>
+                  </div>
+                  <div style="position: absolute; top: 50%; left: -5%; background: #2196F3; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(33,150,243,0.5); animation: float 5s ease-in-out infinite;">
+                    <i class="fa fa-video-camera" style="font-size: 1.2em; color: #fff;"></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1114,6 +1343,105 @@
 
     <!--for theme custom jquery-->
     <script src="js/custom.js"></script>
+    
+    <!-- Animation Scripts -->
+    <script type="text/javascript">
+      jQuery(function ($) {
+        $(document).ready(function () {
+          // Scroll animations - make sections visible immediately, then animate on scroll
+          function animateOnScroll() {
+            // Make all sections visible first
+            $('.section_gap').each(function() {
+              var $this = $(this);
+              if (!$this.hasClass('animate')) {
+                $this.css({
+                  'opacity': '1',
+                  'transform': 'translateY(0)'
+                });
+              }
+            });
+            
+            // Animate sections on scroll (optional enhancement)
+            $('.section_gap').each(function() {
+              var elementTop = $(this).offset().top;
+              var elementBottom = elementTop + $(this).outerHeight();
+              var viewportTop = $(window).scrollTop();
+              var viewportBottom = viewportTop + $(window).height();
+              
+              if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                $(this).addClass('animate');
+              }
+            });
+            
+            // Animate membership cards
+            $('.membership_listing').each(function(index) {
+              var $this = $(this);
+              // Make visible immediately
+              $this.css({
+                'opacity': '1',
+                'transform': 'translateY(0)'
+              });
+              
+              var elementTop = $this.offset().top;
+              var elementBottom = elementTop + $this.outerHeight();
+              var viewportTop = $(window).scrollTop();
+              var viewportBottom = viewportTop + $(window).height();
+              
+              if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                setTimeout(function() {
+                  $this.addClass('animate');
+                }, index * 100);
+              }
+            });
+          }
+          
+          // Make all content visible immediately on page load
+          $(window).on('load', function() {
+            $('.section_gap').css({
+              'opacity': '1',
+              'transform': 'translateY(0)'
+            });
+            $('.membership_listing').css({
+              'opacity': '1',
+              'transform': 'translateY(0)'
+            });
+          });
+          
+          // Run on scroll (for smooth animations)
+          $(window).on('scroll', animateOnScroll);
+          animateOnScroll(); // Run once on load
+          
+          // Typewriter effect for heading
+          function typeWriter(element, text, speed) {
+            var i = 0;
+            element.textContent = '';
+            function type() {
+              if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+              } else {
+                element.style.borderRight = 'none';
+              }
+            }
+            type();
+          }
+          
+          // Start typewriter effect after page load
+          $(window).on('load', function() {
+            var heading = document.getElementById('animated-heading');
+            if (heading) {
+              var text = heading.textContent;
+              heading.textContent = '';
+              heading.style.borderRight = '3px solid #fff';
+              setTimeout(function() {
+                typeWriter(heading, text, 50);
+              }, 500);
+            }
+          });
+        });
+      });
+    </script>
 
     <!-- Start Style Switcher -->
     

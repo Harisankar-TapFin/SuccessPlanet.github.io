@@ -7,7 +7,7 @@
   <!-- Metas Page details-->
   <title>Success Planet - Online Learning Platform for 10th Standard Students</title>
   <meta name="description"
-    content="Comprehensive online learning platform for 10th standard students. Expert teachers, video lessons, practice tests, and study materials for Mathematics, Science, English, and Social Studies." />
+    content="Comprehensive online learning platform for 10th standard students. Expert teachers, video lessons, practice tests, and study materials for HTML, CSS, and Science courses." />
   <meta name="author" content="Success Planet" />
   <!-- Mobile Specific Metas-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -563,7 +563,7 @@
       box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
     }
     
-    /* Popular Courses Typing Animation */
+    /* Typing Animation Styles */
     .typing-text {
       display: inline-block;
       overflow: hidden;
@@ -572,43 +572,77 @@
       position: relative;
     }
     
-    .typing-text::after {
-      content: '|';
-      color: #f5d76e;
-      animation: blink-cursor 0.75s step-end infinite;
-      margin-left: 2px;
-    }
-    
-    .typing-text.completed::after {
-      display: none;
-    }
-    
-    .typing-text-subtitle {
-      display: inline-block;
-      overflow: hidden;
-      white-space: nowrap;
-      max-width: 100%;
+    /* Testimonial Section Styling */
+    #testimonial .testimonial-heading {
       position: relative;
+      padding-left: 20px;
+      animation: slideInLeft 1s ease-out;
+      white-space: nowrap;
     }
     
-    .typing-text-subtitle::after {
-      content: '|';
-      color: #f5d76e;
-      animation: blink-cursor 0.75s step-end infinite;
-      margin-left: 2px;
+    #testimonial .testimonial-heading::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #f5d76e;
+      border-radius: 2px;
     }
     
-    .typing-text-subtitle.completed::after {
-      display: none;
+    #testimonial .testimonial-subtitle {
+      animation: fadeInUp 1.2s ease-out 0.3s both;
+      color: #666;
     }
     
-    @keyframes blink-cursor {
-      from, to {
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
         opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Animated Role Text Styles */
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0.4;
       }
       50% {
-        opacity: 0;
+        opacity: 1;
       }
+    }
+    
+    #teachers .student-card:hover {
+      transform: translateY(-5px) !important;
+    }
+    
+    /* Fix testimonial active image indicator */
+    .imageBox.activeImage {
+      border: 3px solid #00aeda !important;
+      box-shadow: 0 0 0 2px rgba(0, 174, 218, 0.3) !important;
+      border-radius: 50% !important;
+    }
+    
+    .imageBox {
+      border-radius: 50% !important;
+      border: 3px solid transparent !important;
+      transition: all 0.3s ease !important;
     }
     
     /* Popular Courses Section Enhanced Styling */
@@ -912,7 +946,7 @@
                 <a href="#onlinemarketing" aria-controls="onlinemarketing" role="tab" data-toggle="tab">CSS</a>
               </li>
               <li role="presentation">
-                <a href="#brandstrategy" aria-controls="brandstrategy" role="tab" data-toggle="tab">ENGLISH</a>
+                <a href="#brandstrategy" aria-controls="brandstrategy" role="tab" data-toggle="tab">Science</a>
               </li>
             </ul>
           </div>
@@ -968,19 +1002,16 @@
               <div role="tabpanel" class="tab-pane fade" id="brandstrategy">
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
-                    <img src="images/branding.jpg" alt="English Course"
-                      style="width: 100%; height: auto; border-radius: 10px;" />
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Science Course"
+                      style="width: 100%; height: auto; border-radius: 10px; object-fit: cover; min-height: 300px;" />
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-                    <h3 style="color: #333; font-size: 2em; margin-bottom: 20px;">ENGLISH</h3>
+                    <h3 style="color: #333; font-size: 2em; margin-bottom: 20px;">Science</h3>
                     <p style="color: #666; line-height: 1.8; margin-bottom: 15px;">
-                      Enhance your English language skills with our expert-designed course. Learn grammar, vocabulary,
-                      reading comprehension, writing skills, and communication. Perfect for improving your professional
-                      and academic English.
+                      Master all concepts of Science including Physics, Chemistry, and Biology. Our comprehensive course covers fundamental principles, practical experiments, and real-world applications. Perfect for 10th standard students preparing for board exams.
                     </p>
                     <p style="color: #666; line-height: 1.8;">
-                      Features: Grammar lessons, vocabulary building, reading comprehension exercises, writing practice,
-                      sample essays, speaking practice, and comprehensive study guides. Boost your English proficiency!
+                      Features: 150+ video lessons, interactive experiments, concept explanations, practice problems, sample papers, and expert guidance. Boost your Science knowledge and excel in exams!
                     </p>
                   </div>
                 </div>
@@ -1001,12 +1032,10 @@
       style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
       <div class="container">
         <div class="heading" style="color: white;">
-          <h1 style="color: white;">
-            <span class="typing-text" id="typingTitle1">POPULAR</span> <span class="typing-text" id="typingTitle2">COURSES</span>
-          </h1>
+          <h1 style="color: white;">POPULAR COURSES</h1>
           <p style="color: rgba(255,255,255,0.9);">
-            <span class="typing-text-subtitle" id="typingSubtitle1">Most enrolled courses by 10th standard students</span><br />
-            <span class="typing-text-subtitle" id="typingSubtitle2">Join thousands of students who are already learning with us</span>
+            Most enrolled courses by 10th standard students<br />
+            Join thousands of students who are already learning with us
           </p>
         </div>
         <div class="row" style="margin-top: 50px;">
@@ -1017,13 +1046,13 @@
               <h3 style="color: #333; margin-bottom: 15px;">HTML</h3>
               <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">Complete HTML5 course with 120+ video
                 lessons</p>
-              <a href="javascript:void(0);" onclick="enrollCourse('HTML')" class="enroll-btn"
+              <a href="javascript:void(0);" onclick="enrollCourse('HTML')" class="enroll-btn html-enroll-btn"
                 style="background: #4CAF50; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: all 0.3s; margin-bottom: 10px;" 
                 onmouseover="this.style.background='#45a049'; this.style.transform='translateY(-2px)'" 
                 onmouseout="this.style.background='#4CAF50'; this.style.transform='translateY(0)'">Enroll
                 Now</a><br>
-              <a href="html-course.html" 
-                style="background: #667eea; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: all 0.3s; margin-top: 10px;" 
+              <a href="html-course.html" class="access-course-btn html-access-btn"
+                style="background: #667eea; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: none; cursor: pointer; transition: all 0.3s; margin-top: 10px;" 
                 onmouseover="this.style.background='#5568d3'; this.style.transform='translateY(-2px)'" 
                 onmouseout="this.style.background='#667eea'; this.style.transform='translateY(0)'">Access Course</a>
             </div>
@@ -1035,13 +1064,13 @@
               <h3 style="color: #333; margin-bottom: 15px;">CSS</h3>
               <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">Master CSS3, Flexbox & Grid in one course
               </p>
-              <a href="javascript:void(0);" onclick="enrollCourse('CSS')" class="enroll-btn"
+              <a href="javascript:void(0);" onclick="enrollCourse('CSS')" class="enroll-btn css-enroll-btn"
                 style="background: #2196F3; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: all 0.3s; margin-bottom: 10px;" 
                 onmouseover="this.style.background='#1976D2'; this.style.transform='translateY(-2px)'" 
                 onmouseout="this.style.background='#2196F3'; this.style.transform='translateY(0)'">Enroll
                 Now</a><br>
-              <a href="css-course.html" 
-                style="background: #667eea; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: all 0.3s; margin-top: 10px;" 
+              <a href="css-course.html" class="access-course-btn css-access-btn"
+                style="background: #667eea; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: none; cursor: pointer; transition: all 0.3s; margin-top: 10px;" 
                 onmouseover="this.style.background='#5568d3'; this.style.transform='translateY(-2px)'" 
                 onmouseout="this.style.background='#667eea'; this.style.transform='translateY(0)'">Access Course</a>
             </div>
@@ -1050,16 +1079,16 @@
             <div
               style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); text-align: center; transition: transform 0.3s;">
               <i class="fa fa-book" style="font-size: 3em; color: #FF9800; margin-bottom: 20px;"></i>
-              <h3 style="color: #333; margin-bottom: 15px;">ENGLISH</h3>
-              <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">Grammar, Vocabulary & Communication Skills
+              <h3 style="color: #333; margin-bottom: 15px;">Science</h3>
+              <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">Physics, Chemistry & Biology Fundamentals
               </p>
-              <a href="javascript:void(0);" onclick="enrollCourse('ENGLISH')" class="enroll-btn"
+              <a href="javascript:void(0);" onclick="enrollCourse('Science')" class="enroll-btn science-enroll-btn"
                 style="background: #FF9800; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: all 0.3s; margin-bottom: 10px;" 
                 onmouseover="this.style.background='#F57C00'; this.style.transform='translateY(-2px)'" 
                 onmouseout="this.style.background='#FF9800'; this.style.transform='translateY(0)'">Enroll
                 Now</a><br>
-              <a href="english-course.html" 
-                style="background: #667eea; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: all 0.3s; margin-top: 10px;" 
+              <a href="science-course.html" class="access-course-btn science-access-btn"
+                style="background: #667eea; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: none; cursor: pointer; transition: all 0.3s; margin-top: 10px;" 
                 onmouseover="this.style.background='#5568d3'; this.style.transform='translateY(-2px)'" 
                 onmouseout="this.style.background='#667eea'; this.style.transform='translateY(0)'">Access Course</a>
             </div>
@@ -1084,17 +1113,23 @@
         <div class="row" style="display: flex; justify-content: center; align-items: stretch; flex-wrap: wrap;">
           <!-- Student 01 details start-->
           <div class="col-xs-12 col-sm-10 col-md-5 col-lg-5" style="margin: 15px; padding: 0;">
-            <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; height: 100%; display: flex; flex-direction: column;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'">
+            <div class="student-card" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'">
               <div class="img" style="position: relative; overflow: hidden; width: 100%; padding-top: 75%; background: #f5f5f5;">
                 <img src="images/teachers/teacher1.jpg" alt="teacher1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
               </div>
               <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
                 <h3 class="uppercase" style="color: #273342; font-size: 1.3em; font-weight: bold; margin-bottom: 15px; text-align: center;">Biswajeet Chakra (10A)</h3>
-                <p style="color: #666; line-height: 1.7; text-align: center; flex-grow: 1; margin: 0;">
+                <p style="color: #666; line-height: 1.7; text-align: center; flex-grow: 1; margin: 0 0 20px 0;">
                   Scored 95% in board exams. HTML and CSS courses helped me understand complex concepts easily and build real-world projects.
                 </p>
-                <div style="margin-top: 20px; text-align: center;">
-                  <span style="display: inline-block; background: linear-gradient(135deg, #f5d76e 0%, #f4c430 100%); color: #273342; padding: 8px 20px; border-radius: 20px; font-weight: bold; font-size: 0.9em;">95% Score</span>
+                <div style="margin-top: 20px; text-align: center; padding: 15px 0;">
+                  <div style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 20px; border-radius: 25px; font-weight: 600; font-size: 0.9em; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);">
+                    <span style="display: inline-block; animation: fadeInOut 3s infinite;">Biswajeet Chakra</span>
+                    <span style="margin: 0 8px; color: rgba(255,255,255,0.6);">//</span>
+                    <span style="display: inline-block; animation: fadeInOut 3s infinite 1s;">Frontend Developer</span>
+                    <span style="margin: 0 8px; color: rgba(255,255,255,0.6);">//</span>
+                    <span style="display: inline-block; animation: fadeInOut 3s infinite 2s;">Founder</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1102,17 +1137,23 @@
           <!-- Student 01 details end-->
           <!-- Student 02 details start-->
           <div class="col-xs-12 col-sm-10 col-md-5 col-lg-5" style="margin: 15px; padding: 0;">
-            <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; height: 100%; display: flex; flex-direction: column;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'">
+            <div class="student-card" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'">
               <div class="img" style="position: relative; overflow: hidden; width: 100%; padding-top: 75%; background: #f5f5f5;">
                 <img src="images/teachers/teacher2.jpg" alt="teacher2" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
               </div>
               <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
                 <h3 class="uppercase" style="color: #273342; font-size: 1.3em; font-weight: bold; margin-bottom: 15px; text-align: center;">Arnav Kumar (10A)</h3>
-                <p style="color: #666; line-height: 1.7; text-align: center; flex-grow: 1; margin: 0;">
+                <p style="color: #666; line-height: 1.7; text-align: center; flex-grow: 1; margin: 0 0 20px 0;">
                   Achieved 92% marks. The study materials and practice tests were extremely helpful for my exam preparation and understanding.
                 </p>
-                <div style="margin-top: 20px; text-align: center;">
-                  <span style="display: inline-block; background: linear-gradient(135deg, #f5d76e 0%, #f4c430 100%); color: #273342; padding: 8px 20px; border-radius: 20px; font-weight: bold; font-size: 0.9em;">92% Score</span>
+                <div style="margin-top: 20px; text-align: center; padding: 15px 0;">
+                  <div style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 20px; border-radius: 25px; font-weight: 600; font-size: 0.9em; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);">
+                    <span style="display: inline-block; animation: fadeInOut 3s infinite;">Arnav Kumar</span>
+                    <span style="margin: 0 8px; color: rgba(255,255,255,0.6);">//</span>
+                    <span style="display: inline-block; animation: fadeInOut 3s infinite 1s;">Full Stack Developer</span>
+                    <span style="margin: 0 8px; color: rgba(255,255,255,0.6);">//</span>
+                    <span style="display: inline-block; animation: fadeInOut 3s infinite 2s;">Co-Founder</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1131,8 +1172,10 @@
     <section class="white_section section_gap" id="testimonial">
       <div class="container">
         <div class="heading">
-          <h1>What our Students Say</h1>
-          <p>
+          <h1 class="testimonial-heading">
+            What our Students Say
+          </h1>
+          <p class="testimonial-subtitle">
             Read testimonials from our successful students who have benefited from our courses.<br />
             Their success stories inspire thousands of students to achieve their academic goals.
           </p>
@@ -1212,7 +1255,7 @@
             </li>
             <li>
               <p class="font-openBold">
-                English was my weak subject, but Success Planet's comprehensive course improved my grammar, writing
+                Science was my weak subject, but Success Planet's comprehensive course improved my understanding of Physics, Chemistry, and Biology
                 skills, and literature understanding significantly. The sample essays and writing practice were
                 particularly helpful.
               </p>
@@ -1895,78 +1938,8 @@
           type();
         }
 
-        // Typing animation for Popular Courses section
-        function initPopularCoursesTyping() {
-          var title1 = document.getElementById('typingTitle1');
-          var title2 = document.getElementById('typingTitle2');
-          var subtitle1 = document.getElementById('typingSubtitle1');
-          var subtitle2 = document.getElementById('typingSubtitle2');
-          
-          if (title1 && title2) {
-            // Store original text
-            var text1 = 'POPULAR';
-            var text2 = 'COURSES';
-            var subtext1 = 'Most enrolled courses by 10th standard students';
-            var subtext2 = 'Join thousands of students who are already learning with us';
-            
-            // Clear text initially
-            title1.textContent = '';
-            title2.textContent = '';
-            if (subtitle1) subtitle1.textContent = '';
-            if (subtitle2) subtitle2.textContent = '';
-            
-            // Type first title
-            typeText(title1, text1, 120, function() {
-              title1.classList.add('completed');
-              // Add space after first word
-              title1.textContent += ' ';
-              // Type second title
-              setTimeout(function() {
-                typeText(title2, text2, 120, function() {
-                  title2.classList.add('completed');
-                  // Type first subtitle
-                  setTimeout(function() {
-                    if (subtitle1) {
-                      typeText(subtitle1, subtext1, 50, function() {
-                        subtitle1.classList.add('completed');
-                        // Type second subtitle
-                        setTimeout(function() {
-                          if (subtitle2) {
-                            typeText(subtitle2, subtext2, 50, function() {
-                              subtitle2.classList.add('completed');
-                            });
-                          }
-                        }, 300);
-                      });
-                    }
-                  }, 500);
-                });
-              }, 200);
-            });
-          }
-        }
-        
-        function typeText(element, text, speed, callback) {
-          var i = 0;
-          function type() {
-            if (i < text.length) {
-              element.textContent += text.charAt(i);
-              i++;
-              setTimeout(type, speed);
-            } else {
-              if (callback) callback();
-            }
-          }
-          type();
-        }
-        
-        // Start typewriter effect after page load
+        // Start animations after page load
         $(window).on('load', function () {
-          // Initialize Popular Courses typing animation
-          setTimeout(function() {
-            initPopularCoursesTyping();
-          }, 500);
-          
           var heading = document.getElementById('animated-heading');
           if (heading) {
             var text = heading.textContent;
@@ -1977,6 +1950,7 @@
             }, 500);
           }
         });
+        
       });
     });
   </script>
@@ -2016,6 +1990,31 @@
         }
       }
 
+      // Get enrolled courses for current user
+      function getEnrolledCourses() {
+        var userData = checkUserData();
+        if (userData) {
+          if (!userData.enrolledCourses) {
+            userData.enrolledCourses = [];
+            saveEnrolledCourses([]);
+          }
+          return userData.enrolledCourses;
+        }
+        return [];
+      }
+
+      // Save enrolled courses for current user
+      function saveEnrolledCourses(courses) {
+        var userData = checkUserData();
+        if (userData) {
+          userData.enrolledCourses = courses;
+          var expirationDate = new Date();
+          expirationDate.setDate(expirationDate.getDate() + 3);
+          userData.expirationDate = expirationDate.toISOString();
+          localStorage.setItem('userData', JSON.stringify(userData));
+        }
+      }
+
       // Update UI based on login status
       function updateUI() {
         var userData = checkUserData();
@@ -2025,12 +2024,66 @@
           $('#profileMenuItem').show();
           $('#loginMenuItem').hide();
           $('#registerMenuItem').hide();
+          
+          // Show Access Course buttons
+          $('.access-course-btn').css('display', 'inline-block');
+          
+          // Update enrolled status
+          updateEnrolledStatus();
         } else {
           // User is not logged in - show login/register
           $('#profileMenuItem').hide();
           $('#loginMenuItem').show();
           $('#registerMenuItem').show();
+          
+          // Hide Access Course buttons
+          $('.access-course-btn').css('display', 'none');
         }
+      }
+
+      // Update enrolled status for courses
+      function updateEnrolledStatus() {
+        var enrolledCourses = getEnrolledCourses();
+        
+        // Update enroll buttons to show enrolled status
+        $('.html-enroll-btn').each(function() {
+          var $btn = $(this);
+          if (enrolledCourses.indexOf('HTML') !== -1) {
+            $btn.text('Enrolled ✓').css({
+              'background': '#4CAF50',
+              'cursor': 'default'
+            }).off('click').on('click', function(e) {
+              e.preventDefault();
+              alert('You are already enrolled in HTML course!');
+            });
+          }
+        });
+        
+        $('.css-enroll-btn').each(function() {
+          var $btn = $(this);
+          if (enrolledCourses.indexOf('CSS') !== -1) {
+            $btn.text('Enrolled ✓').css({
+              'background': '#4CAF50',
+              'cursor': 'default'
+            }).off('click').on('click', function(e) {
+              e.preventDefault();
+              alert('You are already enrolled in CSS course!');
+            });
+          }
+        });
+        
+        $('.science-enroll-btn').each(function() {
+          var $btn = $(this);
+          if (enrolledCourses.indexOf('Science') !== -1) {
+            $btn.text('Enrolled ✓').css({
+              'background': '#4CAF50',
+              'cursor': 'default'
+            }).off('click').on('click', function(e) {
+              e.preventDefault();
+              alert('You are already enrolled in Science course!');
+            });
+          }
+        });
       }
 
       // Initialize UI on page load
@@ -2187,10 +2240,34 @@
       
       // Enrollment Functions
       window.enrollCourse = function(courseName) {
+        var userData = checkUserData();
+        
+        if (!userData) {
+          alert('Please login or register to enroll in courses!');
+          window.location.href = 'login_new.html';
+          return;
+        }
+        
+        // Get current enrolled courses
+        var enrolledCourses = getEnrolledCourses();
+        
+        // Check if already enrolled
+        if (enrolledCourses.indexOf(courseName) !== -1) {
+          alert('You are already enrolled in ' + courseName + ' course!');
+          return;
+        }
+        
+        // Add course to enrolled list
+        enrolledCourses.push(courseName);
+        saveEnrolledCourses(enrolledCourses);
+        
         // Set the course name in the modal
         $('#enrolledCourseName').text(courseName);
         // Show the modal
         showEnrollSuccessModal();
+        
+        // Update UI to reflect enrollment
+        updateEnrolledStatus();
       };
       
       window.showEnrollSuccessModal = function() {

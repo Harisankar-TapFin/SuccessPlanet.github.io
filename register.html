@@ -53,9 +53,13 @@
         background: #f5d76e;
         padding: 0;
         margin-top: 0;
+        position: relative;
+        z-index: 1000;
       }
       .navbar-wrapper {
         background: #f5d76e;
+        position: relative;
+        z-index: 1000;
       }
       /* Fix header hover/active styling */
       .navbar.navbar-inverse.navbar-static-top a:hover,
@@ -71,8 +75,10 @@
         color: #273342;
       }
       .register-container {
-        padding: 20px 0;
+        padding: 40px 15px;
         background: #fafafb;
+        margin-top: 80px;
+        min-height: calc(100vh - 80px);
       }
       .register-box {
         background: white;
@@ -81,7 +87,40 @@
         padding: 50px 40px;
         max-width: 500px;
         margin: 0 auto;
+        border: 2px solid #e0e0e0;
         border-top: 4px solid #f5d76e;
+      }
+      
+      @media (max-width: 768px) {
+        .register-container {
+          padding: 30px 15px;
+          margin-top: 70px;
+        }
+        .register-box {
+          padding: 30px 25px;
+          max-width: 100%;
+          border: 2px solid #e0e0e0;
+        }
+        .register-header h2 {
+          font-size: 2em !important;
+        }
+        .register-header {
+          margin-bottom: 25px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .register-container {
+          padding: 20px 10px;
+          margin-top: 60px;
+        }
+        .register-box {
+          padding: 25px 20px;
+          border: 2px solid #e0e0e0;
+        }
+        .register-header h2 {
+          font-size: 1.8em !important;
+        }
       }
       .register-header {
         text-align: center;

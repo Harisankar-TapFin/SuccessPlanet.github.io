@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Metas Page details-->
-    <title>Success Planet</title>
-    <meta name="description" content="UX designer and web developer" />
-    <meta name="author" content="" />
+    <title>
+      Success Planet - Online Learning Platform for 10th Standard Students
+    </title>
+    <meta
+      name="description"
+      content="Comprehensive online learning platform for 10th standard students. Expert teachers, video lessons, practice tests, and study materials for Mathematics, Science, English, and Social Studies."
+    />
+    <meta name="author" content="Success Planet" />
     <!-- Mobile Specific Metas-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--main style-->
@@ -33,27 +38,665 @@
     />
     <!--google font style-->
     <link
-      href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
       rel="stylesheet"
       type="text/css"
     />
     <!--font-family: 'Metrophobic', sans-serif;-->
     <link
-      href="http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600italic,600,700italic,700"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600italic,600,700italic,700"
       rel="stylesheet"
       type="text/css"
     />
     <!--font-family: 'Open Sans', sans-serif; -->
     <link
-      href="http://fonts.googleapis.com/css?family=Roboto:400,700,400italic,500,300italic,300,100,500italic"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,500,300italic,300,100,500italic"
       rel="stylesheet"
       type="text/css"
     />
     <!--font-family: 'Roboto', sans-serif; -->
+    <style>
+      .membership_listing:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      #courses .col-xs-12.col-sm-6.col-md-4.col-lg-4 > div:hover {
+        transform: translateY(-5px);
+      }
+
+      .navbar-nav li a:hover {
+        color: #4caf50 !important;
+        transition: color 0.3s;
+      }
+
+      .heading h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+      }
+
+      .heading p {
+        font-size: 1.1em;
+        line-height: 1.8;
+      }
+
+      /* Hero Section Animations */
+      .bannerText h3 {
+        animation: fadeInUp 1s ease-out, slideInLeft 1s ease-out;
+      }
+
+      .bannerText p {
+        animation: fadeInUp 1.2s ease-out 0.3s both,
+          slideInLeft 1.2s ease-out 0.3s both;
+      }
+
+      .bannerText p:last-child {
+        animation: fadeInUp 1.5s ease-out 0.6s both,
+          slideInLeft 1.5s ease-out 0.6s both;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Typewriter Effect for Heading */
+      .typewriter {
+        overflow: hidden;
+        border-right: 3px solid #fff;
+        white-space: nowrap;
+        animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+
+        50% {
+          border-color: #fff;
+        }
+      }
+
+      /* Animated Background Gradient */
+      .header_v5 {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header_v5::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          #667eea 0%,
+          #764ba2 50%,
+          #f5d76e 100%
+        );
+        background-size: 200% 200%;
+        animation: gradientShift 15s ease infinite;
+        opacity: 0.3;
+        z-index: 1;
+      }
+
+      .header_v5 > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Floating Animation for Button */
+      .bannerText a {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .bannerText h3 {
+          font-size: 2em !important;
+        }
+
+        .bannerText p {
+          font-size: 1em !important;
+        }
+      }
+
+      /* Image Fade In */
+      .header-image img {
+        animation: fadeIn 2s ease-in;
+        transition: transform 0.5s ease;
+      }
+
+      .header-image:hover img {
+        transform: scale(1.05);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Section Animations on Scroll */
+      .section_gap {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.8s ease-out;
+      }
+
+      /* Only hide if JavaScript is enabled and element hasn't been animated yet */
+      .section_gap:not(.animate):not(.no-animate) {
+        opacity: 1;
+      }
+
+      .section_gap.animate {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Membership Cards Animation */
+      .membership_listing {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.6s ease-out;
+      }
+
+      /* Only hide if JavaScript is enabled */
+      .membership_listing:not(.animate):not(.no-animate) {
+        opacity: 1;
+      }
+
+      .membership_listing.animate {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Pulse Animation for Icons */
+      .membership_listing span i {
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      /* Fix placeholder visibility */
+      ::placeholder {
+        color: #666 !important;
+        opacity: 1;
+        /* Firefox */
+      }
+
+      :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #666 !important;
+      }
+
+      ::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: #666 !important;
+      }
+
+      /* Subscribe Success Modal */
+      .subscribe-success-modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 99999;
+        animation: fadeIn 0.3s ease;
+      }
+      .subscribe-success-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        border-radius: 20px;
+        padding: 0;
+        max-width: 450px;
+        width: 90%;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        z-index: 100000;
+        animation: slideDown 0.4s ease;
+        overflow: hidden;
+      }
+      .subscribe-success-modal-header {
+        background: linear-gradient(135deg, #f5d76e 0%, #f4c430 100%);
+        padding: 30px;
+        text-align: center;
+        color: #273342;
+        position: relative;
+      }
+      .subscribe-success-icon {
+        width: 80px;
+        height: 80px;
+        background: white;
+        border-radius: 50%;
+        margin: 0 auto 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: scaleIn 0.5s ease 0.2s both;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+      .subscribe-success-icon i {
+        font-size: 40px;
+        color: #f5d76e;
+      }
+      .subscribe-success-modal-header h2 {
+        margin: 0;
+        font-size: 1.8em;
+        font-weight: bold;
+        color: #273342;
+      }
+      .subscribe-success-modal-body {
+        padding: 30px;
+        text-align: center;
+      }
+      .subscribe-success-modal-body p {
+        color: #666;
+        font-size: 1em;
+        line-height: 1.6;
+        margin-bottom: 25px;
+      }
+      .subscribe-success-modal-btn {
+        background: linear-gradient(135deg, #f5d76e 0%, #f4c430 100%);
+        color: #273342;
+        border: none;
+        padding: 12px 35px;
+        border-radius: 50px;
+        font-size: 1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 5px 20px rgba(245, 215, 110, 0.4);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .subscribe-success-modal-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(245, 215, 110, 0.5);
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -60%);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+      }
+      @keyframes scaleIn {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+
+      /* Enrollment Success Modal */
+      .enroll-success-modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 99999;
+        animation: fadeIn 0.3s ease;
+      }
+      .enroll-success-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        border-radius: 20px;
+        padding: 0;
+        max-width: 500px;
+        width: 90%;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        z-index: 100000;
+        animation: slideDown 0.4s ease;
+        overflow: hidden;
+      }
+      .enroll-success-modal-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 30px;
+        text-align: center;
+        color: white;
+        position: relative;
+      }
+      .enroll-success-icon {
+        width: 80px;
+        height: 80px;
+        background: white;
+        border-radius: 50%;
+        margin: 0 auto 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: scaleIn 0.5s ease 0.2s both;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+      .enroll-success-icon i {
+        font-size: 40px;
+        color: #667eea;
+      }
+      .enroll-success-modal-header h2 {
+        margin: 0;
+        font-size: 1.8em;
+        font-weight: bold;
+        color: white;
+      }
+      .enroll-success-modal-body {
+        padding: 30px;
+        text-align: center;
+      }
+      .enroll-success-modal-body p {
+        color: #666;
+        font-size: 1em;
+        line-height: 1.6;
+        margin-bottom: 25px;
+      }
+      .enroll-success-modal-body .course-name {
+        color: #667eea;
+        font-weight: bold;
+        font-size: 1.1em;
+      }
+      .enroll-success-modal-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 12px 35px;
+        border-radius: 50px;
+        font-size: 1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .enroll-success-modal-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+      }
+
+      /* Contact Success Modal */
+      .contact-success-modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 99999;
+        animation: fadeIn 0.3s ease;
+      }
+      .contact-success-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        border-radius: 20px;
+        padding: 0;
+        max-width: 500px;
+        width: 90%;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        z-index: 100000;
+        animation: slideDown 0.4s ease;
+        overflow: hidden;
+      }
+      .contact-success-modal-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 30px;
+        text-align: center;
+        color: white;
+        position: relative;
+      }
+      .contact-success-icon {
+        width: 80px;
+        height: 80px;
+        background: white;
+        border-radius: 50%;
+        margin: 0 auto 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: scaleIn 0.5s ease 0.2s both;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+      .contact-success-icon i {
+        font-size: 40px;
+        color: #667eea;
+      }
+      .contact-success-modal-header h2 {
+        margin: 0;
+        font-size: 1.8em;
+        font-weight: bold;
+        color: white;
+      }
+      .contact-success-modal-body {
+        padding: 30px;
+        text-align: center;
+      }
+      .contact-success-modal-body p {
+        color: #666;
+        font-size: 1em;
+        line-height: 1.6;
+        margin-bottom: 25px;
+      }
+      .contact-success-modal-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 12px 35px;
+        border-radius: 50px;
+        font-size: 1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .contact-success-modal-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+      }
+
+      /* Popular Courses Typing Animation */
+      .typing-text {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        max-width: 100%;
+        position: relative;
+      }
+
+      .typing-text::after {
+        content: "|";
+        color: #f5d76e;
+        animation: blink-cursor 0.75s step-end infinite;
+        margin-left: 2px;
+      }
+
+      .typing-text.completed::after {
+        display: none;
+      }
+
+      .typing-text-subtitle {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        max-width: 100%;
+        position: relative;
+      }
+
+      .typing-text-subtitle::after {
+        content: "|";
+        color: #f5d76e;
+        animation: blink-cursor 0.75s step-end infinite;
+        margin-left: 2px;
+      }
+
+      .typing-text-subtitle.completed::after {
+        display: none;
+      }
+
+      @keyframes blink-cursor {
+        from,
+        to {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      /* Popular Courses Section Enhanced Styling */
+      #courses .heading {
+        position: relative;
+        padding-left: 20px;
+      }
+
+      #courses .heading::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        background: #f5d76e;
+        border-radius: 3px;
+      }
+
+      #courses .heading h1 {
+        font-size: 3.5em;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        line-height: 1.2;
+      }
+
+      #courses .heading h1 span {
+        display: inline-block;
+        margin-right: 15px;
+      }
+
+      #courses .heading p {
+        font-size: 1.3em;
+        line-height: 1.8;
+        opacity: 0.95;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+    </style>
 
     <!-- font icon css style-->
     <link rel="stylesheet" href="css/font-awesome.min.css" />
   </head>
+
   <body onLoad="load()" onUnload="GUnload()">
     <!--wrapper start-->
     <div class="wrapper" id="wrapper">
@@ -95,17 +738,30 @@
                             <a href="#wrapper">Home</a>
                           </li>
                           <li class="menuItem">
-                            <a href="#courses">courses</a>
+                            <a href="#course" class="smooth">Courses</a>
                           </li>
                           <li class="menuItem">
-                            <a href="#testimonial">Testimonial</a>
+                            <a href="#testimonial" class="smooth"
+                              >Testimonial</a
+                            >
                           </li>
-                          <li class="menuItem">
+                          <li class="menuItem" id="loginMenuItem">
                             <a href="login_new.html">Login</a>
                           </li>
-                          <li><a href="register.html">Register</a></li>
+                          <li class="menuItem" id="registerMenuItem">
+                            <a href="register.html">Register</a>
+                          </li>
+                          <li
+                            class="menuItem"
+                            id="profileMenuItem"
+                            style="display: none"
+                          >
+                            <a href="profile.html">
+                              <i class="fa fa-user-circle"></i> Profile
+                            </a>
+                          </li>
                           <li class="menuItem">
-                            <a href="#contact">Contact</a>
+                            <a href="#contact" class="smooth">Contact</a>
                           </li>
                         </ul>
                       </div>
@@ -120,26 +776,319 @@
         <!--menu end-->
 
         <!--Header Video v5-->
-        <div class="header_v5">
-          <div id="banner" class="video-header" style="background-size: cover">
-            <!--Header Video start -->
-            <div class="header-image">
-              <img src="images/home-image.jpg" />
-            </div>
-            <!--Header Video end -->
+        <div
+          class="header_v5"
+          style="
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+          "
+        >
+          <!-- Animated Background Elements -->
+          <div
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              overflow: hidden;
+              z-index: 1;
+            "
+          >
+            <div
+              style="
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+                top: -150px;
+                right: -150px;
+                animation: float 6s ease-in-out infinite;
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                background: rgba(245, 215, 110, 0.2);
+                border-radius: 50%;
+                bottom: -100px;
+                left: -100px;
+                animation: float 8s ease-in-out infinite reverse;
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                width: 150px;
+                height: 150px;
+                background: rgba(76, 175, 80, 0.15);
+                border-radius: 50%;
+                top: 50%;
+                right: 10%;
+                animation: float 7s ease-in-out infinite;
+              "
+            ></div>
           </div>
-          <div class="container hedaer-inner">
-            <div class="bannerText">
-              <h3>Learning Online Becomes Easier</h3>
-              <p>
-                Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua2.
-              </p>
-              <p>
-                <a href="#course" class="smooth"
-                  >View Courses <i class="fa fa-angle-right"></i
-                ></a>
-              </p>
+
+          <div
+            class="container"
+            style="position: relative; z-index: 2; padding: 100px 0"
+          >
+            <div class="row" style="align-items: center">
+              <!-- Left Side - Text Content -->
+              <div class="col-md-6 col-sm-12" style="padding: 40px">
+                <div
+                  class="bannerText"
+                  style="border-left: 5px solid #f5d76e; padding-left: 30px"
+                >
+                  <h3
+                    id="animated-heading"
+                    style="
+                      font-size: 3.5em;
+                      font-weight: bold;
+                      margin-bottom: 25px;
+                      color: #fff;
+                      line-height: 1.2;
+                    "
+                  >
+                    Learning for Every Step of<br />
+                    <span style="color: #f5d76e">Your Career</span>
+                  </h3>
+                  <p
+                    style="
+                      font-size: 1.2em;
+                      line-height: 1.8;
+                      margin-bottom: 40px;
+                      color: #f0f0f0;
+                    "
+                  >
+                    Fulfil your aspirations and transform your life with one of
+                    India's leading learning platforms for 10th standard
+                    students.
+                  </p>
+
+                  <!-- Key Features Stats -->
+                  <div
+                    style="
+                      margin-bottom: 40px;
+                      display: flex;
+                      justify-content: flex-start;
+                      align-items: center;
+                      gap: 30px;
+                      flex-wrap: nowrap;
+                    "
+                  >
+                    <div
+                      style="
+                        background: rgba(255, 255, 255, 0.15);
+                        backdrop-filter: blur(10px);
+                        padding: 20px 30px;
+                        border-radius: 10px;
+                        text-align: center;
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        white-space: nowrap;
+                      "
+                    >
+                      <div
+                        style="
+                          font-size: 1.1em;
+                          font-weight: 600;
+                          color: #f5d76e;
+                          letter-spacing: 2px;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Success
+                      </div>
+                    </div>
+                    <div
+                      style="
+                        background: rgba(255, 255, 255, 0.15);
+                        backdrop-filter: blur(10px);
+                        padding: 20px 30px;
+                        border-radius: 10px;
+                        text-align: center;
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        white-space: nowrap;
+                      "
+                    >
+                      <div
+                        style="
+                          font-size: 1.1em;
+                          font-weight: 600;
+                          color: #f5d76e;
+                          letter-spacing: 2px;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Execute
+                      </div>
+                    </div>
+                    <div
+                      style="
+                        background: rgba(255, 255, 255, 0.15);
+                        backdrop-filter: blur(10px);
+                        padding: 20px 30px;
+                        border-radius: 10px;
+                        text-align: center;
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        white-space: nowrap;
+                      "
+                    >
+                      <div
+                        style="
+                          font-size: 1.1em;
+                          font-weight: 600;
+                          color: #f5d76e;
+                          letter-spacing: 2px;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Achieve
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Call to Action Buttons -->
+                  <div style="display: flex; gap: 15px; flex-wrap: wrap">
+                    <a
+                      href="#course"
+                      class="smooth"
+                      style="
+                        background: #4caf50;
+                        color: white;
+                        padding: 15px 35px;
+                        border-radius: 8px;
+                        text-decoration: none;
+                        font-size: 1.1em;
+                        font-weight: bold;
+                        display: inline-block;
+                        transition: all 0.3s;
+                        box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                      "
+                    >
+                      Choose Your Course <i class="fa fa-arrow-right"></i>
+                    </a>
+                    <a
+                      href="register.html"
+                      style="
+                        background: transparent;
+                        color: white;
+                        padding: 15px 35px;
+                        border-radius: 8px;
+                        text-decoration: none;
+                        font-size: 1.1em;
+                        font-weight: bold;
+                        display: inline-block;
+                        transition: all 0.3s;
+                        border: 2px solid white;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                      "
+                    >
+                      Get Started <i class="fa fa-user-plus"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Side - Visual Content -->
+              <div
+                class="col-md-6 col-sm-12"
+                style="padding: 40px; text-align: center"
+              >
+                <div
+                  style="position: relative; animation: fadeInRight 1s ease-out"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Online Learning"
+                    style="
+                      width: 100%;
+                      max-width: 600px;
+                      height: auto;
+                      border-radius: 20px;
+                      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                      transform: perspective(1000px) rotateY(-5deg);
+                      transition: transform 0.5s;
+                    "
+                    onmouseover="this.style.transform='perspective(1000px) rotateY(0deg) scale(1.05)'"
+                    onmouseout="this.style.transform='perspective(1000px) rotateY(-5deg)'"
+                  />
+
+                  <!-- Floating Icons -->
+                  <div
+                    style="
+                      position: absolute;
+                      top: 10%;
+                      right: 10%;
+                      background: #f5d76e;
+                      width: 60px;
+                      height: 60px;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      box-shadow: 0 5px 20px rgba(245, 215, 110, 0.5);
+                      animation: float 3s ease-in-out infinite;
+                    "
+                  >
+                    <i
+                      class="fa fa-graduation-cap"
+                      style="font-size: 1.5em; color: #fff"
+                    ></i>
+                  </div>
+                  <div
+                    style="
+                      position: absolute;
+                      bottom: 20%;
+                      left: 5%;
+                      background: #4caf50;
+                      width: 50px;
+                      height: 50px;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      box-shadow: 0 5px 20px rgba(76, 175, 80, 0.5);
+                      animation: float 4s ease-in-out infinite reverse;
+                    "
+                  >
+                    <i
+                      class="fa fa-book"
+                      style="font-size: 1.3em; color: #fff"
+                    ></i>
+                  </div>
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: -5%;
+                      background: #2196f3;
+                      width: 45px;
+                      height: 45px;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      box-shadow: 0 5px 20px rgba(33, 150, 243, 0.5);
+                      animation: float 5s ease-in-out infinite;
+                    "
+                  >
+                    <i
+                      class="fa fa-video-camera"
+                      style="font-size: 1.2em; color: #fff"
+                    ></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -151,72 +1100,178 @@
           <div class="heading">
             <h1><span>Memberships</span>Include</h1>
             <p>
-              Phasellus non dolor nibh. Nullam elementum tellus pretium
-              feugiat.<br />
-              Cras dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed
-              tincidunt tristique enim sed sollcitudin.
+              Get access to comprehensive learning resources designed
+              specifically for 10th standard students.<br />
+              Our platform offers everything you need to excel in your board
+              exams and build a strong foundation for your future.
             </p>
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <div class="membership_listing">
-                <span><i class="fa fa-unlock-alt"></i></span>
-                <h3>Unlimited access</h3>
-                <p>
-                  Morbi leo risus, porta ac consectetur, vestibulum at eros.
-                  Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+              <div
+                class="membership_listing"
+                style="
+                  text-align: center;
+                  padding: 30px 20px;
+                  transition: transform 0.3s;
+                "
+              >
+                <span
+                  style="
+                    font-size: 3em;
+                    color: #4caf50;
+                    display: block;
+                    margin-bottom: 20px;
+                  "
+                  ><i class="fa fa-book"></i
+                ></span>
+                <h3 style="color: #333; margin-bottom: 15px">
+                  Study Materials
+                </h3>
+                <p style="color: #666; line-height: 1.6">
+                  Access comprehensive study materials, notes, and resources for
+                  all subjects. Download PDFs and study guides to enhance your
+                  learning experience.
                 </p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <div class="membership_listing">
-                <span><i class="fa fa-video-camera"></i></span>
-                <h3>4500 video courses</h3>
-                <p>
-                  Morbi leo risus, porta ac consectetur, vestibulum at eros.
-                  Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+              <div
+                class="membership_listing"
+                style="
+                  text-align: center;
+                  padding: 30px 20px;
+                  transition: transform 0.3s;
+                "
+              >
+                <span
+                  style="
+                    font-size: 3em;
+                    color: #2196f3;
+                    display: block;
+                    margin-bottom: 20px;
+                  "
+                  ><i class="fa fa-check-square-o"></i
+                ></span>
+                <h3 style="color: #333; margin-bottom: 15px">Practice Tests</h3>
+                <p style="color: #666; line-height: 1.6">
+                  Take practice tests and quizzes to assess your knowledge. Get
+                  instant feedback and track your progress to identify areas for
+                  improvement.
                 </p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <div class="membership_listing">
-                <span><i class="fa fa-microphone"></i></span>
-                <h3>Expert teachers</h3>
-                <p>
-                  Morbi leo risus, porta ac consectetur, vestibulum at eros.
-                  Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+              <div
+                class="membership_listing"
+                style="
+                  text-align: center;
+                  padding: 30px 20px;
+                  transition: transform 0.3s;
+                "
+              >
+                <span
+                  style="
+                    font-size: 3em;
+                    color: #ff9800;
+                    display: block;
+                    margin-bottom: 20px;
+                  "
+                  ><i class="fa fa-microphone"></i
+                ></span>
+                <h3 style="color: #333; margin-bottom: 15px">
+                  Expert Teachers
+                </h3>
+                <p style="color: #666; line-height: 1.6">
+                  Learn from experienced educators with years of teaching
+                  experience. Our teachers are experts in their subjects and
+                  understand board exam patterns.
                 </p>
               </div>
             </div>
           </div>
           <div class="row sec_top_gp">
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <div class="membership_listing">
-                <span><i class="fa fa-file-text-o"></i></span>
-                <h3>Valid Certification</h3>
-                <p>
-                  Morbi leo risus, porta ac consectetur, vestibulum at eros.
-                  Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+              <div
+                class="membership_listing"
+                style="
+                  text-align: center;
+                  padding: 30px 20px;
+                  transition: transform 0.3s;
+                "
+              >
+                <span
+                  style="
+                    font-size: 3em;
+                    color: #9c27b0;
+                    display: block;
+                    margin-bottom: 20px;
+                  "
+                  ><i class="fa fa-line-chart"></i
+                ></span>
+                <h3 style="color: #333; margin-bottom: 15px">
+                  Progress Tracking
+                </h3>
+                <p style="color: #666; line-height: 1.6">
+                  Monitor your learning progress with detailed analytics. Track
+                  your performance, completion rates, and see how you're
+                  improving over time.
                 </p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <div class="membership_listing">
-                <span><i class="fa fa-mobile"></i></span>
-                <h3>On-the-go learning</h3>
-                <p>
-                  Morbi leo risus, porta ac consectetur, vestibulum at eros.
-                  Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+              <div
+                class="membership_listing"
+                style="
+                  text-align: center;
+                  padding: 30px 20px;
+                  transition: transform 0.3s;
+                "
+              >
+                <span
+                  style="
+                    font-size: 3em;
+                    color: #e91e63;
+                    display: block;
+                    margin-bottom: 20px;
+                  "
+                  ><i class="fa fa-mobile"></i
+                ></span>
+                <h3 style="color: #333; margin-bottom: 15px">
+                  On-the-Go Learning
+                </h3>
+                <p style="color: #666; line-height: 1.6">
+                  Study on any device - smartphone, tablet, or computer.
+                  Download lessons for offline viewing and learn even without
+                  internet.
                 </p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <div class="membership_listing">
-                <span><i class="fa fa-life-ring"></i></span>
-                <h3>24x7 Super Support</h3>
-                <p>
-                  Morbi leo risus, porta ac consectetur, vestibulum at eros.
-                  Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+              <div
+                class="membership_listing"
+                style="
+                  text-align: center;
+                  padding: 30px 20px;
+                  transition: transform 0.3s;
+                "
+              >
+                <span
+                  style="
+                    font-size: 3em;
+                    color: #00bcd4;
+                    display: block;
+                    margin-bottom: 20px;
+                  "
+                  ><i class="fa fa-comments"></i
+                ></span>
+                <h3 style="color: #333; margin-bottom: 15px">
+                  Discussion Forum
+                </h3>
+                <p style="color: #666; line-height: 1.6">
+                  Join our community discussion forum to interact with fellow
+                  students. Share ideas, ask questions, and learn together in a
+                  collaborative environment.
                 </p>
               </div>
             </div>
@@ -230,10 +1285,10 @@
           <div class="heading">
             <h1><span>Available</span>Courses</h1>
             <p>
-              Phasellus non dolor nibh. Nullam elementum tellus pretium
-              feugiat.<br />
-              Cras dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed
-              tincidunt tristique enim sed sollcitudin.
+              Explore our comprehensive course catalog designed for 10th
+              standard students.<br />
+              Each course includes video lectures, study materials, practice
+              tests, and doubt-solving sessions.
             </p>
           </div>
           <div class="row">
@@ -264,7 +1319,7 @@
                     aria-controls="brandstrategy"
                     role="tab"
                     data-toggle="tab"
-                    >Science</a
+                    >ENGLISH</a
                   >
                 </li>
               </ul>
@@ -281,24 +1336,41 @@
                 >
                   <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
-                      <img src="images/graphic-design.jpg" alt="" />
+                      <img
+                        src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="HTML Course"
+                        style="
+                          width: 100%;
+                          height: auto;
+                          border-radius: 10px;
+                          object-fit: cover;
+                          min-height: 300px;
+                        "
+                      />
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-                      <h3>HTML</h3>
-                      <p>
-                        Cras dictum tellus dui, vitae sollicitudin ipsum
-                        tincidunt adipiscing atgfnte varius at. Sed mollis
-                        vestibulum sapien sed mattis.Cras dictum tellus duvi,
-                        vitae sollicitudin ipsum tincidunt adipiscing ante
-                        varius at. Sed mollis ves tibulum sapien sed mattis.
+                      <h3
+                        style="color: #333; font-size: 2em; margin-bottom: 20px"
+                      >
+                        HTML
+                      </h3>
+                      <p
+                        style="
+                          color: #666;
+                          line-height: 1.8;
+                          margin-bottom: 15px;
+                        "
+                      >
+                        Master all concepts of HTML including tags, elements,
+                        attributes, forms, and semantic markup. Our
+                        comprehensive course covers HTML5 with detailed
+                        explanations, practical examples, and hands-on projects.
                       </p>
-                      <p>
-                        Cras dictum tellus dui, vitae sollicitudin ipsum
-                        tincidunt adipiscing atgfnte tibulum sapien sed
-                        mattis.Cras dictum tellus dui. Sed mollis vestibulum
-                        sapien rthsed mattis.Cras dictum tellus duvi, vitae
-                        sollicitudin ipsum tincidunt adipiscing tibulum sapien
-                        sed mattis.
+                      <p style="color: #666; line-height: 1.8">
+                        Features include: 120+ video lessons, interactive coding
+                        exercises, real-world projects, quick reference guides,
+                        and expert support. Perfect for web development
+                        beginners!
                       </p>
                     </div>
                   </div>
@@ -308,24 +1380,42 @@
                 <div role="tabpanel" class="tab-pane fade" id="onlinemarketing">
                   <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
-                      <img src="images/internet-marketing.jpg" alt="" />
+                      <img
+                        src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="CSS Course"
+                        style="
+                          width: 100%;
+                          height: auto;
+                          border-radius: 10px;
+                          object-fit: cover;
+                          min-height: 300px;
+                        "
+                      />
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-                      <h3>CSS</h3>
-                      <p>
-                        Cras dictum tellus dui, vitae sollicitudin ipsum
-                        tincidunt adipiscing atgfnte varius at. Sed mollis
-                        vestibulum sapien sed mattis.Cras dictum tellus duvi,
-                        vitae sollicitudin ipsum tincidunt adipiscing ante
-                        varius at. Sed mollis ves tibulum sapien sed mattis.
+                      <h3
+                        style="color: #333; font-size: 2em; margin-bottom: 20px"
+                      >
+                        CSS
+                      </h3>
+                      <p
+                        style="
+                          color: #666;
+                          line-height: 1.8;
+                          margin-bottom: 15px;
+                        "
+                      >
+                        Comprehensive CSS course covering styling, layouts,
+                        animations, and responsive design. Learn modern CSS
+                        techniques through interactive tutorials, practical
+                        examples, and real-world projects.
                       </p>
-                      <p>
-                        Cras dictum tellus dui, vitae sollicitudin ipsum
-                        tincidunt adipiscing atgfnte tibulum sapien sed
-                        mattis.Cras dictum tellus dui. Sed mollis vestibulum
-                        sapien rthsed mattis.Cras dictum tellus duvi, vitae
-                        sollicitudin ipsum tincidunt adipiscing tibulum sapien
-                        sed mattis.
+                      <p style="color: #666; line-height: 1.8">
+                        Course includes: 150+ video lessons, CSS Grid and
+                        Flexbox tutorials, animation techniques, responsive
+                        design patterns, and expert tips for creating beautiful
+                        websites. Ideal for both beginners and advanced
+                        learners.
                       </p>
                     </div>
                   </div>
@@ -335,24 +1425,36 @@
                 <div role="tabpanel" class="tab-pane fade" id="brandstrategy">
                   <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
-                      <img src="images/branding.jpg" alt="" />
+                      <img
+                        src="images/branding.jpg"
+                        alt="English Course"
+                        style="width: 100%; height: auto; border-radius: 10px"
+                      />
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-                      <h3>Science</h3>
-                      <p>
-                        Cras dictum tellus dui, vitae sollicitudin ipsum
-                        tincidunt adipiscing atgfnte varius at. Sed mollis
-                        vestibulum sapien sed mattis.Cras dictum tellus duvi,
-                        vitae sollicitudin ipsum tincidunt adipiscing ante
-                        varius at. Sed mollis ves tibulum sapien sed mattis.
+                      <h3
+                        style="color: #333; font-size: 2em; margin-bottom: 20px"
+                      >
+                        ENGLISH
+                      </h3>
+                      <p
+                        style="
+                          color: #666;
+                          line-height: 1.8;
+                          margin-bottom: 15px;
+                        "
+                      >
+                        Enhance your English language skills with our
+                        expert-designed course. Learn grammar, vocabulary,
+                        reading comprehension, writing skills, and
+                        communication. Perfect for improving your professional
+                        and academic English.
                       </p>
-                      <p>
-                        Cras dictum tellus dui, vitae sollicitudin ipsum
-                        tincidunt adipiscing atgfnte tibulum sapien sed
-                        mattis.Cras dictum tellus dui. Sed mollis vestibulum
-                        sapien rthsed mattis.Cras dictum tellus duvi, vitae
-                        sollicitudin ipsum tincidunt adipiscing tibulum sapien
-                        sed mattis.
+                      <p style="color: #666; line-height: 1.8">
+                        Features: Grammar lessons, vocabulary building, reading
+                        comprehension exercises, writing practice, sample
+                        essays, speaking practice, and comprehensive study
+                        guides. Boost your English proficiency!
                       </p>
                     </div>
                   </div>
@@ -369,88 +1471,499 @@
       <!--/Available course end-->
       <!--popup video end -->
       <!--popular courses start-->
-      <section class="grey_section section_gap" id="courses">
+      <section
+        class="white_section section_gap"
+        id="courses"
+        style="
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+        "
+      >
         <div class="container">
-          <div class="heading">
+          <div class="heading" style="color: white">
+            <h1 style="color: white">
+              <span class="typing-text" id="typingTitle1">POPULAR</span>
+              <span class="typing-text" id="typingTitle2">COURSES</span>
+            </h1>
+            <p style="color: rgba(255, 255, 255, 0.9)">
+              <span class="typing-text-subtitle" id="typingSubtitle1"
+                >Most enrolled courses by 10th standard students</span
+              ><br />
+              <span class="typing-text-subtitle" id="typingSubtitle2"
+                >Join thousands of students who are already learning with
+                us</span
+              >
+            </p>
+          </div>
+          <div class="row" style="margin-top: 50px">
+            <div
+              class="col-xs-12 col-sm-6 col-md-4 col-lg-4"
+              style="margin-bottom: 30px"
+            >
+              <div
+                style="
+                  background: white;
+                  padding: 30px;
+                  border-radius: 10px;
+                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                  text-align: center;
+                  transition: transform 0.3s;
+                "
+              >
+                <i
+                  class="fa fa-code"
+                  style="font-size: 3em; color: #4caf50; margin-bottom: 20px"
+                ></i>
+                <h3 style="color: #333; margin-bottom: 15px">HTML</h3>
+                <p style="color: #666; line-height: 1.6; margin-bottom: 20px">
+                  Complete HTML5 course with 120+ video lessons
+                </p>
+                <a
+                  href="javascript:void(0);"
+                  onclick="enrollCourse('HTML')"
+                  class="enroll-btn"
+                  style="
+                    background: #4caf50;
+                    color: white;
+                    padding: 10px 25px;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    display: inline-block;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    margin-bottom: 10px;
+                  "
+                  onmouseover="this.style.background='#45a049'; this.style.transform='translateY(-2px)'"
+                  onmouseout="this.style.background='#4CAF50'; this.style.transform='translateY(0)'"
+                  >Enroll Now</a
+                ><br />
+                <a
+                  href="html-course.html"
+                  style="
+                    background: #667eea;
+                    color: white;
+                    padding: 10px 25px;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    display: inline-block;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    margin-top: 10px;
+                  "
+                  onmouseover="this.style.background='#5568d3'; this.style.transform='translateY(-2px)'"
+                  onmouseout="this.style.background='#667eea'; this.style.transform='translateY(0)'"
+                  >Access Course</a
+                >
+              </div>
+            </div>
+            <div
+              class="col-xs-12 col-sm-6 col-md-4 col-lg-4"
+              style="margin-bottom: 30px"
+            >
+              <div
+                style="
+                  background: white;
+                  padding: 30px;
+                  border-radius: 10px;
+                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                  text-align: center;
+                  transition: transform 0.3s;
+                "
+              >
+                <i
+                  class="fa fa-css3"
+                  style="font-size: 3em; color: #2196f3; margin-bottom: 20px"
+                ></i>
+                <h3 style="color: #333; margin-bottom: 15px">CSS</h3>
+                <p style="color: #666; line-height: 1.6; margin-bottom: 20px">
+                  Master CSS3, Flexbox & Grid in one course
+                </p>
+                <a
+                  href="javascript:void(0);"
+                  onclick="enrollCourse('CSS')"
+                  class="enroll-btn"
+                  style="
+                    background: #2196f3;
+                    color: white;
+                    padding: 10px 25px;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    display: inline-block;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    margin-bottom: 10px;
+                  "
+                  onmouseover="this.style.background='#1976D2'; this.style.transform='translateY(-2px)'"
+                  onmouseout="this.style.background='#2196F3'; this.style.transform='translateY(0)'"
+                  >Enroll Now</a
+                ><br />
+                <a
+                  href="css-course.html"
+                  style="
+                    background: #667eea;
+                    color: white;
+                    padding: 10px 25px;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    display: inline-block;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    margin-top: 10px;
+                  "
+                  onmouseover="this.style.background='#5568d3'; this.style.transform='translateY(-2px)'"
+                  onmouseout="this.style.background='#667eea'; this.style.transform='translateY(0)'"
+                  >Access Course</a
+                >
+              </div>
+            </div>
+            <div
+              class="col-xs-12 col-sm-6 col-md-4 col-lg-4"
+              style="margin-bottom: 30px"
+            >
+              <div
+                style="
+                  background: white;
+                  padding: 30px;
+                  border-radius: 10px;
+                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                  text-align: center;
+                  transition: transform 0.3s;
+                "
+              >
+                <i
+                  class="fa fa-book"
+                  style="font-size: 3em; color: #ff9800; margin-bottom: 20px"
+                ></i>
+                <h3 style="color: #333; margin-bottom: 15px">ENGLISH</h3>
+                <p style="color: #666; line-height: 1.6; margin-bottom: 20px">
+                  Grammar, Vocabulary & Communication Skills
+                </p>
+                <a
+                  href="javascript:void(0);"
+                  onclick="enrollCourse('ENGLISH')"
+                  class="enroll-btn"
+                  style="
+                    background: #ff9800;
+                    color: white;
+                    padding: 10px 25px;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    display: inline-block;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    margin-bottom: 10px;
+                  "
+                  onmouseover="this.style.background='#F57C00'; this.style.transform='translateY(-2px)'"
+                  onmouseout="this.style.background='#FF9800'; this.style.transform='translateY(0)'"
+                  >Enroll Now</a
+                ><br />
+                <a
+                  href="english-course.html"
+                  style="
+                    background: #667eea;
+                    color: white;
+                    padding: 10px 25px;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    display: inline-block;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    margin-top: 10px;
+                  "
+                  onmouseover="this.style.background='#5568d3'; this.style.transform='translateY(-2px)'"
+                  onmouseout="this.style.background='#667eea'; this.style.transform='translateY(0)'"
+                  >Access Course</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <!--/popular courses end-->
       <!--fun facts start -->
-      
+
       <!--fun facts end -->
       <!-- Teachers details start-->
       <section class="grey_section section_gap" id="teachers">
         <div class="container">
-          <div class="heading">
-            <h1>Testimonial</h1>
-            <p>
-              Phasellus non dolor nibh. Nullam elementum tellus pretium
-              feugiat.<br />
-              Cras dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed
-              tincidunt tristique enim sed sollcitudin.
+          <div class="heading" style="text-align: center">
+            <h1>Our Top Students</h1>
+            <p style="text-align: center">
+              Meet our star performers who achieved excellent results in their
+              10th board exams.<br />
+              These students utilized our platform effectively and secured top
+              ranks in their schools.
             </p>
           </div>
-          <ul class="hover_listing row">
-            <!-- Teacher 01 details start-->
-            <li class="col-xs-12 col-sm-6 col-md-3 col-lg-3 noPadd">
-              <div class="img">
-                <img src="images/teachers/teacher1.jpg" alt="teacher1" />
-                <ul class="hover-social-icons">
-                  <li>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-google"></i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-youtube"></i></a>
-                  </li>
-                </ul>
+          <div
+            class="row"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: stretch;
+              flex-wrap: wrap;
+            "
+          >
+            <!-- Student 01 details start-->
+            <div
+              class="col-xs-12 col-sm-10 col-md-5 col-lg-5"
+              style="margin: 15px; padding: 0"
+            >
+              <div
+                style="
+                  background: white;
+                  border-radius: 15px;
+                  overflow: hidden;
+                  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                  transition: transform 0.3s, box-shadow 0.3s;
+                  height: 100%;
+                  display: flex;
+                  flex-direction: column;
+                "
+                onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.15)'"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'"
+              >
+                <div
+                  class="img"
+                  style="
+                    position: relative;
+                    overflow: hidden;
+                    width: 100%;
+                    padding-top: 75%;
+                    background: #f5f5f5;
+                  "
+                >
+                  <img
+                    src="images/teachers/teacher1.jpg"
+                    alt="teacher1"
+                    style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                      transition: transform 0.3s;
+                    "
+                    onmouseover="this.style.transform='scale(1.1)'"
+                    onmouseout="this.style.transform='scale(1)'"
+                  />
+                </div>
+                <div
+                  style="
+                    padding: 25px;
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
+                  "
+                >
+                  <h3
+                    class="uppercase"
+                    style="
+                      color: #273342;
+                      font-size: 1.3em;
+                      font-weight: bold;
+                      margin-bottom: 15px;
+                      text-align: center;
+                    "
+                  >
+                    <div
+                      class="typing-container"
+                      style="
+                        .typing-container {
+                          font-family: monospace; /* Or any desired font */
+                          font-size: 2em;
+                          white-space: nowrap; /* Prevent text from wrapping */
+                          overflow: hidden; /* Hide text beyond the current width */
+                          border-right: 0.15em solid orange; /* Cursor effect */
+                          animation: blink-caret 0.75s step-end infinite; /* Blinking cursor */
+                        }
+
+                        .cursor {
+                          animation: blink-caret 0.75s step-end infinite;
+                        }
+
+                        @keyframes blink-caret {
+                          from,
+                          to {
+                            border-color: transparent;
+                          }
+                          50% {
+                            border-color: orange;
+                          } /* Cursor color */
+                        }
+                      "
+                    >
+                      <div
+                        id="typing-text"
+                        style="
+                          .typing-container {
+                            font-family: monospace; /* Or any desired font */
+                            font-size: 2em;
+                            white-space: nowrap; /* Prevent text from wrapping */
+                            overflow: hidden; /* Hide text beyond the current width */
+                            border-right: 0.15em solid orange; /* Cursor effect */
+                            animation: blink-caret 0.75s step-end infinite; /* Blinking cursor */
+                          }
+
+                          .cursor {
+                            animation: blink-caret 0.75s step-end infinite;
+                          }
+
+                          @keyframes blink-caret {
+                            from,
+                            to {
+                              border-color: transparent;
+                            }
+                            50% {
+                              border-color: orange;
+                            } /* Cursor color */
+                          }
+                        "
+                      ></div>
+                    </div>
+                  </h3>
+                  <p
+                    style="
+                      color: #666;
+                      line-height: 1.7;
+                      text-align: center;
+                      flex-grow: 1;
+                      margin: 0;
+                    "
+                  >
+                    Scored 95% in board exams. HTML and CSS courses helped me
+                    understand complex concepts easily and build real-world
+                    projects.
+                  </p>
+                  <div style="margin-top: 20px; text-align: center">
+                    <span
+                      style="
+                        display: inline-block;
+                        background: linear-gradient(
+                          135deg,
+                          #f5d76e 0%,
+                          #f4c430 100%
+                        );
+                        color: #273342;
+                        padding: 8px 20px;
+                        border-radius: 20px;
+                        font-weight: bold;
+                        font-size: 0.9em;
+                      "
+                      >Biswajeet Chakra 8A</span
+                    >
+                  </div>
+                </div>
               </div>
-              <h3 class="uppercase">Biswajeet Chakra (8A)</h3>
-              <p>
-                tincidunt adipiscing atgfnte varius at. Sed mollis vestibulum
-                sapien
-              </p>
-            </li>
-            <!-- Teacher 01 details end-->
-            <!-- Teacher 02 details start-->
-            <li class="col-xs-12 col-sm-6 col-md-3 col-lg-3 noPadd">
-              <div class="img">
-                <img src="images/teachers/teacher2.jpg" alt="teacher2" />
-                <ul class="hover-social-icons">
-                  <li>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-google"></i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-youtube"></i></a>
-                  </li>
-                </ul>
+            </div>
+            <!-- Student 01 details end-->
+            <!-- Student 02 details start-->
+            <div
+              class="col-xs-12 col-sm-10 col-md-5 col-lg-5"
+              style="margin: 15px; padding: 0"
+            >
+              <div
+                style="
+                  background: white;
+                  border-radius: 15px;
+                  overflow: hidden;
+                  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                  transition: transform 0.3s, box-shadow 0.3s;
+                  height: 100%;
+                  display: flex;
+                  flex-direction: column;
+                "
+                onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.15)'"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'"
+              >
+                <div
+                  class="img"
+                  style="
+                    position: relative;
+                    overflow: hidden;
+                    width: 100%;
+                    padding-top: 75%;
+                    background: #f5f5f5;
+                  "
+                >
+                  <img
+                    src="images/teachers/teacher2.jpg"
+                    alt="teacher2"
+                    style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                      transition: transform 0.3s;
+                    "
+                    onmouseover="this.style.transform='scale(1.1)'"
+                    onmouseout="this.style.transform='scale(1)'"
+                  />
+                </div>
+                <div
+                  style="
+                    padding: 25px;
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
+                  "
+                >
+                  <h3
+                    class="uppercase"
+                    style="
+                      color: #273342;
+                      font-size: 1.3em;
+                      font-weight: bold;
+                      margin-bottom: 15px;
+                      text-align: center;
+                    "
+                  >
+                    <div id="typing-text"></div>
+                  </h3>
+                  <p
+                    style="
+                      color: #666;
+                      line-height: 1.7;
+                      text-align: center;
+                      flex-grow: 1;
+                      margin: 0;
+                    "
+                  >
+                    Achieved 92% marks. The study materials and practice tests
+                    were extremely helpful for my exam preparation and
+                    understanding.
+                  </p>
+                  <div style="margin-top: 20px; text-align: center">
+                    <span
+                      style="
+                        display: inline-block;
+                        background: linear-gradient(
+                          135deg,
+                          #f5d76e 0%,
+                          #f4c430 100%
+                        );
+                        color: #273342;
+                        padding: 8px 20px;
+                        border-radius: 20px;
+                        font-weight: bold;
+                        font-size: 0.9em;
+                      "
+                      >Arnav Kumar (8A)</span
+                    >
+                  </div>
+                </div>
               </div>
-              <h3 class="uppercase">Arnav Kumar (8A)</h3>
-              <p>
-                tincidunt adipiscing atgfnte varius at. Sed mollis vestibulum
-                sapien
-              </p>
-            </li>
-            <!-- Teacher 02 details end-->
-          </ul>
+            </div>
+            <!-- Student 02 details end-->
+          </div>
         </div>
       </section>
       <!-- Teachers details end-->
       <!-- Pricing Tables start-->
-      <section class="section_gap" id="pricing">
-       
-      </section>
+      <section class="section_gap" id="pricing"></section>
       <!--Pricing Tables end -->
       <!--Happy Students start-->
       <section class="white_section section_gap" id="testimonial">
@@ -458,10 +1971,10 @@
           <div class="heading">
             <h1>What our Students Say</h1>
             <p>
-              Phasellus non dolor nibh. Nullam elementum tellus pretium
-              feugiat.<br />
-              Cras dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed
-              tincidunt tristique enim sed sollcitudin.
+              Read testimonials from our successful students who have benefited
+              from our courses.<br />
+              Their success stories inspire thousands of students to achieve
+              their academic goals.
             </p>
           </div>
           <div class="imageSlide">
@@ -551,92 +2064,95 @@
             <ul class="slides testimonialText list-unstyled">
               <li>
                 <p class="font-openBold">
-                  Phasellus non dolor nibh. Nullam elementum tellus pretium
-                  feugiat. Cras dictum tellus dui, vitae sollicitudin ipsum
-                  tincidunt in. Sed tincidunt tristique enim sed sollcitudin.
-                  Nullam elementum tellus pretium feugiat
+                  Success Planet transformed my learning experience! The
+                  Mathematics course helped me score 96% in my board exams. The
+                  video explanations are clear, and the practice tests prepared
+                  me perfectly. Highly recommended for all 10th standard
+                  students!
                 </p>
-                <h3 class="uppercase">Jessie Pinkman, MDM Inc.</h3>
+                <h3 class="uppercase">Priya Sharma, Delhi Public School</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Phasellus non dolor nibh. Nullam elementum tellus pretium
-                  feugiat. Cras dictum tellus dui, vitae sollicitudin ipsum
-                  tincidunt in. Sed tincidunt tristique enim sed
-                  sollcitudin.Nunc pretium est quis placerat congue. Nam dui
-                  lectus, pretium get elit id, interdum ultricies neque.
+                  I was struggling with Science concepts, but Success Planet's
+                  comprehensive course made everything crystal clear. The
+                  animated videos and practical demonstrations helped me
+                  understand even the most difficult topics. I improved from 75%
+                  to 91%!
                 </p>
-                <h3 class="uppercase">Rene Brown</h3>
+                <h3 class="uppercase">Rahul Verma, Kendriya Vidyalaya</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Phasellus non dolor nibh. Nullam elementum tellus pretium
-                  feugiat. Cras dictum tellus dui, vitae sollicitudin ipsum
-                  tincidunt in. Sed tincidunt tristique enim sed sollcitudin.
+                  The best part about Success Planet is learning at my own pace.
+                  I could rewatch difficult lessons and practice as many times
+                  as needed. The expert teachers are amazing, and their
+                  doubt-clearing sessions are very helpful.
                 </p>
-                <h3 class="uppercase">Johnathan, Lexodia</h3>
+                <h3 class="uppercase">Ananya Patel, St. Mary's School</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Phasellus non dolor nibh. Nullam elementum tellus pretium
-                  feugiat. Cras dictum tellus dui, vitae sollicitudin ipsum
-                  tincidunt in. Sed tincidunt tristique enim sed sollcitudin.
+                  Success Planet's study materials and previous year question
+                  papers were game-changers for my exam preparation. I could
+                  practice extensively and identify my weak areas. Scored 94%
+                  overall!
                 </p>
-                <h3 class="uppercase">Jinia Doe, Marco Media</h3>
+                <h3 class="uppercase">Kavya Reddy, DAV Public School</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Cras dictum tellus dui, vitae sollicitudin ipsum. Phasellus
-                  non dolor nibh. Nullam elementum tellus pretium feugiat.
-                  tincidunt in. Sed tincidunt tristique enim sed shasellus non
-                  dolor nibh. Nullam elementum tellus pretium feugiat.
+                  The mobile app feature is fantastic! I could study during my
+                  commute and even download lessons for offline viewing. The
+                  24/7 support team always helped me whenever I had doubts.
+                  Excellent platform!
                 </p>
-                <h3 class="uppercase">Brain Rice, Mark Media</h3>
+                <h3 class="uppercase">Aditya Singh, Modern School</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Vivamus finibus neque tempus enim mattis pellentesque eget
-                  eget turpis. In a urna vel felis ultricies scelerisque nec nec
-                  ex. Phasellus non dolor nibh. Nullam elementu vitae
-                  sollicitudin ipsum tincidunt in. Sed tincidunt tristique enim
-                  sed sollcitudin.
+                  English was my weak subject, but Success Planet's
+                  comprehensive course improved my grammar, writing skills, and
+                  literature understanding significantly. The sample essays and
+                  writing practice were particularly helpful.
                 </p>
-                <h3 class="uppercase">Jenny Park, Oham Marketing</h3>
+                <h3 class="uppercase">Meera Nair, Chinmaya Vidyalaya</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Donec id viverra diam. Ut quis augue feugiat Phasellus non
-                  dolor nibh. Nullam elementum tellus pretium feugiat. Cras
-                  dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed
-                  tincidunt tristique enim sed sollcitudin.
+                  I loved the Social Studies course! The map work tutorials,
+                  historical timelines, and comprehensive notes made studying so
+                  much easier. The teachers explain everything in a way that's
+                  easy to remember for exams.
                 </p>
-                <h3 class="uppercase">Johann Doe</h3>
+                <h3 class="uppercase">Vikram Joshi, Ryan International</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Phasellus non dolor nibh. Nullam elementum tellus pretium
-                  feugiat. Cras dictum tellus dui, vitae sollicitudin ipsum
-                  tincidunt in. Sed tincidunt tristique enim sed sollcitudin.
+                  The certification I received after completing the courses
+                  added value to my academic profile. The platform is
+                  user-friendly, and the quality of content is outstanding.
+                  Worth every penny!
                 </p>
-                <h3 class="uppercase">Danny Wahel, Crikinfo</h3>
+                <h3 class="uppercase">Sneha Desai, Podar International</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Maecenas nec gravida metus, vitae euismod nisi. nibh. Nullam
-                  elementum tellus pretium feugiat. Cras dictum tellus dui,
-                  vitae sollicitudin ipsum tincidunt in. Sed tincidunt tristique
-                  enim sed sollcitudin.
+                  Success Planet helped me balance my studies with other
+                  activities. The flexible learning schedule allowed me to study
+                  when convenient. The quick revision notes before exams were a
+                  lifesaver!
                 </p>
-                <h3 class="uppercase">Andi Simond</h3>
+                <h3 class="uppercase">Arjun Mehta, GD Goenka School</h3>
               </li>
               <li>
                 <p class="font-openBold">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elitPhasellus non dolor nibh. Nullam elementum tellus pretium
-                  feugiat. Cras dictum tellus dui, vitae sollicitudin ipsum
-                  tincidunt in. Sed tincidunt tristique enim sed sollcitudin.
+                  As a parent, I'm extremely satisfied with Success Planet. My
+                  daughter's confidence and grades improved significantly. The
+                  platform provides excellent value for money with quality
+                  education and comprehensive support.
                 </p>
-                <h3 class="uppercase">Kristy Gabbor, Martix Media</h3>
+                <h3 class="uppercase">Parent Review - Mrs. Geeta Kapoor</h3>
               </li>
             </ul>
           </div>
@@ -686,76 +2202,564 @@
         </div>
       </section>
       <!--/Newsletter section end-->
+
+      <!-- Subscribe Success Modal -->
+      <div class="subscribe-success-modal-overlay" id="subscribeSuccessModal">
+        <div class="subscribe-success-modal">
+          <div class="subscribe-success-modal-header">
+            <div class="subscribe-success-icon">
+              <i class="fa fa-check"></i>
+            </div>
+            <h2>Subscribed Successfully!</h2>
+          </div>
+          <div class="subscribe-success-modal-body">
+            <p>
+              Thank you for subscribing! You will now receive the latest news
+              and updates from Success Planet.
+            </p>
+            <button
+              class="subscribe-success-modal-btn"
+              onclick="closeSubscribeSuccessModal()"
+            >
+              OK <i class="fa fa-check"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enrollment Success Modal -->
+      <div class="enroll-success-modal-overlay" id="enrollSuccessModal">
+        <div class="enroll-success-modal">
+          <div class="enroll-success-modal-header">
+            <div class="enroll-success-icon">
+              <i class="fa fa-check"></i>
+            </div>
+            <h2>Enrollment Successful!</h2>
+          </div>
+          <div class="enroll-success-modal-body">
+            <p>
+              Congratulations! You have successfully enrolled in
+              <span class="course-name" id="enrolledCourseName"></span> course.
+            </p>
+            <p>
+              You can now access all course materials, video lessons, and study
+              resources. Start your learning journey today!
+            </p>
+            <button
+              class="enroll-success-modal-btn"
+              onclick="closeEnrollSuccessModal()"
+            >
+              <i class="fa fa-check"></i> Got It
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!--have Question start -->
       <section class="grey_section section_gap" id="contact">
         <div class="container">
           <div class="heading">
-            <h1><span>Have</span>Question</h1>
+            <h1><span>Have</span>Questions?</h1>
             <p>
-              Phasellus non dolor nibh. Nullam elementum tellus pretium
-              feugiat.<br />
-              Cras dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed
-              tincidunt tristique enim sed sollcitudin.
+              We're here to help! Get in touch with us for any queries about
+              courses, enrollment, or technical support.<br />
+              Our team responds within 24 hours and is always ready to assist
+              you in your learning journey.
             </p>
           </div>
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-              <!--google map start-->
-              <div class="row mapArea">
-                <div id="map" style="width: 100%; height: 100%"></div>
+          <div class="row" style="display: flex; flex-wrap: wrap">
+            <div
+              class="col-xs-12 col-sm-12 col-md-6 col-lg-6"
+              style="display: flex"
+            >
+              <!--Contact Information start-->
+              <div
+                style="
+                  background: #f8f9fa;
+                  padding: 20px;
+                  border-radius: 10px;
+                  width: 100%;
+                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                "
+              >
+                <h3
+                  style="
+                    color: #333;
+                    margin-bottom: 15px;
+                    font-size: 1.4em;
+                    font-weight: bold;
+                    margin-top: 0;
+                  "
+                >
+                  <i
+                    class="fa fa-map-marker"
+                    style="color: #667eea; margin-right: 10px"
+                  ></i>
+                  Get In Touch
+                </h3>
+
+                <div style="margin-bottom: 15px">
+                  <div
+                    style="
+                      display: flex;
+                      align-items: start;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    <div
+                      style="
+                        background: #667eea;
+                        color: white;
+                        width: 35px;
+                        height: 35px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 10px;
+                        flex-shrink: 0;
+                      "
+                    >
+                      <i class="fa fa-map-marker" style="font-size: 1em"></i>
+                    </div>
+                    <div>
+                      <h4
+                        style="
+                          color: #333;
+                          margin-bottom: 2px;
+                          font-weight: bold;
+                          font-size: 0.9em;
+                        "
+                      >
+                        Our Address
+                      </h4>
+                      <p
+                        style="
+                          color: #666;
+                          line-height: 1.4;
+                          margin: 0;
+                          font-size: 0.85em;
+                        "
+                      >
+                        123 Education Street,<br />
+                        Learning District,<br />
+                        New Delhi - 110001, India
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    style="
+                      display: flex;
+                      align-items: start;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    <div
+                      style="
+                        background: #667eea;
+                        color: white;
+                        width: 35px;
+                        height: 35px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 10px;
+                        flex-shrink: 0;
+                      "
+                    >
+                      <i class="fa fa-phone" style="font-size: 1em"></i>
+                    </div>
+                    <div>
+                      <h4
+                        style="
+                          color: #333;
+                          margin-bottom: 2px;
+                          font-weight: bold;
+                          font-size: 0.9em;
+                        "
+                      >
+                        Phone Number
+                      </h4>
+                      <p
+                        style="
+                          color: #666;
+                          line-height: 1.4;
+                          margin: 0;
+                          font-size: 0.85em;
+                        "
+                      >
+                        +91 123 456 7890<br />
+                        +91 987 654 3210
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    style="
+                      display: flex;
+                      align-items: start;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    <div
+                      style="
+                        background: #667eea;
+                        color: white;
+                        width: 35px;
+                        height: 35px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 10px;
+                        flex-shrink: 0;
+                      "
+                    >
+                      <i class="fa fa-envelope" style="font-size: 1em"></i>
+                    </div>
+                    <div>
+                      <h4
+                        style="
+                          color: #333;
+                          margin-bottom: 2px;
+                          font-weight: bold;
+                          font-size: 0.9em;
+                        "
+                      >
+                        Email Address
+                      </h4>
+                      <p
+                        style="
+                          color: #666;
+                          line-height: 1.4;
+                          margin: 0;
+                          font-size: 0.85em;
+                        "
+                      >
+                        info@successplanet.com<br />
+                        support@successplanet.com
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    style="
+                      display: flex;
+                      align-items: start;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    <div
+                      style="
+                        background: #667eea;
+                        color: white;
+                        width: 35px;
+                        height: 35px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 10px;
+                        flex-shrink: 0;
+                      "
+                    >
+                      <i class="fa fa-clock-o" style="font-size: 1em"></i>
+                    </div>
+                    <div>
+                      <h4
+                        style="
+                          color: #333;
+                          margin-bottom: 2px;
+                          font-weight: bold;
+                          font-size: 0.9em;
+                        "
+                      >
+                        Working Hours
+                      </h4>
+                      <p
+                        style="
+                          color: #666;
+                          line-height: 1.4;
+                          margin: 0;
+                          font-size: 0.85em;
+                        "
+                      >
+                        Monday - Friday: 9:00 AM - 6:00 PM<br />
+                        Saturday: 10:00 AM - 4:00 PM<br />
+                        Sunday: Closed
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="padding-top: 15px; border-top: 1px solid #e0e0e0">
+                  <h4
+                    style="
+                      color: #333;
+                      margin-bottom: 10px;
+                      font-weight: bold;
+                      font-size: 0.9em;
+                    "
+                  >
+                    Follow Us
+                  </h4>
+                  <div style="display: flex; gap: 8px">
+                    <a
+                      href="#"
+                      style="
+                        background: #667eea;
+                        color: white;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-decoration: none;
+                        transition: all 0.3s;
+                      "
+                    >
+                      <i class="fa fa-facebook" style="font-size: 0.9em"></i>
+                    </a>
+                    <a
+                      href="#"
+                      style="
+                        background: #667eea;
+                        color: white;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-decoration: none;
+                        transition: all 0.3s;
+                      "
+                    >
+                      <i class="fa fa-twitter" style="font-size: 0.9em"></i>
+                    </a>
+                    <a
+                      href="#"
+                      style="
+                        background: #667eea;
+                        color: white;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-decoration: none;
+                        transition: all 0.3s;
+                      "
+                    >
+                      <i class="fa fa-instagram" style="font-size: 0.9em"></i>
+                    </a>
+                    <a
+                      href="#"
+                      style="
+                        background: #667eea;
+                        color: white;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-decoration: none;
+                        transition: all 0.3s;
+                      "
+                    >
+                      <i class="fa fa-youtube" style="font-size: 0.9em"></i>
+                    </a>
+                    <a
+                      href="#"
+                      style="
+                        background: #667eea;
+                        color: white;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-decoration: none;
+                        transition: all 0.3s;
+                      "
+                    >
+                      <i class="fa fa-linkedin" style="font-size: 0.9em"></i>
+                    </a>
+                  </div>
+                </div>
               </div>
-              <!--google map end-->
+              <!--Contact Information end-->
             </div>
             <!-- contact from start-->
-            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
-              <div id="message"></div>
-              <form
-                method="post"
-                action="https://themeelite.com/demos/e-learn/video-header/php/contact.php"
-                name="cform"
-                id="cform"
+            <div
+              class="col-xs-12 col-sm-12 col-md-6 col-lg-6"
+              style="display: flex"
+            >
+              <div
+                style="
+                  background: white;
+                  padding: 30px;
+                  border-radius: 10px;
+                  width: 100%;
+                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                  border: 1px solid #eee;
+                "
               >
-                <div class="form-row clearfix">
-                  <input
-                    name="name"
-                    id="name"
-                    type="text"
-                    class="col-xs-12 col-sm-12 col-md-12 col-lg-12 normal"
-                    placeholder="Your Name"
-                  />
-                </div>
-                <div class="form-row clearfix">
-                  <input
-                    name="email"
-                    id="email"
-                    type="email"
-                    class="col-xs-12 col-sm-12 col-md-12 col-lg-12 normal"
-                    placeholder="Email address"
-                  />
-                </div>
-                <div class="form-row clearfix">
-                  <textarea
-                    name="comments"
-                    id="comments"
-                    class="col-xs-12 col-sm-12 col-md-12 col-lg-12 normal medium"
-                    placeholder="Your Comments"
-                  ></textarea>
-                </div>
-                <input
-                  type="submit"
-                  id="submit"
-                  name="send"
-                  class="button"
-                  value="Send message"
-                />
-                <div id="simple-msg"></div>
-              </form>
+                <h3
+                  style="
+                    color: #333;
+                    margin-bottom: 20px;
+                    font-size: 1.6em;
+                    font-weight: bold;
+                    margin-top: 0;
+                  "
+                >
+                  Send Message
+                </h3>
+                <div
+                  id="contactMessage"
+                  style="margin-bottom: 15px; display: none"
+                ></div>
+                <form id="contactForm" novalidate>
+                  <div style="margin-bottom: 20px">
+                    <input
+                      type="text"
+                      id="contactName"
+                      name="name"
+                      placeholder="Your Name"
+                      required
+                      style="
+                        width: 100%;
+                        padding: 12px 15px;
+                        border: 2px solid #e0e0e0;
+                        border-radius: 5px;
+                        font-size: 1em;
+                        box-sizing: border-box;
+                        transition: all 0.3s;
+                        color: #333;
+                        background-color: #fff;
+                        font-family: inherit;
+                      "
+                      onfocus="this.style.borderColor='#667eea'; this.style.outline='none';"
+                      onblur="this.style.borderColor='#e0e0e0';"
+                    />
+                  </div>
+                  <div style="margin-bottom: 20px">
+                    <input
+                      type="email"
+                      id="contactEmail"
+                      name="email"
+                      placeholder="Email Address"
+                      required
+                      style="
+                        width: 100%;
+                        padding: 12px 15px;
+                        border: 2px solid #e0e0e0;
+                        border-radius: 5px;
+                        font-size: 1em;
+                        box-sizing: border-box;
+                        transition: all 0.3s;
+                        color: #333;
+                        background-color: #fff;
+                        font-family: inherit;
+                      "
+                      onfocus="this.style.borderColor='#667eea'; this.style.outline='none';"
+                      onblur="this.style.borderColor='#e0e0e0';"
+                    />
+                  </div>
+                  <div style="margin-bottom: 25px">
+                    <textarea
+                      id="contactComments"
+                      name="comments"
+                      placeholder="Your Message"
+                      required
+                      rows="5"
+                      style="
+                        width: 100%;
+                        padding: 12px 15px;
+                        border: 2px solid #e0e0e0;
+                        border-radius: 5px;
+                        font-size: 1em;
+                        resize: vertical;
+                        box-sizing: border-box;
+                        transition: all 0.3s;
+                        color: #333;
+                        background-color: #fff;
+                        font-family: inherit;
+                        min-height: 120px;
+                      "
+                      onfocus="this.style.borderColor='#667eea'; this.style.outline='none';"
+                      onblur="this.style.borderColor='#e0e0e0';"
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    id="contactSubmit"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #667eea 0%,
+                        #764ba2 100%
+                      );
+                      color: white;
+                      padding: 12px 30px;
+                      border: none;
+                      border-radius: 5px;
+                      font-size: 1em;
+                      font-weight: bold;
+                      cursor: pointer;
+                      transition: all 0.3s;
+                      text-transform: uppercase;
+                      width: 100%;
+                      letter-spacing: 1px;
+                    "
+                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(102, 126, 234, 0.4)';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+                  >
+                    Send Message
+                  </button>
+                </form>
+              </div>
             </div>
             <!-- contact from end-->
           </div>
         </div>
       </section>
       <!--have Question end -->
+
+      <!-- Contact Success Modal -->
+      <div class="contact-success-modal-overlay" id="contactSuccessModal">
+        <div class="contact-success-modal">
+          <div class="contact-success-modal-header">
+            <div class="contact-success-icon">
+              <i class="fa fa-check"></i>
+            </div>
+            <h2>Message Sent!</h2>
+          </div>
+          <div class="contact-success-modal-body">
+            <p>
+              Thank you for your message! We have received it and will get back
+              to you within 24 hours.
+            </p>
+            <p style="font-size: 0.9em; color: #999">
+              Our team is always ready to assist you in your learning journey.
+            </p>
+            <button
+              class="contact-success-modal-btn"
+              onclick="closeContactSuccessModal()"
+            >
+              <i class="fa fa-check"></i> OK
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!--Bottom Four Column start-->
       <section class="blue_section section_gap">
         <div class="container">
@@ -764,8 +2768,10 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 bottomAbout">
               <h5 class="heading">About us</h5>
               <p>
-                Phasellus mattis felis quis enim viverratys accumsan. Nullam
-                porta risus felis, vitaeuik dapibus arcu viverra eu.
+                Success Planet is a leading online learning platform dedicated
+                to helping 10th standard students excel in their board exams. We
+                provide comprehensive courses, expert guidance, and quality
+                educational resources to ensure academic success.
               </p>
               <h5>We Are Social On</h5>
               <div class="socialshare">
@@ -780,19 +2786,21 @@
             <!-- Footer About us end-->
             <!-- Footer Recent news start-->
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-              <h5 class="heading">Recent News</h5>
+              <h5 class="heading">Recent Updates</h5>
               <ul class="footerLinks">
                 <li>
-                  <a href="#">Standred post with featured image</a>
-                  <span>by <a href="#">Mike Doe</a> on June 24, 2014</span>
+                  <a href="#">New Mathematics Course Launched</a>
+                  <span>by <a href="#">Admin</a> on March 15, 2024</span>
                 </li>
                 <li>
-                  <a href="#">Standred post with featured image</a>
-                  <span>by <a href="#">Mike Doe</a> on June 24, 2014</span>
+                  <a href="#">Board Exam Preparation Tips</a>
+                  <span>by <a href="#">Expert Team</a> on March 10, 2024</span>
                 </li>
                 <li>
-                  <a href="#">Standred post with featured image</a>
-                  <span>by <a href="#">Mike Doe</a> on June 24, 2014</span>
+                  <a href="#">Student Success Stories - 2024</a>
+                  <span
+                    >by <a href="#">Success Planet</a> on March 5, 2024</span
+                  >
                 </li>
               </ul>
             </div>
@@ -801,23 +2809,24 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
               <h5 class="heading">How it Works?</h5>
               <p>
-                Phasellus mattis felis quis enim viverratys accumsan. Nullam
-                porta risus felis, vitaeuik dapibus arcu viverra eu.
+                Getting started with Success Planet is easy! Follow these simple
+                steps to begin your learning journey.
               </p>
               <ul class="list">
-                <li>Phasellus mattis felis quis enim</li>
-                <li>Nullam porta risus vitaeuik dapibus</li>
-                <li>Phasellus mattis felis quis enim</li>
-                <li>Vivamus sit amet ligulague semper</li>
+                <li>Register and create your account</li>
+                <li>Choose your preferred courses</li>
+                <li>Access study materials and resources</li>
+                <li>Take practice tests and track progress</li>
               </ul>
             </div>
             <!-- Footer How it works end-->
             <!-- Footer we accept start-->
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 contactInfo">
-              <h5 class="heading">We Accept</h5>
+              <h5 class="heading">Payment Options</h5>
               <p>
-                Phasellus mattis felis quis enim viverratys accumsan. Nullam
-                porta risus felis, vitaeuik dapibus arcu viverra eu.
+                We offer flexible payment options to make quality education
+                accessible to everyone. Choose from various payment methods for
+                your convenience.
               </p>
               <ul>
                 <li>
@@ -852,7 +2861,10 @@
         <div class="container">
           <div class="row">
             <div class="pull-left">
-              <p>&copy; 2015 eLearn Theme. All Rights Reserved</p>
+              <p>
+                &copy; 2025 Success Planet. All Rights Reserved | Designed for
+                10th Standard Students
+              </p>
             </div>
             <div class="pull-right">
               <a class="gototop smooth" href="#wrapper"
@@ -904,8 +2916,7 @@
 
     <!--contact form js-->
     <script type="text/javascript" src="js/jquery.contact.js"></script>
-    <!--Newsletter js-->
-    <script type="text/javascript" src="js/jquery.subscribe.js"></script>
+    <!-- Note: jquery.subscribe.js removed to use custom handler -->
 
     <script
       src="http://maps.google.com/maps?file=api&amp;v=2.x&amp;key=ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxSPW5CJgpdgO_s4yyMovOaVh_KvvhSfpvagV18eOyDWu7VytS6Bi1CWxw"
@@ -946,6 +2957,7 @@
     <script></script>
 
     <!--for coundown jquary-->
+
     <script type="text/javascript" src="js/jquery.countTo.js"></script>
     <script type="text/javascript">
       jQuery(function ($) {
@@ -966,7 +2978,34 @@
             itemHover: "active",
             topMargin: "auto",
           });
+          const typingTextElement = document.getElementById("typing-text");
+          const lines = ["Frontend Developer.", "Founder.", "Designer."];
+          let lineIndex = 0;
+          let charIndex = 0;
+          const typingSpeed = 75; // Milliseconds per character
+          const lineDelay = 1000; // Milliseconds between lines
 
+          function typeWriter() {
+            if (lineIndex < lines.length) {
+              if (charIndex < lines[lineIndex].length) {
+                typingTextElement.innerHTML +=
+                  lines[lineIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, typingSpeed);
+              } else {
+                // Line finished, add a line break and move to the next line
+                typingTextElement.innerHTML += "<br>";
+                lineIndex++;
+                charIndex = 0;
+                setTimeout(typeWriter, lineDelay);
+              }
+            } else {
+            }
+          }
+          typeWriter();
+
+          // Start the animation when the page loads
+          window.onload = typeWriter;
           // run rlightbox
           $(".lb").rlightbox();
           $(".lb_title-overwritten").rlightbox({ overwriteTitle: true });
@@ -1007,15 +3046,46 @@
           $(".testimonialText li:first").fadeTo("fast", 1);
           $(".imageSlide .imageBox").removeClass("activeImage");
           $(".imageSlide .imageBox:first").addClass("activeImage");
-          $(".imageSlide .imageBox").mouseenter(function () {
-            if (!$(this).hasClass("activeImage")) {
-              var gi = $(this).index();
-              //console.log(gi);
-              $(".imageSlide .imageBox").removeClass("activeImage");
-              $(this).addClass("activeImage");
-              $(".testimonialText li").fadeTo("fast", 0);
-              $(".testimonialText li:eq(" + gi + ")").fadeTo("fast", 1);
-            }
+
+          // Make image boxes look clickable
+          $(".imageSlide .imageBox").css({
+            cursor: "pointer",
+            transition: "transform 0.3s, box-shadow 0.3s",
+          });
+
+          // Hover functionality to show testimonials and add visual feedback
+          $(".imageSlide .imageBox")
+            .mouseenter(function () {
+              if (!$(this).hasClass("activeImage")) {
+                var gi = $(this).index();
+                //console.log(gi);
+                $(".imageSlide .imageBox").removeClass("activeImage");
+                $(this).addClass("activeImage");
+                $(".testimonialText li").fadeTo("fast", 0);
+                $(".testimonialText li:eq(" + gi + ")").fadeTo("fast", 1);
+              }
+              // Visual feedback on hover
+              $(this).css({
+                transform: "scale(1.1)",
+                "box-shadow": "0 5px 15px rgba(0,0,0,0.3)",
+              });
+            })
+            .mouseleave(function () {
+              $(this).css({
+                transform: "scale(1)",
+                "box-shadow": "none",
+              });
+            });
+
+          // Click functionality to redirect to "Our Top Students" section
+          $(".imageSlide .imageBox").on("click", function () {
+            // Smooth scroll to the teachers section (Our Top Students)
+            $("html, body").animate(
+              {
+                scrollTop: $("#teachers").offset().top - 80,
+              },
+              800
+            );
           });
 
           // Video lightbox
@@ -1052,16 +3122,430 @@
     <!--Theme switcher -->
     <script type="text/javascript" src="switcher/js/jquery.cookie.js"></script>
     <!-- jQuery cookie -->
-  
+
     <!-- Style Colors Switcher -->
 
     <!--for theme custom jquery-->
     <script src="js/custom.js"></script>
 
-    <!-- Start Style Switcher -->
-    
-    <!-- End Style Switcher -->
-  </body>
+    <!-- Animation Scripts -->
+    <script type="text/javascript">
+      jQuery(function ($) {
+        $(document).ready(function () {
+          // Scroll animations - make sections visible immediately, then animate on scroll
+          function animateOnScroll() {
+            // Make all sections visible first
+            $(".section_gap").each(function () {
+              var $this = $(this);
+              if (!$this.hasClass("animate")) {
+                $this.css({
+                  opacity: "1",
+                  transform: "translateY(0)",
+                });
+              }
+            });
 
- 
+            // Animate sections on scroll (optional enhancement)
+            $(".section_gap").each(function () {
+              var elementTop = $(this).offset().top;
+              var elementBottom = elementTop + $(this).outerHeight();
+              var viewportTop = $(window).scrollTop();
+              var viewportBottom = viewportTop + $(window).height();
+
+              if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                $(this).addClass("animate");
+              }
+            });
+
+            // Animate membership cards
+            $(".membership_listing").each(function (index) {
+              var $this = $(this);
+              // Make visible immediately
+              $this.css({
+                opacity: "1",
+                transform: "translateY(0)",
+              });
+
+              var elementTop = $this.offset().top;
+              var elementBottom = elementTop + $this.outerHeight();
+              var viewportTop = $(window).scrollTop();
+              var viewportBottom = viewportTop + $(window).height();
+
+              if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                setTimeout(function () {
+                  $this.addClass("animate");
+                }, index * 100);
+              }
+            });
+          }
+
+          // Make all content visible immediately on page load
+          $(window).on("load", function () {
+            $(".section_gap").css({
+              opacity: "1",
+              transform: "translateY(0)",
+            });
+            $(".membership_listing").css({
+              opacity: "1",
+              transform: "translateY(0)",
+            });
+          });
+
+          // Run on scroll (for smooth animations)
+          $(window).on("scroll", animateOnScroll);
+          animateOnScroll(); // Run once on load
+
+          // Typewriter effect for heading
+          function typeWriter(element, text, speed) {
+            var i = 0;
+            element.textContent = "";
+            function type() {
+              if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+              } else {
+                element.style.borderRight = "none";
+              }
+            }
+            type();
+          }
+
+          // Typing animation for Popular Courses section
+          function initPopularCoursesTyping() {
+            var title1 = document.getElementById("typingTitle1");
+            var title2 = document.getElementById("typingTitle2");
+            var subtitle1 = document.getElementById("typingSubtitle1");
+            var subtitle2 = document.getElementById("typingSubtitle2");
+
+            if (title1 && title2) {
+              // Store original text
+              var text1 = "POPULAR";
+              var text2 = "COURSES";
+              var subtext1 = "Most enrolled courses by 10th standard students";
+              var subtext2 =
+                "Join thousands of students who are already learning with us";
+
+              // Clear text initially
+              title1.textContent = "";
+              title2.textContent = "";
+              if (subtitle1) subtitle1.textContent = "";
+              if (subtitle2) subtitle2.textContent = "";
+
+              // Type first title
+              typeText(title1, text1, 120, function () {
+                title1.classList.add("completed");
+                // Add space after first word
+                title1.textContent += " ";
+                // Type second title
+                setTimeout(function () {
+                  typeText(title2, text2, 120, function () {
+                    title2.classList.add("completed");
+                    // Type first subtitle
+                    setTimeout(function () {
+                      if (subtitle1) {
+                        typeText(subtitle1, subtext1, 50, function () {
+                          subtitle1.classList.add("completed");
+                          // Type second subtitle
+                          setTimeout(function () {
+                            if (subtitle2) {
+                              typeText(subtitle2, subtext2, 50, function () {
+                                subtitle2.classList.add("completed");
+                              });
+                            }
+                          }, 300);
+                        });
+                      }
+                    }, 500);
+                  });
+                }, 200);
+              });
+            }
+          }
+
+          function typeText(element, text, speed, callback) {
+            var i = 0;
+            function type() {
+              if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+              } else {
+                if (callback) callback();
+              }
+            }
+            type();
+          }
+
+          // Start typewriter effect after page load
+          $(window).on("load", function () {
+            // Initialize Popular Courses typing animation
+            setTimeout(function () {
+              initPopularCoursesTyping();
+            }, 500);
+
+            var heading = document.getElementById("animated-heading");
+            if (heading) {
+              var text = heading.textContent;
+              heading.textContent = "";
+              heading.style.borderRight = "3px solid #fff";
+              setTimeout(function () {
+                typeWriter(heading, text, 50);
+              }, 500);
+            }
+          });
+        });
+      });
+    </script>
+
+    <!-- Start Style Switcher -->
+
+    <!-- End Style Switcher -->
+
+    <!-- User Authentication and Profile Management -->
+    <script type="text/javascript">
+      $(document).ready(function () {
+        // Check if user data exists and is not expired
+        function checkUserData() {
+          var userDataStr = localStorage.getItem("userData");
+          var isLoggedIn = localStorage.getItem("isLoggedIn");
+
+          if (!userDataStr || !isLoggedIn || isLoggedIn !== "true") {
+            return null;
+          }
+
+          try {
+            var userData = JSON.parse(userDataStr);
+            var expirationDate = new Date(userData.expirationDate);
+            var now = new Date();
+
+            if (now > expirationDate) {
+              // Data expired, clear it
+              localStorage.removeItem("userData");
+              localStorage.removeItem("isLoggedIn");
+              return null;
+            }
+            return userData;
+          } catch (e) {
+            localStorage.removeItem("userData");
+            localStorage.removeItem("isLoggedIn");
+            return null;
+          }
+        }
+
+        // Update UI based on login status
+        function updateUI() {
+          var userData = checkUserData();
+
+          if (userData) {
+            // User is logged in - show profile menu item
+            $("#profileMenuItem").show();
+            $("#loginMenuItem").hide();
+            $("#registerMenuItem").hide();
+          } else {
+            // User is not logged in - show login/register
+            $("#profileMenuItem").hide();
+            $("#loginMenuItem").show();
+            $("#registerMenuItem").show();
+          }
+        }
+
+        // Initialize UI on page load
+        updateUI();
+
+        // Check expiration periodically (every hour)
+        setInterval(function () {
+          var userData = checkUserData();
+          if (!userData) {
+            updateUI();
+          }
+        }, 60 * 60 * 1000); // Check every hour
+
+        // Subscribe Form Handler
+        $("#subscribeform")
+          .off("submit")
+          .on("submit", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            var email = $("#subemail").val().trim();
+
+            // Validation
+            if (!email) {
+              $("#mesaj").html(
+                '<div style="background: #f8d7da; color: #721c24; padding: 12px; border-radius: 5px; margin-bottom: 15px; font-size: 0.9em;"><i class="fa fa-exclamation-circle"></i> Please enter your email address.</div>'
+              );
+              $("#mesaj").slideDown();
+              return false;
+            }
+
+            // Email validation
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+              $("#mesaj").html(
+                '<div style="background: #f8d7da; color: #721c24; padding: 12px; border-radius: 5px; margin-bottom: 15px; font-size: 0.9em;"><i class="fa fa-exclamation-circle"></i> Please enter a valid email address.</div>'
+              );
+              $("#mesaj").slideDown();
+              return false;
+            }
+
+            // Disable submit button
+            $("#subsubmit").prop("disabled", true).val("Subscribing...");
+
+            // Simulate form submission
+            setTimeout(function () {
+              // Show success modal
+              showSubscribeSuccessModal();
+
+              // Reset form
+              $("#subscribeform")[0].reset();
+              $("#mesaj").html("").hide();
+
+              // Re-enable submit button
+              $("#subsubmit").prop("disabled", false).val("Subscribe");
+            }, 1000);
+
+            return false;
+          });
+
+        // Contact Form Handler - Completely Redesigned
+        $("#contactForm")
+          .off("submit")
+          .on("submit", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Get form values
+            var name = $("#contactName").val().trim();
+            var email = $("#contactEmail").val().trim();
+            var comments = $("#contactComments").val().trim();
+
+            // Clear previous error messages
+            $("#contactMessage").html("").hide();
+
+            // Remove error styling from all fields
+            $("#contactName, #contactEmail, #contactComments").css(
+              "border-color",
+              "#e0e0e0"
+            );
+
+            // Validation
+            var hasError = false;
+            if (!name) {
+              showFieldError("contactName", "Please enter your name.");
+              hasError = true;
+            }
+            if (!email) {
+              showFieldError(
+                "contactEmail",
+                "Please enter your email address."
+              );
+              hasError = true;
+            } else {
+              // Email validation
+              var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              if (!emailPattern.test(email)) {
+                showFieldError(
+                  "contactEmail",
+                  "Please enter a valid email address."
+                );
+                hasError = true;
+              }
+            }
+            if (!comments) {
+              showFieldError("contactComments", "Please enter your message.");
+              hasError = true;
+            }
+
+            if (hasError) {
+              return false;
+            }
+
+            // Disable submit button
+            $("#contactSubmit").prop("disabled", true).html("Sending...");
+
+            // Simulate form submission
+            setTimeout(function () {
+              // Show success modal
+              showContactSuccessModal();
+
+              // Reset form
+              $("#contactForm")[0].reset();
+              $("#contactMessage").html("").hide();
+
+              // Re-enable submit button
+              $("#contactSubmit").prop("disabled", false).html("Send Message");
+            }, 1000);
+
+            return false;
+          });
+
+        // Helper function to show field errors
+        function showFieldError(fieldId, message) {
+          $("#" + fieldId).css("border-color", "#e74c3c");
+          $("#contactMessage").html(
+            '<div style="background: #f8d7da; color: #721c24; padding: 12px; border-radius: 5px; font-size: 0.9em;"><i class="fa fa-exclamation-circle"></i> ' +
+              message +
+              "</div>"
+          );
+          $("#contactMessage").slideDown();
+        }
+
+        // Contact Success Modal Functions
+        window.showContactSuccessModal = function () {
+          $("#contactSuccessModal").fadeIn(300);
+        };
+
+        window.closeContactSuccessModal = function () {
+          $("#contactSuccessModal").fadeOut(300);
+        };
+
+        // Close contact modal on overlay click
+        $("#contactSuccessModal").on("click", function (e) {
+          if ($(e.target).hasClass("contact-success-modal-overlay")) {
+            closeContactSuccessModal();
+          }
+        });
+
+        // Subscribe Success Modal Functions
+        window.showSubscribeSuccessModal = function () {
+          $("#subscribeSuccessModal").fadeIn(300);
+        };
+
+        window.closeSubscribeSuccessModal = function () {
+          $("#subscribeSuccessModal").fadeOut(300);
+        };
+
+        // Close modal on overlay click
+        $("#subscribeSuccessModal").on("click", function (e) {
+          if ($(e.target).hasClass("subscribe-success-modal-overlay")) {
+            closeSubscribeSuccessModal();
+          }
+        });
+
+        // Enrollment Functions
+        window.enrollCourse = function (courseName) {
+          // Set the course name in the modal
+          $("#enrolledCourseName").text(courseName);
+          // Show the modal
+          showEnrollSuccessModal();
+        };
+
+        window.showEnrollSuccessModal = function () {
+          $("#enrollSuccessModal").fadeIn(300);
+        };
+
+        window.closeEnrollSuccessModal = function () {
+          $("#enrollSuccessModal").fadeOut(300);
+        };
+
+        // Close enrollment modal on overlay click
+        $("#enrollSuccessModal").on("click", function (e) {
+          if ($(e.target).hasClass("enroll-success-modal-overlay")) {
+            closeEnrollSuccessModal();
+          }
+        });
+      });
+    </script>
+  </body>
 </html>

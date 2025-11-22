@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Metas Page details-->
+    <title>Register - Success Planet</title>
+    <meta
+      name="description"
+      content="Create your account on Success Planet and start your learning journey today!"
+    />
+    <meta name="author" content="Success Planet" />
+    <!-- Mobile Specific Metas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--main style-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="css/skins/default.css"
+      data-name="skins"
+    />
+    <!--google font style-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600italic,600,700italic,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,500,300italic,300,100,500italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- font icon css style-->
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style>
+      body {
+        background: #fafafb;
+        min-height: 100vh;
+        font-family: "Open Sans", sans-serif;
+        padding-top: 80px;
+      }
+      .menu {
+        background: #f5d76e;
+        padding: 0;
+        margin-top: 0;
+      }
+      .navbar-wrapper {
+        background: #f5d76e;
+      }
+      /* Fix header hover/active styling */
+      .navbar.navbar-inverse.navbar-static-top a:hover,
+      .navbar.navbar-inverse.navbar-static-top a:focus,
+      .navbar-inverse .navbar-nav > .active > a,
+      .navbar-inverse .navbar-nav > .active > a:hover,
+      .navbar-inverse .navbar-nav > .active > a:focus {
+        background-color: rgba(0, 0, 0, 0.1) !important;
+        color: #273342 !important;
+        border-bottom: 2px solid #273342 !important;
+      }
+      .navbar.navbar-inverse.navbar-static-top a {
+        color: #273342;
+      }
+      .register-container {
+        padding: 80px 0;
+        background: #fafafb;
+      }
+      .register-box {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 50px 40px;
+        max-width: 500px;
+        margin: 0 auto;
+        border-top: 4px solid #f5d76e;
+      }
+      .register-header {
+        text-align: center;
+        margin-bottom: 35px;
+      }
+      .register-header h2 {
+        color: #273342;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-family: "Montserrat", sans-serif;
+      }
+      .register-header p {
+        color: #8c9099;
+        font-size: 1.1em;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        color: #273342;
+        font-weight: 600;
+        margin-bottom: 8px;
+        display: block;
+        font-family: "Montserrat", sans-serif;
+      }
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 5px;
+        font-size: 1em;
+        transition: all 0.3s;
+        font-family: "Open Sans", sans-serif;
+      }
+      .form-group input:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: #f5d76e;
+        box-shadow: 0 0 0 3px rgba(245, 215, 110, 0.1);
+      }
+      .btn-register {
+        width: 100%;
+        padding: 15px;
+        background: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 10px;
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+      }
+      .btn-register:hover {
+        background: #45a049;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+      }
+      .login-link {
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 25px;
+        border-top: 1px solid #e0e0e0;
+      }
+      .login-link a {
+        color: #f5d76e;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .login-link a:hover {
+        text-decoration: underline;
+        color: #f4c430;
+      }
+      .form-row {
+        display: flex;
+        gap: 15px;
+      }
+      .form-row .form-group {
+        flex: 1;
+      }
+      .password-requirements {
+        font-size: 0.85em;
+        color: #8c9099;
+        margin-top: 5px;
+      }
+      /* Custom Success Modal */
+      .success-modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 99999;
+        animation: fadeIn 0.3s ease;
+      }
+      .success-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        border-radius: 20px;
+        padding: 0;
+        max-width: 500px;
+        width: 90%;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        z-index: 100000;
+        animation: slideDown 0.4s ease;
+        overflow: hidden;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -60%);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+      }
+      .success-modal-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 40px 30px;
+        text-align: center;
+        color: white;
+        position: relative;
+      }
+      .success-icon {
+        width: 100px;
+        height: 100px;
+        background: white;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: scaleIn 0.5s ease 0.2s both;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+      .success-icon i {
+        font-size: 50px;
+        color: #4caf50;
+        animation: checkmark 0.6s ease 0.4s both;
+      }
+      @keyframes scaleIn {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+      @keyframes checkmark {
+        0% {
+          transform: scale(0) rotate(45deg);
+        }
+        50% {
+          transform: scale(1.2) rotate(45deg);
+        }
+        100% {
+          transform: scale(1) rotate(0deg);
+        }
+      }
+      .success-modal-header h2 {
+        margin: 0;
+        font-size: 2em;
+        font-weight: bold;
+        color: white;
+      }
+      .success-modal-header p {
+        margin: 10px 0 0;
+        font-size: 1.1em;
+        opacity: 0.9;
+      }
+      .success-modal-body {
+        padding: 40px 30px;
+        text-align: center;
+      }
+      .success-modal-body p {
+        color: #666;
+        font-size: 1.1em;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+      .success-modal-btn {
+        background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+        color: white;
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-size: 1.1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .success-modal-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
+      }
+      .success-modal-btn:active {
+        transform: translateY(0);
+      }
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #f5d76e;
+        position: absolute;
+        animation: confettiFall 3s ease infinite;
+      }
+      @keyframes confettiFall {
+        0% {
+          transform: translateY(-100px) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(500px) rotate(720deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--wrapper start-->
+    <div class="wrapper" id="wrapper">
+      <!-- Preloader removed for faster loading -->
+
+      <!--Header start -->
+      <header>
+        <!--menu start-->
+        <div class="menu">
+          <div class="navbar-wrapper">
+            <div class="container">
+              <!-- Navbar start -->
+              <div class="navwrapper">
+                <div class="navbar navbar-inverse navbar-static-top">
+                  <div class="container">
+                    <div class="logo">
+                      <a href="index.html"
+                        ><span class="img-circle">S</span>uccess Planet</a
+                      >
+                    </div>
+                    <nav class="navArea">
+                      <div class="navbar-header">
+                        <button
+                          type="button"
+                          class="navbar-toggle"
+                          data-toggle="collapse"
+                          data-target=".navbar-collapse"
+                        >
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                      </div>
+                      <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav" id="navigation">
+                          <li class="menuItem">
+                            <a href="index.html">Home</a>
+                          </li>
+                          <li class="menuItem">
+                            <a href="index.html#course">Courses</a>
+                          </li>
+                          <li class="menuItem">
+                            <a href="index.html#testimonial">Testimonial</a>
+                          </li>
+                          <li class="menuItem">
+                            <a href="login_new.html">Login</a>
+                          </li>
+                          <li class="menuItem">
+                            <a href="register.html">Register</a>
+                          </li>
+                          <li class="menuItem">
+                            <a href="index.html#contact">Contact</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              <!-- Navbar end -->
+            </div>
+          </div>
+        </div>
+        <!--menu end-->
+
+        <!--Register form -->
+        <div class="register-container">
+          <div class="container">
+            <div class="register-box">
+              <div class="register-header">
+                <h2>Create Account</h2>
+                <p>
+                  Join Success Planet and start your learning journey today!
+                </p>
+              </div>
+
+              <form id="registerForm" method="POST" action="#">
+                <div class="form-group">
+                  <label for="fullName"
+                    >Full Name <span style="color: red">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Enter your full name"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email"
+                    >Email Address <span style="color: red">*</span></label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="class"
+                    >Class <span style="color: red">*</span></label
+                  >
+                  <select id="class" name="class" required>
+                    <option value="">Select Class</option>
+                    <option value="7">7th Standard</option>
+                    <option value="8">8th Standard</option>
+                    <option value="9">9th Standard</option>
+                    <option value="10">10th Standard</option>
+                    <option value="11">11th Standard</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="password"
+                    >Password <span style="color: red">*</span></label
+                  >
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a strong password"
+                    required
+                    minlength="8"
+                  />
+                  <div class="password-requirements">
+                    Password must be at least 8 characters long
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="confirmPassword"
+                    >Confirm Password <span style="color: red">*</span></label
+                  >
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="Re-enter your password"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="terms"
+                      required
+                      style="width: auto; margin-right: 8px"
+                    />
+                    I agree to the
+                    <a href="#" style="color: #f5d76e">Terms & Conditions</a>
+                    and <a href="#" style="color: #f5d76e">Privacy Policy</a>
+                  </label>
+                </div>
+
+                <button type="submit" class="btn-register">
+                  <i class="fa fa-user-plus"></i> Create Account
+                </button>
+
+                <div class="login-link">
+                  <p>
+                    Already have an account?
+                    <a href="login_new.html">Login here</a>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--/Register form -->
+      </header>
+      <!--Header end -->
+
+      <!-- Success Modal -->
+      <div class="success-modal-overlay" id="successModal">
+        <div class="success-modal">
+          <div class="success-modal-header">
+            <div class="success-icon">
+              <i class="fa fa-check"></i>
+            </div>
+            <h2>Registration Successful!</h2>
+            <p>Welcome to Success Planet</p>
+          </div>
+          <div class="success-modal-body">
+            <p>
+              Your account has been created successfully. You will be redirected
+              to the home page shortly.
+            </p>
+            <button class="success-modal-btn" onclick="closeSuccessModal()">
+              Continue to Home <i class="fa fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!--Footer start-->
+      <footer
+        class="footer"
+        style="
+          background: #2f4e71;
+          color: white;
+          margin-top: 60px;
+          padding: 30px 0;
+        "
+      >
+        <div class="container">
+          <div class="row">
+            <div class="pull-left">
+              <p style="color: white; margin: 0">
+                &copy; 2024 Success Planet. All Rights Reserved
+              </p>
+            </div>
+            <div class="pull-right">
+              <a
+                href="index.html"
+                style="color: #f5d76e; text-decoration: none"
+              >
+                <i class="fa fa-home"></i> Back to Home
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!--Footer end -->
+    </div>
+    <!--wrapper end-->
+
+    <!--modernizr js-->
+    <script type="text/javascript" src="js/modernizr.custom.26633.js"></script>
+    <!--jquary min js-->
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!--for placeholder jquery-->
+    <script type="text/javascript" src="js/jquery.placeholder.js"></script>
+
+    <!-- Registration form validation -->
+    <script type="text/javascript">
+      function showSuccessModal() {
+        $("#successModal").fadeIn(300);
+        // Create confetti effect
+        createConfetti();
+        // Auto redirect after 5 seconds
+        setTimeout(function () {
+          closeSuccessModal();
+        }, 5000);
+      }
+
+      function closeSuccessModal() {
+        $("#successModal").fadeOut(300, function () {
+          window.location.href = "index.html";
+        });
+      }
+
+      function createConfetti() {
+        var colors = ["#f5d76e", "#4CAF50", "#667eea", "#764ba2", "#FF9800"];
+        for (var i = 0; i < 30; i++) {
+          setTimeout(function () {
+            var confetti = $('<div class="confetti"></div>');
+            confetti.css({
+              left: Math.random() * 100 + "%",
+              background: colors[Math.floor(Math.random() * colors.length)],
+              "animation-delay": Math.random() * 2 + "s",
+              "animation-duration": Math.random() * 2 + 2 + "s",
+            });
+            $(".success-modal-header").append(confetti);
+            setTimeout(function () {
+              confetti.remove();
+            }, 4000);
+          }, i * 100);
+        }
+      }
+
+      $(document).ready(function () {
+        // Close modal on overlay click
+        $("#successModal").on("click", function (e) {
+          if ($(e.target).hasClass("success-modal-overlay")) {
+            closeSuccessModal();
+          }
+        });
+
+        $("#registerForm").on("submit", function (e) {
+          e.preventDefault();
+          var password = $("#password").val();
+          var confirmPassword = $("#confirmPassword").val();
+
+          if (password !== confirmPassword) {
+            alert("Passwords do not match! Please try again.");
+            $("#confirmPassword").focus();
+            return false;
+          }
+
+          if (password.length < 8) {
+            alert("Password must be at least 8 characters long!");
+            $("#password").focus();
+            return false;
+          }
+
+          // Save user data to localStorage with 3-day expiration
+          var userData = {
+            fullName: $("#fullName").val(),
+            email: $("#email").val(),
+            class: $("#class").val(),
+            password: password, // In production, this should be hashed
+            registrationDate: new Date().toISOString(),
+            expirationDate: new Date(
+              Date.now() + 3 * 24 * 60 * 60 * 1000
+            ).toISOString(), // 3 days from now
+          };
+
+          localStorage.setItem("userData", JSON.stringify(userData));
+          localStorage.setItem("isLoggedIn", "true");
+
+          // Show impressive success modal
+          showSuccessModal();
+
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>

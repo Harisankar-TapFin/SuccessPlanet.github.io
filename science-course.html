@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Science Course - Success Planet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/skins/default.css" data-name="skins" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600italic,600,700italic,700" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style>
+      body {
+        font-family: 'Open Sans', sans-serif;
+        background: #f5f5f5;
+      }
+      .course-header {
+        background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+      }
+      .course-header h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      .course-content {
+        padding: 50px 0;
+      }
+      .section-card {
+        background: white;
+        border-radius: 10px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+      .section-card h2 {
+        color: #FF9800;
+        margin-bottom: 20px;
+        font-size: 2em;
+        border-bottom: 3px solid #FF9800;
+        padding-bottom: 10px;
+      }
+      .resource-link {
+        display: block;
+        padding: 15px;
+        margin-bottom: 10px;
+        background: #f8f9fa;
+        border-left: 4px solid #FF9800;
+        text-decoration: none;
+        color: #333;
+        border-radius: 5px;
+        transition: all 0.3s;
+      }
+      .resource-link:hover {
+        background: #fff3e0;
+        transform: translateX(5px);
+        text-decoration: none;
+        color: #FF9800;
+      }
+      .resource-link i {
+        margin-right: 10px;
+        color: #FF9800;
+      }
+      .mcq-question {
+        background: #f8f9fa;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border-left: 4px solid #667eea;
+      }
+      .mcq-question h3 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+      }
+      .mcq-options {
+        list-style: none;
+        padding: 0;
+      }
+      .mcq-options li {
+        padding: 10px;
+        margin-bottom: 8px;
+        background: white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .mcq-options li:hover {
+        background: #fff3e0;
+      }
+      .mcq-answer {
+        margin-top: 15px;
+        padding: 15px;
+        background: #fff3e0;
+        border-radius: 5px;
+        display: none;
+      }
+      .mcq-answer.show {
+        display: block;
+      }
+      .mcq-answer strong {
+        color: #FF9800;
+      }
+      .view-answer-btn {
+        background: #667eea;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: all 0.3s;
+      }
+      .view-answer-btn:hover {
+        background: #5568d3;
+      }
+      .navbar-wrapper {
+        background: #f5d76e;
+      }
+      .navbar.navbar-inverse.navbar-static-top a {
+        color: #273342;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="menu">
+        <div class="navbar-wrapper">
+          <div class="container">
+            <div class="navwrapper">
+              <div class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+                  <div class="logo">
+                    <a href="index.html"><span class="img-circle">S</span>uccess Planet</a>
+                  </div>
+                  <nav class="navArea">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                      <ul class="nav navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#course">Courses</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                      </ul>
+                    </div>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Course Header -->
+    <div class="course-header">
+      <div class="container">
+        <h1><i class="fa fa-flask"></i> Science Course</h1>
+        <p style="font-size: 1.6em; opacity: 0.9;">Master Physics, Chemistry & Biology Fundamentals</p>
+      </div>
+    </div>
+
+    <!-- Course Content -->
+    <div class="course-content">
+      <div class="container">
+        <!-- Learning Resources Section -->
+        <div class="section-card">
+          <h2><i class="fa fa-book"></i> Learning Resources</h2>
+          <a href="https://www.khanacademy.org/science" target="_blank" class="resource-link">
+            <i class="fa fa-external-link"></i> Khan Academy Science - Free comprehensive science courses
+          </a>
+          <a href="https://www.physicsclassroom.com/" target="_blank" class="resource-link">
+            <i class="fa fa-external-link"></i> Physics Classroom - Interactive physics tutorials and resources
+          </a>
+          <a href="https://www.chemguide.co.uk/" target="_blank" class="resource-link">
+            <i class="fa fa-external-link"></i> Chemguide - Chemistry learning resources and guides
+          </a>
+          <a href="https://www.biologyonline.com/" target="_blank" class="resource-link">
+            <i class="fa fa-external-link"></i> Biology Online - Biology dictionary and learning materials
+          </a>
+          <a href="https://www.nationalgeographic.com/science/" target="_blank" class="resource-link">
+            <i class="fa fa-external-link"></i> National Geographic Science - Science articles and resources
+          </a>
+          <a href="https://www.youtube.com/results?search_query=science+tutorial+10th+grade" target="_blank" class="resource-link">
+            <i class="fa fa-youtube-play"></i> YouTube Science Tutorials - Video learning resources for Physics, Chemistry, and Biology
+          </a>
+        </div>
+
+        <!-- MCQ Questions Section -->
+        <div class="section-card">
+          <h2><i class="fa fa-question-circle"></i> Practice MCQ Questions</h2>
+          
+          <!-- Question 1 -->
+          <div class="mcq-question">
+            <h3>1. What is the SI unit of force?</h3>
+            <ul class="mcq-options">
+              <li>A) Joule</li>
+              <li>B) Newton</li>
+              <li>C) Watt</li>
+              <li>D) Pascal</li>
+            </ul>
+            <button class="view-answer-btn" onclick="toggleAnswer('answer1')">View Answer</button>
+            <div class="mcq-answer" id="answer1">
+              <strong>Correct Answer: B) Newton</strong><br>
+              Force is measured in Newtons (N) in the SI system. One Newton is defined as the force required to accelerate a mass of one kilogram by one meter per second squared.
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="mcq-question">
+            <h3>2. What is the chemical formula for water?</h3>
+            <ul class="mcq-options">
+              <li>A) H2O2</li>
+              <li>B) CO2</li>
+              <li>C) H2O</li>
+              <li>D) NaCl</li>
+            </ul>
+            <button class="view-answer-btn" onclick="toggleAnswer('answer2')">View Answer</button>
+            <div class="mcq-answer" id="answer2">
+              <strong>Correct Answer: C) H2O</strong><br>
+              Water is composed of two hydrogen atoms and one oxygen atom, giving it the chemical formula H2O. H2O2 is hydrogen peroxide, CO2 is carbon dioxide, and NaCl is sodium chloride (salt).
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="mcq-question">
+            <h3>3. Which organelle is known as the "powerhouse of the cell"?</h3>
+            <ul class="mcq-options">
+              <li>A) Nucleus</li>
+              <li>B) Mitochondria</li>
+              <li>C) Ribosome</li>
+              <li>D) Golgi apparatus</li>
+            </ul>
+            <button class="view-answer-btn" onclick="toggleAnswer('answer3')">View Answer</button>
+            <div class="mcq-answer" id="answer3">
+              <strong>Correct Answer: B) Mitochondria</strong><br>
+              Mitochondria are known as the powerhouse of the cell because they produce ATP (adenosine triphosphate), which is the energy currency of the cell through cellular respiration.
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="mcq-question">
+            <h3>4. What is the speed of light in vacuum?</h3>
+            <ul class="mcq-options">
+              <li>A) 3 × 10^8 m/s</li>
+              <li>B) 3 × 10^6 m/s</li>
+              <li>C) 3 × 10^10 m/s</li>
+              <li>D) 3 × 10^5 m/s</li>
+            </ul>
+            <button class="view-answer-btn" onclick="toggleAnswer('answer4')">View Answer</button>
+            <div class="mcq-answer" id="answer4">
+              <strong>Correct Answer: A) 3 × 10^8 m/s</strong><br>
+              The speed of light in vacuum is approximately 299,792,458 meters per second, which is commonly rounded to 3 × 10^8 m/s. This is a fundamental constant in physics.
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="mcq-question">
+            <h3>5. What is the pH value of a neutral solution?</h3>
+            <ul class="mcq-options">
+              <li>A) 0</li>
+              <li>B) 7</li>
+              <li>C) 14</li>
+              <li>D) 10</li>
+            </ul>
+            <button class="view-answer-btn" onclick="toggleAnswer('answer5')">View Answer</button>
+            <div class="mcq-answer" id="answer5">
+              <strong>Correct Answer: B) 7</strong><br>
+              A neutral solution has a pH of 7. Solutions with pH less than 7 are acidic, and solutions with pH greater than 7 are basic (alkaline). Pure water at 25°C has a pH of 7.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" style="background: #2f4e71; color: white; padding: 30px 0; margin-top: 50px;">
+      <div class="container">
+        <div class="row">
+          <div class="pull-left">
+            <p style="color: white; margin: 0;">&copy; 2024 Success Planet. All Rights Reserved</p>
+          </div>
+          <div class="pull-right">
+            <a href="index.html" style="color: #f5d76e; text-decoration: none;">
+              <i class="fa fa-home"></i> Back to Home
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      function toggleAnswer(answerId) {
+        var answer = document.getElementById(answerId);
+        var button = event.target;
+        
+        if (answer.classList.contains('show')) {
+          answer.classList.remove('show');
+          button.textContent = 'View Answer';
+        } else {
+          answer.classList.add('show');
+          button.textContent = 'Hide Answer';
+        }
+      }
+    </script>
+  </body>
+</html>
+

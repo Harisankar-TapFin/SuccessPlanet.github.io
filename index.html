@@ -1538,7 +1538,7 @@
                   >Enroll Now</a
                 ><br />
                 <a
-                  href="html-course.html"
+                  href="course1.html"
                   style="
                     background: #667eea;
                     color: white;
@@ -1598,7 +1598,7 @@
                   >Enroll Now</a
                 ><br />
                 <a
-                  href="css-course.html"
+                  href="course2.html"
                   style="
                     background: #667eea;
                     color: white;
@@ -1658,7 +1658,7 @@
                   >Enroll Now</a
                 ><br />
                 <a
-                  href="english-course.html"
+                  href="course3.html"
                   style="
                     background: #667eea;
                     color: white;
@@ -1767,61 +1767,7 @@
                       text-align: center;
                     "
                   >
-                    <div
-                      class="typing-container"
-                      style="
-                        .typing-container {
-                          font-family: monospace; /* Or any desired font */
-                          font-size: 2em;
-                          white-space: nowrap; /* Prevent text from wrapping */
-                          overflow: hidden; /* Hide text beyond the current width */
-                          border-right: 0.15em solid orange; /* Cursor effect */
-                          animation: blink-caret 0.75s step-end infinite; /* Blinking cursor */
-                        }
-
-                        .cursor {
-                          animation: blink-caret 0.75s step-end infinite;
-                        }
-
-                        @keyframes blink-caret {
-                          from,
-                          to {
-                            border-color: transparent;
-                          }
-                          50% {
-                            border-color: orange;
-                          } /* Cursor color */
-                        }
-                      "
-                    >
-                      <div
-                        id="typing-text"
-                        style="
-                          .typing-container {
-                            font-family: monospace; /* Or any desired font */
-                            font-size: 2em;
-                            white-space: nowrap; /* Prevent text from wrapping */
-                            overflow: hidden; /* Hide text beyond the current width */
-                            border-right: 0.15em solid orange; /* Cursor effect */
-                            animation: blink-caret 0.75s step-end infinite; /* Blinking cursor */
-                          }
-
-                          .cursor {
-                            animation: blink-caret 0.75s step-end infinite;
-                          }
-
-                          @keyframes blink-caret {
-                            from,
-                            to {
-                              border-color: transparent;
-                            }
-                            50% {
-                              border-color: orange;
-                            } /* Cursor color */
-                          }
-                        "
-                      ></div>
-                    </div>
+                    Biswajeet Chakra (8A)
                   </h3>
                   <p
                     style="
@@ -1851,7 +1797,7 @@
                         font-weight: bold;
                         font-size: 0.9em;
                       "
-                      >Biswajeet Chakra 8A</span
+                      >95% Score</span
                     >
                   </div>
                 </div>
@@ -1921,7 +1867,7 @@
                       text-align: center;
                     "
                   >
-                    <div id="typing-text"></div>
+                    Arnav Kumar (10A)
                   </h3>
                   <p
                     style="
@@ -1951,7 +1897,7 @@
                         font-weight: bold;
                         font-size: 0.9em;
                       "
-                      >Arnav Kumar (8A)</span
+                      >92% Score</span
                     >
                   </div>
                 </div>
@@ -2957,7 +2903,6 @@
     <script></script>
 
     <!--for coundown jquary-->
-
     <script type="text/javascript" src="js/jquery.countTo.js"></script>
     <script type="text/javascript">
       jQuery(function ($) {
@@ -2978,34 +2923,7 @@
             itemHover: "active",
             topMargin: "auto",
           });
-          const typingTextElement = document.getElementById("typing-text");
-          const lines = ["Frontend Developer.", "Founder.", "Designer."];
-          let lineIndex = 0;
-          let charIndex = 0;
-          const typingSpeed = 75; // Milliseconds per character
-          const lineDelay = 1000; // Milliseconds between lines
 
-          function typeWriter() {
-            if (lineIndex < lines.length) {
-              if (charIndex < lines[lineIndex].length) {
-                typingTextElement.innerHTML +=
-                  lines[lineIndex].charAt(charIndex);
-                charIndex++;
-                setTimeout(typeWriter, typingSpeed);
-              } else {
-                // Line finished, add a line break and move to the next line
-                typingTextElement.innerHTML += "<br>";
-                lineIndex++;
-                charIndex = 0;
-                setTimeout(typeWriter, lineDelay);
-              }
-            } else {
-            }
-          }
-          typeWriter();
-
-          // Start the animation when the page loads
-          window.onload = typeWriter;
           // run rlightbox
           $(".lb").rlightbox();
           $(".lb_title-overwritten").rlightbox({ overwriteTitle: true });

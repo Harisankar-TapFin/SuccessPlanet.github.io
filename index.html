@@ -562,6 +562,93 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
     }
+    
+    /* Popular Courses Typing Animation */
+    .typing-text {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 100%;
+      position: relative;
+    }
+    
+    .typing-text::after {
+      content: '|';
+      color: #f5d76e;
+      animation: blink-cursor 0.75s step-end infinite;
+      margin-left: 2px;
+    }
+    
+    .typing-text.completed::after {
+      display: none;
+    }
+    
+    .typing-text-subtitle {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 100%;
+      position: relative;
+    }
+    
+    .typing-text-subtitle::after {
+      content: '|';
+      color: #f5d76e;
+      animation: blink-cursor 0.75s step-end infinite;
+      margin-left: 2px;
+    }
+    
+    .typing-text-subtitle.completed::after {
+      display: none;
+    }
+    
+    @keyframes blink-cursor {
+      from, to {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+    
+    /* Popular Courses Section Enhanced Styling */
+    #courses .heading {
+      position: relative;
+      padding-left: 20px;
+    }
+    
+    #courses .heading::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: #f5d76e;
+      border-radius: 3px;
+    }
+    
+    #courses .heading h1 {
+      font-size: 3.5em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      line-height: 1.2;
+    }
+    
+    #courses .heading h1 span {
+      display: inline-block;
+      margin-right: 15px;
+    }
+    
+    #courses .heading p {
+      font-size: 1.3em;
+      line-height: 1.8;
+      opacity: 0.95;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
   </style>
 
   <!-- font icon css style-->
@@ -665,27 +752,18 @@
                 </p>
 
                 <!-- Key Features Stats -->
-                <div class="row" style="margin-bottom: 40px;">
-                  <div class="col-xs-12 col-sm-4" style="margin-bottom: 20px;">
-                    <div
-                      style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
-                      <div style="font-size: 2.5em; font-weight: bold; color: #f5d76e; margin-bottom: 5px;">3</div>
-                      <div style="font-size: 0.9em; color: #fff;">Courses</div>
-                    </div>
+                <div style="margin-bottom: 40px; display: flex; justify-content: flex-start; align-items: center; gap: 30px; flex-wrap: nowrap;">
+                  <div
+                    style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 20px 30px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.2); white-space: nowrap;">
+                    <div style="font-size: 1.1em; font-weight: 600; color: #f5d76e; letter-spacing: 2px; text-transform: uppercase;">Success</div>
                   </div>
-                  <div class="col-xs-12 col-sm-4" style="margin-bottom: 20px;">
-                    <div
-                      style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
-                      <div style="font-size: 2.5em; font-weight: bold; color: #f5d76e; margin-bottom: 5px;">10K+</div>
-                      <div style="font-size: 0.9em; color: #fff;">Students</div>
-                    </div>
+                  <div
+                    style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 20px 30px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.2); white-space: nowrap;">
+                    <div style="font-size: 1.1em; font-weight: 600; color: #f5d76e; letter-spacing: 2px; text-transform: uppercase;">Execute</div>
                   </div>
-                  <div class="col-xs-12 col-sm-4" style="margin-bottom: 20px;">
-                    <div
-                      style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
-                      <div style="font-size: 2.5em; font-weight: bold; color: #f5d76e; margin-bottom: 5px;">100+</div>
-                      <div style="font-size: 0.9em; color: #fff;">Study Materials</div>
-                    </div>
+                  <div
+                    style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 20px 30px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.2); white-space: nowrap;">
+                    <div style="font-size: 1.1em; font-weight: 600; color: #f5d76e; letter-spacing: 2px; text-transform: uppercase;">Achieve</div>
                   </div>
                 </div>
 
@@ -923,10 +1001,12 @@
       style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
       <div class="container">
         <div class="heading" style="color: white;">
-          <h1 style="color: white;"><span>Popular</span>Courses</h1>
+          <h1 style="color: white;">
+            <span class="typing-text" id="typingTitle1">POPULAR</span> <span class="typing-text" id="typingTitle2">COURSES</span>
+          </h1>
           <p style="color: rgba(255,255,255,0.9);">
-            Most enrolled courses by 10th standard students<br />
-            Join thousands of students who are already learning with us
+            <span class="typing-text-subtitle" id="typingSubtitle1">Most enrolled courses by 10th standard students</span><br />
+            <span class="typing-text-subtitle" id="typingSubtitle2">Join thousands of students who are already learning with us</span>
           </p>
         </div>
         <div class="row" style="margin-top: 50px;">
@@ -938,10 +1018,14 @@
               <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">Complete HTML5 course with 120+ video
                 lessons</p>
               <a href="javascript:void(0);" onclick="enrollCourse('HTML')" class="enroll-btn"
-                style="background: #4CAF50; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: all 0.3s;" 
+                style="background: #4CAF50; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: all 0.3s; margin-bottom: 10px;" 
                 onmouseover="this.style.background='#45a049'; this.style.transform='translateY(-2px)'" 
                 onmouseout="this.style.background='#4CAF50'; this.style.transform='translateY(0)'">Enroll
-                Now</a>
+                Now</a><br>
+              <a href="html-course.html" 
+                style="background: #667eea; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: all 0.3s; margin-top: 10px;" 
+                onmouseover="this.style.background='#5568d3'; this.style.transform='translateY(-2px)'" 
+                onmouseout="this.style.background='#667eea'; this.style.transform='translateY(0)'">Access Course</a>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
@@ -952,10 +1036,14 @@
               <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">Master CSS3, Flexbox & Grid in one course
               </p>
               <a href="javascript:void(0);" onclick="enrollCourse('CSS')" class="enroll-btn"
-                style="background: #2196F3; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: all 0.3s;" 
+                style="background: #2196F3; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: all 0.3s; margin-bottom: 10px;" 
                 onmouseover="this.style.background='#1976D2'; this.style.transform='translateY(-2px)'" 
                 onmouseout="this.style.background='#2196F3'; this.style.transform='translateY(0)'">Enroll
-                Now</a>
+                Now</a><br>
+              <a href="css-course.html" 
+                style="background: #667eea; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: all 0.3s; margin-top: 10px;" 
+                onmouseover="this.style.background='#5568d3'; this.style.transform='translateY(-2px)'" 
+                onmouseout="this.style.background='#667eea'; this.style.transform='translateY(0)'">Access Course</a>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
@@ -966,10 +1054,14 @@
               <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">Grammar, Vocabulary & Communication Skills
               </p>
               <a href="javascript:void(0);" onclick="enrollCourse('ENGLISH')" class="enroll-btn"
-                style="background: #FF9800; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: all 0.3s;" 
+                style="background: #FF9800; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: all 0.3s; margin-bottom: 10px;" 
                 onmouseover="this.style.background='#F57C00'; this.style.transform='translateY(-2px)'" 
                 onmouseout="this.style.background='#FF9800'; this.style.transform='translateY(0)'">Enroll
-                Now</a>
+                Now</a><br>
+              <a href="english-course.html" 
+                style="background: #667eea; color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; display: inline-block; cursor: pointer; transition: all 0.3s; margin-top: 10px;" 
+                onmouseover="this.style.background='#5568d3'; this.style.transform='translateY(-2px)'" 
+                onmouseout="this.style.background='#667eea'; this.style.transform='translateY(0)'">Access Course</a>
             </div>
           </div>
         </div>
@@ -1803,8 +1895,78 @@
           type();
         }
 
+        // Typing animation for Popular Courses section
+        function initPopularCoursesTyping() {
+          var title1 = document.getElementById('typingTitle1');
+          var title2 = document.getElementById('typingTitle2');
+          var subtitle1 = document.getElementById('typingSubtitle1');
+          var subtitle2 = document.getElementById('typingSubtitle2');
+          
+          if (title1 && title2) {
+            // Store original text
+            var text1 = 'POPULAR';
+            var text2 = 'COURSES';
+            var subtext1 = 'Most enrolled courses by 10th standard students';
+            var subtext2 = 'Join thousands of students who are already learning with us';
+            
+            // Clear text initially
+            title1.textContent = '';
+            title2.textContent = '';
+            if (subtitle1) subtitle1.textContent = '';
+            if (subtitle2) subtitle2.textContent = '';
+            
+            // Type first title
+            typeText(title1, text1, 120, function() {
+              title1.classList.add('completed');
+              // Add space after first word
+              title1.textContent += ' ';
+              // Type second title
+              setTimeout(function() {
+                typeText(title2, text2, 120, function() {
+                  title2.classList.add('completed');
+                  // Type first subtitle
+                  setTimeout(function() {
+                    if (subtitle1) {
+                      typeText(subtitle1, subtext1, 50, function() {
+                        subtitle1.classList.add('completed');
+                        // Type second subtitle
+                        setTimeout(function() {
+                          if (subtitle2) {
+                            typeText(subtitle2, subtext2, 50, function() {
+                              subtitle2.classList.add('completed');
+                            });
+                          }
+                        }, 300);
+                      });
+                    }
+                  }, 500);
+                });
+              }, 200);
+            });
+          }
+        }
+        
+        function typeText(element, text, speed, callback) {
+          var i = 0;
+          function type() {
+            if (i < text.length) {
+              element.textContent += text.charAt(i);
+              i++;
+              setTimeout(type, speed);
+            } else {
+              if (callback) callback();
+            }
+          }
+          type();
+        }
+        
         // Start typewriter effect after page load
         $(window).on('load', function () {
+          // Initialize Popular Courses typing animation
+          setTimeout(function() {
+            initPopularCoursesTyping();
+          }, 500);
+          
           var heading = document.getElementById('animated-heading');
           if (heading) {
             var text = heading.textContent;

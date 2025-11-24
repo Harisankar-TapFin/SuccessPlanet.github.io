@@ -36,7 +36,10 @@ The following table details the conditions that trigger specific insights and re
 | `DistFleetDiff > 10%` AND `|RevFleetDiff| < 10%` | Distance travelled `X%` higher than fleet avg but revenue comparable – low efficiency. | Medium | High distance with no proportional revenue increase. | Check route profitability and operational cost per km. | carCrash |
 | **Low Severity (Neutral/Positive)** | | | | | |
 | `|ConnIndustryDiff| <= 5%` AND `Connectivity >= 80%` | Connectivity uptime (`X%`) close to industry avg (`Y%`). | Low | Connectivity uptime within ±5% of industry avg. | Maintain current IoT uptime; ensure stable data transmission. | wifi |
-| `UtilFleetDiff > 5%` | Asset performing above fleet average in utilization (`X%` vs `Y%`). | Low | Utilization > Fleet Avg by >5%. Positive performance indicator. | Identify as best-practice asset; replicate operational model across fleet. | carCrash |
+| `UtilFleetDiff > 5%` | Asset performing above fleet average in utilization (`X%` vs `Y%`). | Low | Utilization > Fleet Avg by >5%. Positive performance indicator. | Identify as best-practice asset; replicate operating patterns across fleet. | carHealthy |
+| `RevIndustryDiff > 10%` | Revenue `X%` higher than industry benchmark. | Low | Revenue > Industry Avg by >10%. Top performer. | Mark as top performer; continue current driver and route strategy. | indianRupee |
+| **No Insights Generated** | | | | | |
+| `insights.length === 0` | Asset performance is within normal operating parameters compared to fleet and industry benchmarks. | Low | All metrics within acceptable deviation thresholds (<5%). | Continue monitoring asset performance metrics for any emerging trends. | carHealthy |
 
 ## Definitions
 

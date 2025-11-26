@@ -1,640 +1,829 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>LocalStorage Admin Panel (SPA)</title>
-    <style>
-      :root {
-        --bg: #f6f7fb;
-        --card: #fff;
-        --muted: #6b7280;
-        --accent: #6366f1;
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Panel - Success Planet</title>
+  <!--main style-->
+  <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/skins/default.css" data-name="skins" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --card: #fff;
+      --muted: #6b7280;
+      --accent: #f5d76e;
+      /* Success Planet Yellow */
+      --accent-dark: #f4c430;
+      --primary: #2f4e71;
+      /* Success Planet Blue */
+    }
+
+    body {
+      background: var(--bg);
+      font-family: "Open Sans", sans-serif;
+      min-height: 100vh;
+      padding-top: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(8, 15, 30, 0.06);
+      padding: 24px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .btn-custom {
+      background: var(--accent);
+      color: #273342;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn-custom:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary-custom {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary-custom:hover {
+      background: #1a3c5e;
+      color: white;
+    }
+
+    .btn-danger-custom {
+      background: #ff6b6b;
+      color: white;
+    }
+
+    .btn-danger-custom:hover {
+      background: #fa5252;
+      color: white;
+    }
+
+    .form-control {
+      border-radius: 5px;
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(245, 215, 110, 0.1);
+    }
+
+    .table-custom th {
+      background: var(--primary);
+      color: white;
+      border: none;
+    }
+
+    .table-custom td {
+      vertical-align: middle;
+    }
+
+    .badge-verified {
+      background: #4caf50;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8em;
+    }
+
+    .badge-pending {
+      background: #ff9800;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8em;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-content-custom {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 500px;
+      transform: scale(0.9);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .modal-overlay.active .modal-content-custom {
+      transform: scale(1);
+    }
+
+    /* Tooltip Styles */
+    .action-btn {
+      position: relative;
+      margin: 0 2px;
+    }
+
+    .action-btn:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      margin-bottom: 5px;
+      z-index: 10;
+      opacity: 0;
+      animation: tooltipFade 0.2s forwards;
+    }
+
+    @keyframes tooltipFade {
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-5px);
       }
-      .dark {
-        --bg: #0b1220;
-        --card: #0f1724;
-        --muted: #9ca3af;
-        --accent: #7c3aed;
-        color: #e6eef8;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        font-family: Inter, Segoe UI, system-ui, Roboto, Arial;
-        background: var(--bg);
-        color: #0f1724;
-        transition: background 0.25s, color 0.25s;
-      }
-      .container {
-        max-width: 1000px;
-        margin: 28px auto;
-        padding: 18px;
-      }
-      .card {
-        background: var(--card);
-        border-radius: 12px;
-        box-shadow: 0 6px 20px rgba(8, 15, 30, 0.06);
-        padding: 18px;
-      }
-      header {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 18px;
-      }
-      h1 {
-        font-size: 20px;
-        margin: 0;
-      }
-      .nav {
-        display: flex;
-        gap: 8px;
-      }
-      .btn {
-        background: var(--accent);
-        color: white;
-        padding: 8px 12px;
-        border-radius: 8px;
-        border: 0;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.18);
-      }
-      .btn.ghost {
-        background: transparent;
-        color: var(--accent);
-        box-shadow: none;
-        border: 1px solid rgba(99, 102, 241, 0.12);
-      }
-      input,
-      select,
-      textarea {
-        padding: 10px;
-        border-radius: 8px;
-        border: 1px solid #e6e9f2;
-        width: 100%;
-        outline: none;
-      }
-      .flex {
-        display: flex;
-        gap: 12px;
-      }
-      .col {
-        flex: 1;
-      }
-      .small {
-        font-size: 13px;
-        color: var(--muted);
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 12px;
-      }
-      th,
-      td {
-        padding: 10px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-        text-align: left;
-      }
-      th {
-        font-weight: 600;
-        font-size: 13px;
-      }
-      .actions button {
-        margin-right: 6px;
-      }
-      .fade {
-        transition: all 0.22s ease;
-      }
-      /* animated entrance */
-      .card.animate {
-        transform: translateY(6px);
+    }
+
+    /* Success Modal Specifics */
+    .success-icon-wrapper {
+      width: 80px;
+      height: 80px;
+      background: #e8f5e9;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .success-icon-wrapper i {
+      font-size: 40px;
+      color: #4caf50;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
         opacity: 0;
-        animation: entrance 0.34s forwards;
-      }
-      @keyframes entrance {
-        to {
-          transform: none;
-          opacity: 1;
-        }
-      }
-      .hidden {
-        display: none;
-      }
-      .search {
-        display: flex;
-        gap: 8px;
-      }
-      .pill {
-        display: inline-block;
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: rgba(99, 102, 241, 0.12);
-        color: var(--accent);
-        font-weight: 600;
-      }
-      .danger {
-        background: #fee2e2;
-        color: #991b1b;
-      }
-      .muted {
-        color: var(--muted);
-      }
-      .switch {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-      }
-      /* responsive */
-      @media (max-width: 720px) {
-        .flex {
-          flex-direction: column;
-        }
-        .nav {
-          flex-wrap: wrap;
-        }
-      }
-      /* Enhanced Styling */
-      body {
-        background: linear-gradient(135deg, #1e1e2f, #2d2d44);
-        font-family: "Poppins", sans-serif;
-        overflow-x: hidden;
+        transform: translateY(10px);
       }
 
-      .card {
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        padding: 20px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-        transition: 0.3s ease;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
-      .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
-      }
+    }
 
-      .btn {
-        padding: 10px 18px;
-        border-radius: 10px;
-        border: none;
-        cursor: pointer;
-        background: #4b7bec;
-        color: white;
-        transition: 0.3s;
-      }
-      .btn:hover {
-        background: #3867d6;
-      }
+    .login-box {
+      max-width: 400px;
+      margin: 80px auto;
+      border-top: 4px solid var(--accent);
+    }
 
-      .search-box input {
-        padding: 10px;
-        width: 300px;
-        border-radius: 8px;
-        border: none;
-        outline: none;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      }
+    .nav-header {
+      background: var(--primary);
+      padding: 15px 0;
+      margin-bottom: 30px;
+      color: white;
+    }
 
-      .table-container {
-        margin-top: 20px;
-        background: rgba(255, 255, 255, 0.08);
-        padding: 15px;
-        border-radius: 15px;
-        backdrop-filter: blur(10px);
-      }
+    .nav-header .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--accent);
+      text-decoration: none;
+    }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-      th,
-      td {
-        padding: 12px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      th {
-        background: rgba(255, 255, 255, 0.15);
-      }
+    .sidebar {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      height: 100%;
+    }
 
-      .hidden-data {
-        filter: blur(6px);
-        transition: 0.3s;
-      }
-      .hidden-data:hover {
-        filter: blur(0);
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div id="app"></div>
+    .stat-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+
+    .stat-number {
+      font-size: 2em;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .stat-label {
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <!-- Edit Modal -->
+  <div id="editModal" class="modal-overlay">
+    <div class="modal-content-custom">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <h3 style="margin: 0; color: var(--primary); font-weight:700;">Edit User</h3>
+        <button onclick="closeModal('editModal')"
+          style="background:none; border:none; font-size:20px; cursor:pointer;">&times;</button>
+      </div>
+      <input type="hidden" id="edit_id">
+      <div class="form-group">
+        <label style="font-weight:600; color:var(--muted);">Full Name</label>
+        <input id="edit_name" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label style="font-weight:600; color:var(--muted);">Email</label>
+        <input id="edit_email" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label style="font-weight:600; color:var(--muted);">Phone</label>
+        <input id="edit_phone" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label style="font-weight:600; color:var(--muted);">Class</label>
+        <select id="edit_class" class="form-control">
+          <option value="7">7th Standard</option>
+          <option value="8">8th Standard</option>
+          <option value="9">9th Standard</option>
+          <option value="10">10th Standard</option>
+          <option value="11">11th Standard</option>
+        </select>
+      </div>
+      <div style="text-align: right; margin-top: 25px;">
+        <button class="btn btn-default" onclick="closeModal('editModal')" style="margin-right:10px;">Cancel</button>
+        <button class="btn btn-primary-custom" onclick="saveEdit()">Save Changes</button>
+      </div>
     </div>
+  </div>
 
-    <script>
-      /* Single-file SPA that uses LocalStorage only.
-   Routes: #/register  #/admin-login  #/admin  #/404
-   Default admin password: admin123 (you can change it from admin settings)
-*/
+  <!-- Delete Modal -->
+  <div id="deleteModal" class="modal-overlay">
+    <div class="modal-content-custom" style="text-align:center;">
+      <div
+        style="width:60px; height:60px; background:#fee2e2; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px;">
+        <i class="fa fa-trash" style="font-size:24px; color:#ef4444;"></i>
+      </div>
+      <h3 style="margin-top: 0; color: #1f2937; font-weight:700;">Delete User?</h3>
+      <p style="color:#6b7280; margin-bottom:25px;">Are you sure you want to delete this user? This action cannot be
+        undone.</p>
+      <input type="hidden" id="delete_id">
+      <div style="display:flex; gap:10px; justify-content:center;">
+        <button class="btn btn-default" onclick="closeModal('deleteModal')" style="flex:1;">Cancel</button>
+        <button class="btn btn-danger-custom" onclick="confirmDelete()" style="flex:1;">Delete</button>
+      </div>
+    </div>
+  </div>
 
-      // ---------- Utilities ----------
-      const qs = (s) => document.querySelector(s);
-      const qsa = (s) => Array.from(document.querySelectorAll(s));
-      const saveUsers = (users) =>
-        localStorage.setItem("ls_users", JSON.stringify(users));
-      const loadUsers = () =>
-        JSON.parse(localStorage.getItem("ls_users") || "[]");
-      const setMode = (m) => localStorage.setItem("ls_mode", m);
-      const getMode = () => localStorage.getItem("ls_mode") || "light";
-      const getAdminPass = () =>
-        localStorage.getItem("ls_admin_pass") || "admin123";
-      const setAdminPass = (p) => localStorage.setItem("ls_admin_pass", p);
+  <!-- Success Modal -->
+  <div id="successModal" class="modal-overlay">
+    <div class="modal-content-custom" style="text-align:center; max-width:400px;">
+      <div class="success-icon-wrapper">
+        <i class="fa fa-check"></i>
+      </div>
+      <h3 style="margin:0 0 10px; color:var(--primary); font-weight:700;">Success!</h3>
+      <p id="successMessage" style="color:var(--muted); margin-bottom:25px;">Operation completed successfully.</p>
+      <button class="btn btn-primary-custom" onclick="closeModal('successModal')"
+        style="width:100%; border-radius:30px;">Continue</button>
+    </div>
+  </div>
 
-      // ---------- Routing & Views ----------
-      function navigate(route) {
-        location.hash = route;
+  <!-- Create Admin Modal -->
+  <div id="createAdminModal" class="modal-overlay">
+    <div class="modal-content-custom">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <h3 style="margin: 0; color: var(--primary); font-weight:700;">Create New Admin</h3>
+        <button onclick="closeModal('createAdminModal')"
+          style="background:none; border:none; font-size:20px; cursor:pointer;">&times;</button>
+      </div>
+      <div class="form-group">
+        <label style="font-weight:600; color:var(--muted);">Email</label>
+        <input id="new_admin_email" type="email" class="form-control" placeholder="admin@example.com" />
+      </div>
+      <div class="form-group">
+        <label style="font-weight:600; color:var(--muted);">Password</label>
+        <input id="new_admin_pass" type="password" class="form-control" placeholder="********" />
+      </div>
+      <div style="text-align: right; margin-top: 25px;">
+        <button class="btn btn-default" onclick="closeModal('createAdminModal')"
+          style="margin-right:10px;">Cancel</button>
+        <button class="btn btn-primary-custom" onclick="createAdmin()">Create Admin</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Modal -->
+  <div id="errorModal" class="modal-overlay">
+    <div class="modal-content-custom" style="text-align:center; max-width:400px;">
+      <div class="success-icon-wrapper" style="background: #fee2e2;">
+        <i class="fa fa-times" style="color: #ef4444;"></i>
+      </div>
+      <h3 style="margin:0 0 10px; color:#ef4444; font-weight:700;">Error</h3>
+      <p id="errorMessage" style="color:var(--muted); margin-bottom:25px;">Something went wrong.</p>
+      <button class="btn btn-danger-custom" onclick="closeModal('errorModal')"
+        style="width:100%; border-radius:30px;">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // ---------- Utilities ----------
+    const qs = (s) => document.querySelector(s);
+    const qsa = (s) => Array.from(document.querySelectorAll(s));
+
+    // Initialize Superadmin
+    const initSuperAdmin = () => {
+      const admin = JSON.parse(localStorage.getItem("super_admin") || "null");
+      if (!admin || admin.password !== "admin@3698") {
+        localStorage.setItem("super_admin", JSON.stringify({
+          email: "superadmin@successplanet.com",
+          password: "admin@3698"
+        }));
       }
-      function currentRoute() {
-        return location.hash.replace("#", "") || "/register";
+    };
+    initSuperAdmin();
+
+    const saveUsers = (users) => localStorage.setItem("ls_users", JSON.stringify(users));
+    const loadUsers = () => {
+      let users = JSON.parse(localStorage.getItem("ls_users") || "[]");
+
+      // Migration check for single user registration from register.html
+      const singleUser = localStorage.getItem("userData");
+      if (singleUser) {
+        try {
+          const u = JSON.parse(singleUser);
+          // Check if this user is already in our list
+          if (!users.some(existing => existing.email === u.email)) {
+            u.id = Date.now();
+            u.verified = false;
+            users.push(u);
+            saveUsers(users); // Save back to list
+          }
+        } catch (e) { }
+      }
+      return users;
+    };
+
+    // ---------- Routing ----------
+    function navigate(route) {
+      location.hash = route;
+    }
+    function currentRoute() {
+      return location.hash.replace("#", "") || "/admin-login";
+    }
+
+    window.addEventListener("hashchange", render);
+    window.addEventListener("load", () => {
+      render();
+    });
+
+    // ---------- Views ----------
+
+    function viewAdminLogin() {
+      return `
+          <div class="container">
+            <div class="card login-box animate-fade-in">
+              <div style="text-align: center; margin-bottom: 30px;">
+                <h2 style="color: var(--primary); font-weight: bold;">Admin Login</h2>
+                <p class="text-muted">Secure Access for Administrators</p>
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input id="admin_email" type="email" class="form-control" placeholder="example@gmail.com" />
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input id="admin_pass" type="password" class="form-control" placeholder="••••••••" />
+              </div>
+              <button class="btn btn-custom btn-block" onclick="handleAdminLogin()">
+                <i class="fa fa-lock"></i> Login to Dashboard
+              </button>
+              <div style="margin-top: 20px; text-align: center;">
+                <a href="index.html" style="color: var(--primary);">Back to Home</a>
+              </div>
+            </div>
+          </div>
+        `;
+    }
+
+    function viewAdminDashboard() {
+      const users = loadUsers();
+      const total = users.length;
+      const verified = users.filter(u => u.verified).length;
+      const pending = total - verified;
+
+      // Check if current user is Superadmin to show "Create Admin" button
+      const currentUser = JSON.parse(sessionStorage.getItem("current_admin") || "{}");
+      const isSuperAdmin = currentUser.role === "superadmin";
+
+      return `
+          <div style="background: var(--primary); color: white; padding: 15px 0; margin-bottom: 30px;">
+            <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="logo">Success Planet <span style="font-size: 0.6em; background: var(--accent); color: #333; padding: 2px 6px; border-radius: 4px;">ADMIN</span></div>
+              <div style="display:flex; align-items:center; gap:15px;">
+                <span>Welcome, ${currentUser.email || "Admin"}</span>
+                ${isSuperAdmin ? `<button class="btn btn-sm btn-custom" onclick="openCreateAdminModal()"><i class="fa fa-plus"></i> Create Admin</button>` : ''}
+                <button class="btn btn-sm btn-danger-custom" onclick="logout()">Logout</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="container animate-fade-in">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="stat-card">
+                  <div class="stat-number">${total}</div>
+                  <div class="stat-label">Total Users</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="stat-card">
+                  <div class="stat-number" style="color: #4caf50;">${verified}</div>
+                  <div class="stat-label">Verified Users</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="stat-card">
+                  <div class="stat-number" style="color: #ff9800;">${pending}</div>
+                  <div class="stat-label">Pending Verification</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3 style="margin: 0; color: var(--primary);">User Management</h3>
+                <div style="display: flex; gap: 10px;">
+                   <input id="searchBox" class="form-control" placeholder="Search users..." style="width: 250px;" oninput="renderTable()" />
+                   <button class="btn btn-primary-custom" onclick="exportExcel()"><i class="fa fa-download"></i> Export</button>
+                </div>
+              </div>
+              
+              <div class="table-responsive">
+                <table class="table table-hover table-custom" id="userTable">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Class</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Admin Management Container -->
+            <div id="adminManagementContainer"></div>
+          </div>
+        `;
+    }
+
+    // ---------- Logic ----------
+
+    function render() {
+      const route = currentRoute();
+      const app = document.getElementById("app");
+
+      if (route === "/admin-login") {
+        app.innerHTML = viewAdminLogin();
+      } else if (route === "/dashboard") {
+        if (!isAuthenticated()) {
+          navigate("/admin-login");
+          return;
+        }
+        app.innerHTML = viewAdminDashboard();
+        renderTable();
+        renderAdminManagement(); // Render admin list if superadmin
+      } else {
+        navigate("/admin-login");
+      }
+    }
+
+    function isAuthenticated() {
+      return sessionStorage.getItem("admin_session") === "true";
+    }
+
+    function handleAdminLogin() {
+      const email = qs("#admin_email").value;
+      const pass = qs("#admin_pass").value;
+
+      // Check Superadmin
+      const superAdmin = JSON.parse(localStorage.getItem("super_admin"));
+      if (email === superAdmin.email && pass === superAdmin.password) {
+        sessionStorage.setItem("admin_session", "true");
+        sessionStorage.setItem("current_admin", JSON.stringify({ email: email, role: "superadmin" }));
+        navigate("/dashboard");
+        return;
       }
 
-      window.addEventListener("hashchange", render);
-      window.addEventListener("load", () => {
-        applyMode();
-        render();
+      // Check Regular Admins
+      const admins = JSON.parse(localStorage.getItem("ls_admins") || "[]");
+      const foundAdmin = admins.find(a => a.email === email && a.password === pass);
+
+      if (foundAdmin) {
+        if (foundAdmin.isActive === false) {
+          showError("Your account has been deactivated. Please contact Superadmin.");
+          return;
+        }
+        sessionStorage.setItem("admin_session", "true");
+        sessionStorage.setItem("current_admin", JSON.stringify({ email: email, role: "admin" }));
+        navigate("/dashboard");
+      } else {
+        showError("Invalid credentials!");
+      }
+    }
+
+    function logout() {
+      sessionStorage.removeItem("admin_session");
+      sessionStorage.removeItem("current_admin");
+      navigate("/admin-login");
+    }
+
+    // Admin Creation Logic
+    function openCreateAdminModal() {
+      qs("#new_admin_email").value = "";
+      qs("#new_admin_pass").value = "";
+      qs("#createAdminModal").classList.add("active");
+    }
+
+    function createAdmin() {
+      const email = qs("#new_admin_email").value;
+      const pass = qs("#new_admin_pass").value;
+
+      if (!email || !pass) {
+        showError("Please fill in all fields");
+        return;
+      }
+
+      const admins = JSON.parse(localStorage.getItem("ls_admins") || "[]");
+      if (admins.some(a => a.email === email)) {
+        showError("Admin with this email already exists");
+        return;
+      }
+
+      // Add isActive: true by default
+      admins.push({ email, password: pass, role: "admin", createdAt: Date.now(), isActive: true });
+      localStorage.setItem("ls_admins", JSON.stringify(admins));
+
+      closeModal("createAdminModal");
+      showSuccess("New Admin created successfully!");
+      renderAdminManagement(); // Refresh list
+    }
+
+    function renderAdminManagement() {
+      const currentUser = JSON.parse(sessionStorage.getItem("current_admin") || "{}");
+      if (currentUser.role !== "superadmin") return;
+
+      const container = qs("#adminManagementContainer");
+      if (!container) return;
+
+      // Inject the HTML structure if not present
+      if (!qs("#adminTable")) {
+        container.innerHTML = `
+              <div class="card" style="margin-top: 30px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                      <h3 style="margin: 0; color: var(--primary);">Admin Management</h3>
+                  </div>
+                  <div class="table-responsive">
+                      <table class="table table-hover table-custom" id="adminTable">
+                          <thead>
+                              <tr>
+                                  <th>Email</th>
+                                  <th>Role</th>
+                                  <th>Created At</th>
+                                  <th>Status</th>
+                                  <th>Actions</th>
+                              </tr>
+                          </thead>
+                          <tbody></tbody>
+                      </table>
+                  </div>
+              </div>
+           `;
+      }
+
+      const tbody = qs("#adminTable tbody");
+      const admins = JSON.parse(localStorage.getItem("ls_admins") || "[]");
+
+      if (admins.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">No other admins created yet.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = admins.map((admin, index) => `
+            <tr>
+                <td>${admin.email}</td>
+                <td><span class="badge" style="background:#e0e0e0; color:#333;">Admin</span></td>
+                <td>${new Date(admin.createdAt).toLocaleDateString()}</td>
+                <td>
+                    ${admin.isActive !== false
+          ? '<span class="badge-verified">Active</span>'
+          : '<span class="badge-pending" style="background:#ef4444;">Inactive</span>'}
+                </td>
+                <td>
+                    <button class="btn btn-sm ${admin.isActive !== false ? 'btn-danger-custom' : 'btn-success'}" 
+                            onclick="toggleAdminStatus(${index})"
+                            data-tooltip="${admin.isActive !== false ? 'Deactivate' : 'Activate'}">
+                        <i class="fa ${admin.isActive !== false ? 'fa-ban' : 'fa-check'}"></i>
+                        ${admin.isActive !== false ? 'Deactivate' : 'Activate'}
+                    </button>
+                </td>
+            </tr>
+        `).join("");
+    }
+
+    function toggleAdminStatus(index) {
+      const admins = JSON.parse(localStorage.getItem("ls_admins") || "[]");
+      if (admins[index]) {
+        // Toggle status (default is true if undefined)
+        const currentStatus = admins[index].isActive !== false;
+        admins[index].isActive = !currentStatus;
+
+        localStorage.setItem("ls_admins", JSON.stringify(admins));
+        renderAdminManagement();
+        showSuccess(`Admin ${admins[index].isActive ? 'activated' : 'deactivated'} successfully!`);
+      }
+    }
+
+    function renderTable() {
+      const tbody = qs("#userTable tbody");
+      if (!tbody) return;
+
+      const users = loadUsers();
+      const q = qs("#searchBox").value.toLowerCase();
+
+      const filtered = users.filter(u =>
+        (u.name || u.fullName || "").toLowerCase().includes(q) ||
+        (u.email || "").toLowerCase().includes(q)
+      );
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">No users found</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(u => `
+          <tr>
+            <td><strong>${u.name || u.fullName}</strong></td>
+            <td>${u.email}</td>
+            <td>${u.class || "N/A"}</td>
+            <td>
+              ${u.verified
+          ? '<span class="badge-verified">Verified</span>'
+          : '<span class="badge-pending">Pending</span>'}
+            </td>
+            <td>
+              <div class="btn-group">
+                ${!u.verified ? `<button class="btn btn-sm btn-success action-btn" data-tooltip="Verify User" onclick="verifyUser(${u.id})"><i class="fa fa-check"></i></button>` : ''}
+                <button class="btn btn-sm btn-info action-btn" data-tooltip="Edit User" onclick="openEditModal(${u.id})"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-sm btn-danger action-btn" data-tooltip="Delete User" onclick="openDeleteModal(${u.id})"><i class="fa fa-trash"></i></button>
+              </div>
+            </td>
+          </tr>
+        `).join("");
+    }
+
+    // Action Handlers
+    function verifyUser(id) {
+      const users = loadUsers();
+      const user = users.find(u => u.id === id);
+      if (user) {
+        user.verified = true;
+        saveUsers(users);
+        renderTable();
+        render(); // Update stats
+        showSuccess("User verified successfully!");
+      }
+    }
+
+    function openEditModal(id) {
+      const users = loadUsers();
+      const user = users.find(u => u.id === id);
+      if (!user) return;
+
+      qs("#edit_id").value = id;
+      qs("#edit_name").value = user.name || user.fullName;
+      qs("#edit_email").value = user.email;
+      qs("#edit_phone").value = user.phone || "";
+      qs("#edit_class").value = user.class || "7";
+
+      qs("#editModal").classList.add("active");
+    }
+
+    function saveEdit() {
+      const id = Number(qs("#edit_id").value);
+      const users = loadUsers();
+      const user = users.find(u => u.id === id);
+
+      if (user) {
+        user.name = qs("#edit_name").value;
+        user.fullName = qs("#edit_name").value; // syncing both fields
+        user.email = qs("#edit_email").value;
+        user.phone = qs("#edit_phone").value;
+        user.class = qs("#edit_class").value;
+
+        saveUsers(users);
+        closeModal("editModal");
+        renderTable();
+        showSuccess("User details updated successfully!");
+      }
+    }
+
+    function openDeleteModal(id) {
+      qs("#delete_id").value = id;
+      qs("#deleteModal").classList.add("active");
+    }
+
+    function confirmDelete() {
+      const id = Number(qs("#delete_id").value);
+      let users = loadUsers();
+      users = users.filter(u => u.id !== id);
+      saveUsers(users);
+      closeModal("deleteModal");
+      render(); // Re-render to update stats
+      showSuccess("User deleted successfully!");
+    }
+
+    function closeModal(id) {
+      qs("#" + id).classList.remove("active");
+    }
+
+    function showSuccess(msg) {
+      qs("#successMessage").textContent = msg;
+      qs("#successModal").classList.add("active");
+    }
+
+    function showError(msg) {
+      qs("#errorMessage").textContent = msg;
+      qs("#errorModal").classList.add("active");
+    }
+
+    function exportExcel() {
+      const users = loadUsers();
+      let content = "Name\tEmail\tPhone\tClass\tStatus\n";
+      users.forEach(u => {
+        content += `${u.name || u.fullName}\t${u.email}\t${u.phone || ""}\t${u.class || ""}\t${u.verified ? "Verified" : "Pending"}\n`;
       });
 
-      function applyMode() {
-        if (getMode() === "dark") document.body.classList.add("dark");
-        else document.body.classList.remove("dark");
-      }
+      const blob = new Blob([content], { type: "application/vnd.ms-excel" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "success_planet_users.xls";
+      a.click();
+    }
+  </script>
+</body>
 
-      // ---------- Templates ----------
-      function viewRegister() {
-        return `
-  <div class="card animate">
-    <header>
-      <h1>Register (LocalStorage)</h1>
-      <div class="nav">
-        <button class="btn" onclick="navigate('/admin-login')">Admin Login</button>
-        <button class="btn ghost" onclick="navigate('/register')">Refresh</button>
-      </div>
-    </header>
-
-    <div class="flex">
-      <div class="col">
-        <label class="small">Full name</label>
-        <input id="r_name" placeholder="John Doe" />
-      </div>
-      <div class="col">
-        <label class="small">Email</label>
-        <input id="r_email" placeholder="name@example.com" />
-      </div>
-      <div style="width:180px">
-        <label class="small">Phone</label>
-        <input id="r_phone" placeholder="9876543210" />
-      </div>
-    </div>
-
-    <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-      <button class="btn" id="regBtn">Register</button>
-      <div class="muted">Your data will be saved locally in the browser.</div>
-    </div>
-
-    <hr style="margin:18px 0">
-    <div class="small">Already registered users (preview):</div>
-    <div id="previewList"></div>
-  </div>`;
-      }
-
-      function viewAdminLogin() {
-        return `
-  <div class="card animate">
-    <header>
-      <h1>Admin Login</h1>
-      <div class="nav">
-        <button class="btn ghost" onclick="navigate('/register')">Back to register</button>
-      </div>
-    </header>
-
-    <div style="max-width:420px">
-      <label class="small">Super-admin password</label>
-      <input id="admin_pass_input" type="password" placeholder="Enter super-admin password" />
-      <div style="margin-top:12px;display:flex;gap:8px">
-        <button class="btn" id="adminLoginBtn">Login</button>
-        <button class="btn ghost" onclick="demoShowPass()">Show default</button>
-      </div>
-    </div>
-  </div>`;
-      }
-
-      function view404() {
-        return `
-  <div class="card animate">
-    <header>
-      <h1>404 — Not Found</h1>
-      <div class="nav">
-        <button class="btn" onclick="navigate('index.html')">Home</button>
-      </div>
-    </header>
-    <p class="small">Sorry, you don't have access to that resource.</p>
-    <div style="margin-top:12px">If you believe this is a mistake request access from the site developer.</div>
-  </div>`;
-      }
-
-      function viewAdmin() {
-        const users = loadUsers();
-        const total = users.length;
-        const verified = users.filter((u) => u.verified).length;
-        const pending = total - verified;
-
-        return `
-  <div class="card animate">
-    <header>
-      <h1>Admin Panel</h1>
-      <div class="nav">
-        <span class="pill">Total ${total}</span>
-        <span class="pill">Verified ${verified}</span>
-        <span class="pill">Pending ${pending}</span>
-        <button class="btn ghost" onclick="logoutAdmin()">Logout</button>
-      </div>
-    </header>
-
-    <div class="flex" style="align-items:center;margin-bottom:12px">
-      <div style="flex:1">
-        <input id="searchBox" placeholder="Search by name or email" oninput="renderAdminTable()" />
-      </div>
-      <div style="display:flex;gap:8px;align-items:center">
-        <div class="switch">
-          <label class="small">Hide sensitive</label>
-          <input id="hideSensitive" type="checkbox" />
-        </div>
-        <button class="btn" onclick="exportExcel()">Export Excel</button>
-        <button class="btn ghost" onclick="toggleModeButton()">Toggle Dark</button>
-      </div>
-    </div>
-
-    <div class="card" style="padding:0;overflow:auto">
-      <table id="adminTable">
-        <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Verified</th><th>Actions</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-
-    <hr style="margin:12px 0">
-    <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <div style="flex:1;min-width:220px">
-        <div class="small">Change super-admin password</div>
-        <div class="flex" style="margin-top:6px">
-          <input id="newAdminPass" placeholder="new password" />
-          <button class="btn" onclick="changeAdminPass()">Change</button>
-        </div>
-      </div>
-
-      <div style="flex:1;min-width:220px">
-        <div class="small">Pending verification requests</div>
-        <div id="pendingList" class="small muted"></div>
-      </div>
-    </div>
-
-  </div>`;
-      }
-
-      // ---------- Render ----------
-      function render() {
-        const route = currentRoute();
-        const el = document.getElementById("app");
-        if (route === "/register" || route === "") {
-          el.innerHTML = viewRegister();
-          bindRegister();
-        } else if (route === "/admin-login") {
-          el.innerHTML = viewAdminLogin();
-          bindAdminLogin();
-        } else if (route === "/admin") {
-          // check session
-          if (sessionStorage.getItem("ls_admin_logged") === "1") {
-            el.innerHTML = viewAdmin();
-            bindAdmin();
-          } else {
-            // fake 404 to hide panel from unauthorized users
-            el.innerHTML = view404();
-          }
-        } else {
-          el.innerHTML = view404();
-        }
-      }
-
-      // ---------- Register bindings ----------
-      function bindRegister() {
-        qs("#regBtn").addEventListener("click", () => {
-          const name = qs("#r_name").value.trim();
-          const email = qs("#r_email").value.trim().toLowerCase();
-          const phone = qs("#r_phone").value.trim();
-
-          if (!name || !email) return alert("Name and email required");
-
-          const users = loadUsers();
-          if (users.some((u) => u.email === email)) {
-            return alert("Email already registered");
-          }
-
-          users.push({ id: Date.now(), name, email, phone, verified: false });
-          saveUsers(users);
-
-          qs("#r_name").value = "";
-          qs("#r_email").value = "";
-          qs("#r_phone").value = "";
-          alert("Registered! Your account requires verification.");
-          render();
-        });
-
-        // preview list
-        const preview = loadUsers().slice(-6).reverse();
-        const out = preview.length
-          ? preview
-              .map(
-                (u) =>
-                  `<div class="small">${u.name} — ${u.email} ${
-                    u.verified ? '<span class="pill">Verified</span>' : ""
-                  }</div>`
-              )
-              .join("")
-          : '<div class="small muted">No users yet</div>';
-        qs("#previewList").innerHTML = out;
-      }
-
-      // ---------- Admin login bindings ----------
-      function bindAdminLogin() {
-        qs("#adminLoginBtn").addEventListener("click", () => {
-          const p = qs("#admin_pass_input").value;
-          if (p === getAdminPass()) {
-            sessionStorage.setItem("ls_admin_logged", "1");
-            navigate("/admin");
-          } else {
-            // Redirect to fake 404 to hide existence of admin panel
-            navigate("/404");
-          }
-        });
-        qs("#admin_pass_input").addEventListener("keydown", (e) => {
-          if (e.key === "Enter") qs("#adminLoginBtn").click();
-        });
-      }
-      function demoShowPass() {
-        alert(
-          'Default super-admin password: "admin123"\nYou can change it after login.'
-        );
-      }
-
-      // ---------- Admin view bindings & functions ----------
-      function bindAdmin() {
-        // set hide checkbox default
-        qs("#hideSensitive").checked =
-          (localStorage.getItem("ls_hide_sensitive") || "1") === "1";
-        qs("#hideSensitive").addEventListener("change", () => {
-          localStorage.setItem(
-            "ls_hide_sensitive",
-            qs("#hideSensitive").checked ? "1" : "0"
-          );
-          renderAdminTable();
-        });
-
-        renderAdminTable();
-        renderPendingList();
-      }
-
-      function renderAdminTable() {
-        const tbody = qs("#adminTable tbody");
-        const users = loadUsers();
-        const q = qs("#searchBox")?.value?.toLowerCase() || "";
-        const hide = (localStorage.getItem("ls_hide_sensitive") || "1") === "1";
-
-        const filtered = users.filter(
-          (u) =>
-            u.name.toLowerCase().includes(q) ||
-            u.email.toLowerCase().includes(q)
-        );
-        tbody.innerHTML =
-          filtered
-            .map((u) => {
-              const phone = hide ? "******" : u.phone || "";
-              return `
-      <tr>
-        <td>${escapeHtml(u.name)}</td>
-        <td>${escapeHtml(u.email)}</td>
-        <td>${escapeHtml(phone)}</td>
-        <td>${u.verified ? "✅" : "❌"}</td>
-        <td class="actions">
-          <button onclick="adminEdit(${u.id})">Edit</button>
-          <button onclick="adminDelete(${u.id})" class="danger">Delete</button>
-          ${
-            u.verified
-              ? ""
-              : `<button onclick="adminVerify(${u.id})">Verify</button>`
-          }
-        </td>
-      </tr>`;
-            })
-            .join("") ||
-          '<tr><td colspan="5" class="muted small">No results</td></tr>';
-      }
-
-      function renderPendingList() {
-        const pending = loadUsers().filter((u) => !u.verified);
-        qs("#pendingList").innerHTML = pending.length
-          ? pending
-              .map((u) => `• ${escapeHtml(u.name)} — ${escapeHtml(u.email)}`)
-              .join("<br>")
-          : '<span class="muted">No pending requests</span>';
-      }
-
-      function adminDelete(id) {
-        if (!confirm("Delete user?")) return;
-        const users = loadUsers().filter((u) => u.id !== id);
-        saveUsers(users);
-        renderAdminTable();
-        renderPendingList();
-      }
-      function adminVerify(id) {
-        const users = loadUsers();
-        users.forEach((u) => {
-          if (u.id === id) u.verified = true;
-        });
-        saveUsers(users);
-        renderAdminTable();
-        renderPendingList();
-      }
-      function adminEdit(id) {
-        const users = loadUsers();
-        const u = users.find((x) => x.id === id);
-        if (!u) return;
-        const name = prompt("Name", u.name);
-        if (!name) return;
-        const email = prompt("Email", u.email);
-        if (!email) return;
-        const phone = prompt("Phone", u.phone || "");
-        u.name = name;
-        u.email = email;
-        u.phone = phone;
-        saveUsers(users);
-        renderAdminTable();
-        renderPendingList();
-      }
-
-      function exportExcel() {
-        const users = loadUsers();
-        let content = "Name\tEmail\tPhone\tVerified\n";
-        users.forEach(
-          (u) =>
-            (content += `${u.name}\t${u.email}\t${u.phone || ""}\t${
-              u.verified
-            }\n`)
-        );
-        const blob = new Blob([content], { type: "application/vnd.ms-excel" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "users.xls";
-        a.click();
-      }
-
-      function logoutAdmin() {
-        sessionStorage.removeItem("ls_admin_logged");
-        navigate("/register");
-      }
-
-      function toggleModeButton() {
-        const cur = getMode();
-        setMode(cur === "dark" ? "light" : "dark");
-        applyMode();
-      }
-
-      function changeAdminPass() {
-        const v = qs("#newAdminPass").value.trim();
-        if (!v) return alert("Enter new password");
-        setAdminPass(v);
-        qs("#newAdminPass").value = "";
-        alert("Password changed");
-      }
-
-      // ---------- Helpers ----------
-      function escapeHtml(s) {
-        return (s || "")
-          .toString()
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;");
-      }
-
-      // Simple guard to show fake 404 route name
-      function navigateToProtected() {
-        if (sessionStorage.getItem("ls_admin_logged") === "1")
-          navigate("/admin");
-        else navigate("/404");
-      }
-    </script>
-  </body>
 </html>

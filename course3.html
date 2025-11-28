@@ -1,410 +1,381 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>CSS Course - Success Planet</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="css/skins/default.css"
-      data-name="skins"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600italic,600,700italic,700"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link rel="stylesheet" href="css/font-awesome.min.css" />
-    <style>
-      body {
-        font-family: "Open Sans", sans-serif;
-        background: #f5f5f5;
-      }
-      .course-header {
-        background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
-        color: white;
-        padding: 60px 0;
-        text-align: center;
-      }
-      .course-header h1 {
-        font-size: 3em;
-        margin-bottom: 10px;
-        font-weight: bold;
-      }
-      .course-content {
-        padding: 50px 0;
-      }
-      .section-card {
-        background: white;
-        border-radius: 10px;
-        padding: 30px;
-        margin-bottom: 30px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
-      .section-card h2 {
-        color: #2196f3;
-        margin-bottom: 20px;
-        font-size: 2em;
-        border-bottom: 3px solid #2196f3;
-        padding-bottom: 10px;
-      }
-      .resource-link {
-        display: block;
-        padding: 15px;
-        margin-bottom: 10px;
-        background: #f8f9fa;
-        border-left: 4px solid #2196f3;
-        text-decoration: none;
-        color: #333;
-        border-radius: 5px;
-        transition: all 0.3s;
-      }
-      .resource-link:hover {
-        background: #e3f2fd;
-        transform: translateX(5px);
-        text-decoration: none;
-        color: #2196f3;
-      }
-      .resource-link i {
-        margin-right: 10px;
-        color: #2196f3;
-      }
-      .mcq-question {
-        background: #f8f9fa;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        border-left: 4px solid #667eea;
-      }
-      .mcq-question h3 {
-        color: #333;
-        margin-bottom: 15px;
-        font-size: 1.2em;
-      }
-      .mcq-options {
-        list-style: none;
-        padding: 0;
-      }
-      .mcq-options li {
-        padding: 10px;
-        margin-bottom: 8px;
-        background: white;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: all 0.3s;
-      }
-      .mcq-options li:hover {
-        background: #e3f2fd;
-      }
-      .mcq-answer {
-        margin-top: 15px;
-        padding: 15px;
-        background: #e3f2fd;
-        border-radius: 5px;
-        display: none;
-      }
-      .mcq-answer.show {
-        display: block;
-      }
-      .mcq-answer strong {
-        color: #2196f3;
-      }
-      .view-answer-btn {
-        background: #667eea;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 10px;
-        transition: all 0.3s;
-      }
-      .view-answer-btn:hover {
-        background: #5568d3;
-      }
-      .navbar-wrapper {
-        background: #0ebbda;
-      }
-      .navbar.navbar-inverse.navbar-static-top a {
-        color: #273342;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Header -->
-    <header>
-      <div class="menu">
-        <div class="navbar-wrapper">
-          <div class="container">
-            <div class="navwrapper">
-              <div class="navbar navbar-inverse navbar-static-top">
-                <div class="container">
-                  <div class="logo">
-                    <a href="index.html"
-                      ><span class="img-circle">S</span>uccess Planet</a
-                    >
-                  </div>
-                  <nav class="navArea">
-                    <div class="navbar-header">
-                      <button
-                        type="button"
-                        class="navbar-toggle"
-                        data-toggle="collapse"
-                        data-target=".navbar-collapse"
-                      >
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                      </button>
-                    </div>
-                    <div class="navbar-collapse collapse">
-                      <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#course">Courses</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                      </ul>
-                    </div>
-                  </nav>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>CSS Course - Success Planet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/skins/default.css" data-name="skins" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600italic,600,700italic,700"
+    rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <style>
+    body {
+      font-family: "Open Sans", sans-serif;
+      background: #f5f5f5;
+    }
+
+    .course-header {
+      background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .course-header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .course-content {
+      padding: 50px 0;
+    }
+
+    .section-card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-card h2 {
+      color: #2196f3;
+      margin-bottom: 20px;
+      font-size: 2em;
+      border-bottom: 3px solid #2196f3;
+      padding-bottom: 10px;
+    }
+
+    .resource-link {
+      display: block;
+      padding: 15px;
+      margin-bottom: 10px;
+      background: #f8f9fa;
+      border-left: 4px solid #2196f3;
+      text-decoration: none;
+      color: #333;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+
+    .resource-link:hover {
+      background: #e3f2fd;
+      transform: translateX(5px);
+      text-decoration: none;
+      color: #2196f3;
+    }
+
+    .resource-link i {
+      margin-right: 10px;
+      color: #2196f3;
+    }
+
+    .mcq-question {
+      background: #f8f9fa;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+    }
+
+    .mcq-question h3 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+    }
+
+    .mcq-options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .mcq-options li {
+      padding: 10px;
+      margin-bottom: 8px;
+      background: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .mcq-options li:hover {
+      background: #e3f2fd;
+    }
+
+    .mcq-answer {
+      margin-top: 15px;
+      padding: 15px;
+      background: #e3f2fd;
+      border-radius: 5px;
+      display: none;
+    }
+
+    .mcq-answer.show {
+      display: block;
+    }
+
+    .mcq-answer strong {
+      color: #2196f3;
+    }
+
+    .view-answer-btn {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s;
+    }
+
+    .view-answer-btn:hover {
+      background: #5568d3;
+    }
+
+    .navbar-wrapper {
+      background: #0ebbda;
+    }
+
+    .navbar.navbar-inverse.navbar-static-top a {
+      color: #273342;
+    }
+  </style>
+</head>
+
+<body data-course-name="CSS">
+  <!-- Header -->
+  <header>
+    <div class="menu">
+      <div class="navbar-wrapper">
+        <div class="container">
+          <div class="navwrapper">
+            <div class="navbar navbar-inverse navbar-static-top">
+              <div class="container">
+                <div class="logo">
+                  <a href="index.html"><span class="img-circle">S</span>uccess Planet</a>
                 </div>
+                <nav class="navArea">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+                  <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="index.html#course">Courses</a></li>
+                      <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                  </div>
+                </nav>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </header>
-
-    <!-- Course Header -->
-    <div class="course-header">
-      <div class="container">
-        <h1><i class="fa fa-css3"></i> CSS Course</h1>
-        <p style="font-size: 1.6em; opacity: 0.9">
-          Master CSS3, Flexbox, Grid, and modern styling techniques
-        </p>
-      </div>
     </div>
+  </header>
 
-    <!-- Course Content -->
-    <div class="course-content">
-      <div class="container">
-        <!-- Learning Resources Section -->
-        <div class="section-card">
-          <h2><i class="fa fa-book"></i> Learning Resources</h2>
-          <a
-            href="https://developer.mozilla.org/en-US/docs/Web/CSS"
-            target="_blank"
-            class="resource-link"
-          >
-            <i class="fa fa-external-link"></i> MDN CSS Documentation - Complete
-            CSS reference guide
-          </a>
-          <a
-            href="https://www.w3schools.com/css/"
-            target="_blank"
-            class="resource-link"
-          >
-            <i class="fa fa-external-link"></i> W3Schools CSS Tutorial -
-            Interactive CSS tutorials
-          </a>
-          <a
-            href="https://css-tricks.com/"
-            target="_blank"
-            class="resource-link"
-          >
-            <i class="fa fa-external-link"></i> CSS-Tricks - Advanced CSS
-            techniques and tips
-          </a>
-          <a
-            href="https://flexboxfroggy.com/"
-            target="_blank"
-            class="resource-link"
-          >
-            <i class="fa fa-external-link"></i> Flexbox Froggy - Learn Flexbox
-            through games
-          </a>
-          <a
-            href="https://cssgridgarden.com/"
-            target="_blank"
-            class="resource-link"
-          >
-            <i class="fa fa-external-link"></i> Grid Garden - Learn CSS Grid
-            through games
-          </a>
-          <a
-            href="https://www.freecodecamp.org/news/css-example-code/"
-            target="_blank"
-            class="resource-link"
-          >
-            <i class="fa fa-external-link"></i> FreeCodeCamp CSS Guide - Free
-            learning resources
-          </a>
+  <!-- Course Header -->
+  <div class="course-header">
+    <div class="container">
+      <h1><i class="fa fa-css3"></i> CSS Course</h1>
+      <p style="font-size: 1.6em; opacity: 0.9">
+        Master CSS3, Flexbox, Grid, and modern styling techniques
+      </p>
+    </div>
+  </div>
+
+  <!-- Course Content -->
+  <div class="course-content">
+    <div class="container">
+      <!-- Learning Resources Section -->
+      <div class="section-card">
+        <h2><i class="fa fa-book"></i> Learning Resources</h2>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" class="resource-link">
+          <i class="fa fa-external-link"></i> MDN CSS Documentation - Complete
+          CSS reference guide
+        </a>
+        <a href="https://www.w3schools.com/css/" target="_blank" class="resource-link">
+          <i class="fa fa-external-link"></i> W3Schools CSS Tutorial -
+          Interactive CSS tutorials
+        </a>
+        <a href="https://css-tricks.com/" target="_blank" class="resource-link">
+          <i class="fa fa-external-link"></i> CSS-Tricks - Advanced CSS
+          techniques and tips
+        </a>
+        <a href="https://flexboxfroggy.com/" target="_blank" class="resource-link">
+          <i class="fa fa-external-link"></i> Flexbox Froggy - Learn Flexbox
+          through games
+        </a>
+        <a href="https://cssgridgarden.com/" target="_blank" class="resource-link">
+          <i class="fa fa-external-link"></i> Grid Garden - Learn CSS Grid
+          through games
+        </a>
+        <a href="https://www.freecodecamp.org/news/css-example-code/" target="_blank" class="resource-link">
+          <i class="fa fa-external-link"></i> FreeCodeCamp CSS Guide - Free
+          learning resources
+        </a>
+      </div>
+
+      <!-- MCQ Questions Section -->
+      <div class="section-card">
+        <h2><i class="fa fa-question-circle"></i> Practice MCQ Questions</h2>
+
+        <!-- Question 1 -->
+        <div class="mcq-question">
+          <h3>1. What does CSS stand for?</h3>
+          <ul class="mcq-options">
+            <li>A) Computer Style Sheets</li>
+            <li>B) Cascading Style Sheets</li>
+            <li>C) Creative Style System</li>
+            <li>D) Colorful Style Sheets</li>
+          </ul>
+          <button class="view-answer-btn" onclick="toggleAnswer('answer1')">
+            View Answer
+          </button>
+          <div class="mcq-answer" id="answer1">
+            <strong>Correct Answer: B) Cascading Style Sheets</strong><br />
+            CSS stands for Cascading Style Sheets. It is used to style and
+            layout web pages.
+          </div>
         </div>
 
-        <!-- MCQ Questions Section -->
-        <div class="section-card">
-          <h2><i class="fa fa-question-circle"></i> Practice MCQ Questions</h2>
-
-          <!-- Question 1 -->
-          <div class="mcq-question">
-            <h3>1. What does CSS stand for?</h3>
-            <ul class="mcq-options">
-              <li>A) Computer Style Sheets</li>
-              <li>B) Cascading Style Sheets</li>
-              <li>C) Creative Style System</li>
-              <li>D) Colorful Style Sheets</li>
-            </ul>
-            <button class="view-answer-btn" onclick="toggleAnswer('answer1')">
-              View Answer
-            </button>
-            <div class="mcq-answer" id="answer1">
-              <strong>Correct Answer: B) Cascading Style Sheets</strong><br />
-              CSS stands for Cascading Style Sheets. It is used to style and
-              layout web pages.
-            </div>
+        <!-- Question 2 -->
+        <div class="mcq-question">
+          <h3>2. Which property is used to change the background color?</h3>
+          <ul class="mcq-options">
+            <li>A) bg-color</li>
+            <li>B) background-color</li>
+            <li>C) color-background</li>
+            <li>D) background</li>
+          </ul>
+          <button class="view-answer-btn" onclick="toggleAnswer('answer2')">
+            View Answer
+          </button>
+          <div class="mcq-answer" id="answer2">
+            <strong>Correct Answer: B) background-color</strong><br />
+            The background-color property is used to set the background color
+            of an element. You can also use the shorthand 'background'
+            property.
           </div>
+        </div>
 
-          <!-- Question 2 -->
-          <div class="mcq-question">
-            <h3>2. Which property is used to change the background color?</h3>
-            <ul class="mcq-options">
-              <li>A) bg-color</li>
-              <li>B) background-color</li>
-              <li>C) color-background</li>
-              <li>D) background</li>
-            </ul>
-            <button class="view-answer-btn" onclick="toggleAnswer('answer2')">
-              View Answer
-            </button>
-            <div class="mcq-answer" id="answer2">
-              <strong>Correct Answer: B) background-color</strong><br />
-              The background-color property is used to set the background color
-              of an element. You can also use the shorthand 'background'
-              property.
-            </div>
+        <!-- Question 3 -->
+        <div class="mcq-question">
+          <h3>3. Which CSS property is used to make text bold?</h3>
+          <ul class="mcq-options">
+            <li>A) text-weight: bold;</li>
+            <li>B) font-weight: bold;</li>
+            <li>C) text-style: bold;</li>
+            <li>D) font: bold;</li>
+          </ul>
+          <button class="view-answer-btn" onclick="toggleAnswer('answer3')">
+            View Answer
+          </button>
+          <div class="mcq-answer" id="answer3">
+            <strong>Correct Answer: B) font-weight: bold;</strong><br />
+            The font-weight property is used to set the weight (thickness) of
+            the font. Values can be normal, bold, or numeric values like
+            100-900.
           </div>
+        </div>
 
-          <!-- Question 3 -->
-          <div class="mcq-question">
-            <h3>3. Which CSS property is used to make text bold?</h3>
-            <ul class="mcq-options">
-              <li>A) text-weight: bold;</li>
-              <li>B) font-weight: bold;</li>
-              <li>C) text-style: bold;</li>
-              <li>D) font: bold;</li>
-            </ul>
-            <button class="view-answer-btn" onclick="toggleAnswer('answer3')">
-              View Answer
-            </button>
-            <div class="mcq-answer" id="answer3">
-              <strong>Correct Answer: B) font-weight: bold;</strong><br />
-              The font-weight property is used to set the weight (thickness) of
-              the font. Values can be normal, bold, or numeric values like
-              100-900.
-            </div>
+        <!-- Question 4 -->
+        <div class="mcq-question">
+          <h3>4. What is Flexbox used for?</h3>
+          <ul class="mcq-options">
+            <li>A) Creating animations</li>
+            <li>B) Creating flexible, responsive layouts</li>
+            <li>C) Adding colors to elements</li>
+            <li>D) Creating shadows</li>
+          </ul>
+          <button class="view-answer-btn" onclick="toggleAnswer('answer4')">
+            View Answer
+          </button>
+          <div class="mcq-answer" id="answer4">
+            <strong>Correct Answer: B) Creating flexible, responsive
+              layouts</strong><br />
+            Flexbox (Flexible Box Layout) is a CSS layout model that allows
+            you to design flexible and responsive layouts efficiently.
           </div>
+        </div>
 
-          <!-- Question 4 -->
-          <div class="mcq-question">
-            <h3>4. What is Flexbox used for?</h3>
-            <ul class="mcq-options">
-              <li>A) Creating animations</li>
-              <li>B) Creating flexible, responsive layouts</li>
-              <li>C) Adding colors to elements</li>
-              <li>D) Creating shadows</li>
-            </ul>
-            <button class="view-answer-btn" onclick="toggleAnswer('answer4')">
-              View Answer
-            </button>
-            <div class="mcq-answer" id="answer4">
-              <strong
-                >Correct Answer: B) Creating flexible, responsive
-                layouts</strong
-              ><br />
-              Flexbox (Flexible Box Layout) is a CSS layout model that allows
-              you to design flexible and responsive layouts efficiently.
-            </div>
-          </div>
-
-          <!-- Question 5 -->
-          <div class="mcq-question">
-            <h3>
-              5. Which property is used to add space between elements in
-              Flexbox?
-            </h3>
-            <ul class="mcq-options">
-              <li>A) gap</li>
-              <li>B) space-between</li>
-              <li>C) margin</li>
-              <li>D) padding</li>
-            </ul>
-            <button class="view-answer-btn" onclick="toggleAnswer('answer5')">
-              View Answer
-            </button>
-            <div class="mcq-answer" id="answer5">
-              <strong>Correct Answer: A) gap</strong><br />
-              The gap property is used to set the space between flex items. It's
-              a shorthand for row-gap and column-gap.
-            </div>
+        <!-- Question 5 -->
+        <div class="mcq-question">
+          <h3>
+            5. Which property is used to add space between elements in
+            Flexbox?
+          </h3>
+          <ul class="mcq-options">
+            <li>A) gap</li>
+            <li>B) space-between</li>
+            <li>C) margin</li>
+            <li>D) padding</li>
+          </ul>
+          <button class="view-answer-btn" onclick="toggleAnswer('answer5')">
+            View Answer
+          </button>
+          <div class="mcq-answer" id="answer5">
+            <strong>Correct Answer: A) gap</strong><br />
+            The gap property is used to set the space between flex items. It's
+            a shorthand for row-gap and column-gap.
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Footer -->
-    <footer
-      class="footer"
-      style="
+  <!-- Footer -->
+  <footer class="footer" style="
         background: #2f4e71;
         color: white;
         padding: 30px 0;
         margin-top: 50px;
-      "
-    >
-      <div class="container">
-        <div class="row">
-          <div class="pull-left">
-            <p style="color: white; margin: 0">
-              &copy; 2024 Success Planet. All Rights Reserved
-            </p>
-          </div>
-          <div class="pull-right">
-            <a href="index.html" style="color: #f5d76e; text-decoration: none">
-              <i class="fa fa-home"></i> Back to Home
-            </a>
-          </div>
+      ">
+    <div class="container">
+      <div class="row">
+        <div class="pull-left">
+          <p style="color: white; margin: 0">
+            &copy; 2024 Success Planet. All Rights Reserved
+          </p>
+        </div>
+        <div class="pull-right">
+          <a href="index.html" style="color: #f5d76e; text-decoration: none">
+            <i class="fa fa-home"></i> Back to Home
+          </a>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <script src="js/jquery-1.11.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script>
-      function toggleAnswer(answerId) {
-        var answer = document.getElementById(answerId);
-        var button = event.target;
+  <script src="js/jquery-1.11.2.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script>
+    function toggleAnswer(answerId) {
+      var answer = document.getElementById(answerId);
+      var button = event.target;
 
-        if (answer.classList.contains("show")) {
-          answer.classList.remove("show");
-          button.textContent = "View Answer";
-        } else {
-          answer.classList.add("show");
-          button.textContent = "Hide Answer";
-        }
+      if (answer.classList.contains("show")) {
+        answer.classList.remove("show");
+        button.textContent = "View Answer";
+      } else {
+        answer.classList.add("show");
+        button.textContent = "Hide Answer";
       }
-    </script>
-  </body>
+    }
+  </script>
+  <!-- Automatic Progress Tracking -->
+  <script src="js/course-progress.js"></script>
+</body>
+
 </html>

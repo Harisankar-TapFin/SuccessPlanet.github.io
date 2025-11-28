@@ -1,405 +1,378 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>English Course - Success Planet</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="css/skins/default.css"
-      data-name="skins"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600italic,600,700italic,700"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link rel="stylesheet" href="css/font-awesome.min.css" />
-    <style>
-      body {
-        font-family: "Open Sans", sans-serif;
-        background: #f5f5f5;
-      }
-      .course-header {
-        background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
-        color: white;
-        padding: 60px 0;
-        text-align: center;
-      }
-      .course-header h1 {
-        font-size: 3em;
-        margin-bottom: 10px;
-        font-weight: bold;
-      }
-      .course-content {
-        padding: 50px 0;
-      }
-      .section-card {
-        background: white;
-        border-radius: 10px;
-        padding: 30px;
-        margin-bottom: 30px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
-      .section-card h2 {
-        color: #ff9800;
-        margin-bottom: 20px;
-        font-size: 2em;
-        border-bottom: 3px solid #ff9800;
-        padding-bottom: 10px;
-      }
-      .resource-link {
-        display: block;
-        padding: 15px;
-        margin-bottom: 10px;
-        background: #f8f9fa;
-        border-left: 4px solid #ff9800;
-        text-decoration: none;
-        color: #333;
-        border-radius: 5px;
-        transition: all 0.3s;
-      }
-      .resource-link:hover {
-        background: #fff3e0;
-        transform: translateX(5px);
-        text-decoration: none;
-        color: #ff9800;
-      }
-      .resource-link i {
-        margin-right: 10px;
-        color: #ff9800;
-      }
-      .mcq-question {
-        background: #f8f9fa;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        border-left: 4px solid #667eea;
-      }
-      .mcq-question h3 {
-        color: #333;
-        margin-bottom: 15px;
-        font-size: 1.2em;
-      }
-      .mcq-options {
-        list-style: none;
-        padding: 0;
-      }
-      .mcq-options li {
-        padding: 10px;
-        margin-bottom: 8px;
-        background: white;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: all 0.3s;
-      }
-      .mcq-options li:hover {
-        background: #fff3e0;
-      }
-      .mcq-answer {
-        margin-top: 15px;
-        padding: 15px;
-        background: #fff3e0;
-        border-radius: 5px;
-        display: none;
-      }
-      .mcq-answer.show {
-        display: block;
-      }
-      .mcq-answer strong {
-        color: #ff9800;
-      }
-      .view-answer-btn {
-        background: #667eea;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 10px;
-        transition: all 0.3s;
-      }
-      .view-answer-btn:hover {
-        background: #5568d3;
-      }
-      .navbar-wrapper {
-        background: #26e539;
-      }
-      .navbar.navbar-inverse.navbar-static-top a {
-        color: #273342;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Header -->
-    <header>
-      <div class="menu">
-        <div class="navbar-wrapper">
-          <div class="container">
-            <div class="navwrapper">
-              <div class="navbar navbar-inverse navbar-static-top">
-                <div class="container">
-                  <div class="logo">
-                    <a href="index.html"
-                      ><span class="img-circle">S</span>uccess Planet</a
-                    >
-                  </div>
-                  <nav class="navArea">
-                    <div class="navbar-header">
-                      <button
-                        type="button"
-                        class="navbar-toggle"
-                        data-toggle="collapse"
-                        data-target=".navbar-collapse"
-                      >
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                      </button>
-                    </div>
-                    <div class="navbar-collapse collapse">
-                      <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#course">Courses</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                      </ul>
-                    </div>
-                  </nav>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>English Course - Success Planet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/skins/default.css" data-name="skins" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600italic,600,700italic,700"
+    rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <style>
+    body {
+      font-family: "Open Sans", sans-serif;
+      background: #f5f5f5;
+    }
+
+    .course-header {
+      background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .course-header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .course-content {
+      padding: 50px 0;
+    }
+
+    .section-card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-card h2 {
+      color: #ff9800;
+      margin-bottom: 20px;
+      font-size: 2em;
+      border-bottom: 3px solid #ff9800;
+      padding-bottom: 10px;
+    }
+
+    .resource-link {
+      display: block;
+      padding: 15px;
+      margin-bottom: 10px;
+      background: #f8f9fa;
+      border-left: 4px solid #ff9800;
+      text-decoration: none;
+      color: #333;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+
+    .resource-link:hover {
+      background: #fff3e0;
+      transform: translateX(5px);
+      text-decoration: none;
+      color: #ff9800;
+    }
+
+    .resource-link i {
+      margin-right: 10px;
+      color: #ff9800;
+    }
+
+    .mcq-question {
+      background: #f8f9fa;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+    }
+
+    .mcq-question h3 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+    }
+
+    .mcq-options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .mcq-options li {
+      padding: 10px;
+      margin-bottom: 8px;
+      background: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .mcq-options li:hover {
+      background: #fff3e0;
+    }
+
+    .mcq-answer {
+      margin-top: 15px;
+      padding: 15px;
+      background: #fff3e0;
+      border-radius: 5px;
+      display: none;
+    }
+
+    .mcq-answer.show {
+      display: block;
+    }
+
+    .mcq-answer strong {
+      color: #ff9800;
+    }
+
+    .view-answer-btn {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s;
+    }
+
+    .view-answer-btn:hover {
+      background: #5568d3;
+    }
+
+    .navbar-wrapper {
+      background: #26e539;
+    }
+
+    .navbar.navbar-inverse.navbar-static-top a {
+      color: #273342;
+    }
+  </style>
+</head>
+
+<body data-course-name="English">
+  <!-- Header -->
+  <header>
+    <div class="menu">
+      <div class="navbar-wrapper">
+        <div class="container">
+          <div class="navwrapper">
+            <div class="navbar navbar-inverse navbar-static-top">
+              <div class="container">
+                <div class="logo">
+                  <a href="index.html"><span class="img-circle">S</span>uccess Planet</a>
                 </div>
+                <nav class="navArea">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+                  <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="index.html#course">Courses</a></li>
+                      <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                  </div>
+                </nav>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </header>
-
-    <!-- Course Header -->
-    <div class="course-header">
-      <div class="container">
-        <h1><i class="fa fa-book"></i> English Course</h1>
-        <p style="font-size: 1.6em; opacity: 0.9">
-          Master Grammar, Vocabulary & Communication Skills
-        </p>
-      </div>
     </div>
+  </header>
 
-    <!-- Course Content -->
-    <div class="course-content">
-      <div class="container">
-        <!-- Learning Resources Section -->
-        <div class="section-card">
-          <h2><i class="fa fa-book"></i> Learning Resources</h2>
-          <a
-            href="https://www.grammarly.com/blog/"
-            target="_blank"
-            class="resource-link"
-          >
-            <i class="fa fa-external-link"></i> Grammarly Blog - Grammar tips
-            and writing guides
-          </a>
-          <a
-            href="https://www.englishclub.com/"
-            target="_blank"
-            class="resource-link"
-          >
-            <i class="fa fa-external-link"></i> English Club - Comprehensive
-            English learning resources
-          </a>
-          <a
-            href="https://www.bbc.co.uk/learningenglish/"
-            target="_blank"
-            class="resource-link"
-          >
-            <i class="fa fa-external-link"></i> BBC Learning English - Free
-            English courses and materials
-          </a>
-          <a
-            href="https://www.cambridgeenglish.org/learning-english/"
-            target="_blank"
-            class="resource-link"
-          >
-            <i class="fa fa-external-link"></i> Cambridge English - Official
-            learning resources
-          </a>
-          <a
-            href="https://www.oxfordlearnersdictionaries.com/"
-            target="_blank"
-            class="resource-link"
-          >
-            <i class="fa fa-external-link"></i> Oxford Learner's Dictionaries -
-            Vocabulary and definitions
-          </a>
-          <a
-            href="https://www.youtube.com/results?search_query=english+grammar+tutorial"
-            target="_blank"
-            class="resource-link"
-          >
-            <i class="fa fa-youtube-play"></i> YouTube English Grammar Tutorials
-            - Video learning resources
-          </a>
+  <!-- Course Header -->
+  <div class="course-header">
+    <div class="container">
+      <h1><i class="fa fa-book"></i> English Course</h1>
+      <p style="font-size: 1.6em; opacity: 0.9">
+        Master Grammar, Vocabulary & Communication Skills
+      </p>
+    </div>
+  </div>
+
+  <!-- Course Content -->
+  <div class="course-content">
+    <div class="container">
+      <!-- Learning Resources Section -->
+      <div class="section-card">
+        <h2><i class="fa fa-book"></i> Learning Resources</h2>
+        <a href="https://www.grammarly.com/blog/" target="_blank" class="resource-link">
+          <i class="fa fa-external-link"></i> Grammarly Blog - Grammar tips
+          and writing guides
+        </a>
+        <a href="https://www.englishclub.com/" target="_blank" class="resource-link">
+          <i class="fa fa-external-link"></i> English Club - Comprehensive
+          English learning resources
+        </a>
+        <a href="https://www.bbc.co.uk/learningenglish/" target="_blank" class="resource-link">
+          <i class="fa fa-external-link"></i> BBC Learning English - Free
+          English courses and materials
+        </a>
+        <a href="https://www.cambridgeenglish.org/learning-english/" target="_blank" class="resource-link">
+          <i class="fa fa-external-link"></i> Cambridge English - Official
+          learning resources
+        </a>
+        <a href="https://www.oxfordlearnersdictionaries.com/" target="_blank" class="resource-link">
+          <i class="fa fa-external-link"></i> Oxford Learner's Dictionaries -
+          Vocabulary and definitions
+        </a>
+        <a href="https://www.youtube.com/results?search_query=english+grammar+tutorial" target="_blank"
+          class="resource-link">
+          <i class="fa fa-youtube-play"></i> YouTube English Grammar Tutorials
+          - Video learning resources
+        </a>
+      </div>
+
+      <!-- MCQ Questions Section -->
+      <div class="section-card">
+        <h2><i class="fa fa-question-circle"></i> Practice MCQ Questions</h2>
+
+        <!-- Question 1 -->
+        <div class="mcq-question">
+          <h3>1. Choose the correct sentence:</h3>
+          <ul class="mcq-options">
+            <li>A) She don't like coffee.</li>
+            <li>B) She doesn't like coffee.</li>
+            <li>C) She doesn't likes coffee.</li>
+            <li>D) She doesn't like coffees.</li>
+          </ul>
+          <button class="view-answer-btn" onclick="toggleAnswer('answer1')">
+            View Answer
+          </button>
+          <div class="mcq-answer" id="answer1">
+            <strong>Correct Answer: B) She doesn't like coffee.</strong><br />
+            With third person singular (he, she, it), we use 'doesn't' (does
+            not) and the base form of the verb 'like', not 'likes'.
+          </div>
         </div>
 
-        <!-- MCQ Questions Section -->
-        <div class="section-card">
-          <h2><i class="fa fa-question-circle"></i> Practice MCQ Questions</h2>
-
-          <!-- Question 1 -->
-          <div class="mcq-question">
-            <h3>1. Choose the correct sentence:</h3>
-            <ul class="mcq-options">
-              <li>A) She don't like coffee.</li>
-              <li>B) She doesn't like coffee.</li>
-              <li>C) She doesn't likes coffee.</li>
-              <li>D) She doesn't like coffees.</li>
-            </ul>
-            <button class="view-answer-btn" onclick="toggleAnswer('answer1')">
-              View Answer
-            </button>
-            <div class="mcq-answer" id="answer1">
-              <strong>Correct Answer: B) She doesn't like coffee.</strong><br />
-              With third person singular (he, she, it), we use 'doesn't' (does
-              not) and the base form of the verb 'like', not 'likes'.
-            </div>
+        <!-- Question 2 -->
+        <div class="mcq-question">
+          <h3>2. Which word is a synonym for "happy"?</h3>
+          <ul class="mcq-options">
+            <li>A) Sad</li>
+            <li>B) Angry</li>
+            <li>C) Joyful</li>
+            <li>D) Tired</li>
+          </ul>
+          <button class="view-answer-btn" onclick="toggleAnswer('answer2')">
+            View Answer
+          </button>
+          <div class="mcq-answer" id="answer2">
+            <strong>Correct Answer: C) Joyful</strong><br />
+            A synonym is a word that has the same or similar meaning. 'Joyful'
+            means the same as 'happy', expressing a feeling of pleasure or
+            contentment.
           </div>
+        </div>
 
-          <!-- Question 2 -->
-          <div class="mcq-question">
-            <h3>2. Which word is a synonym for "happy"?</h3>
-            <ul class="mcq-options">
-              <li>A) Sad</li>
-              <li>B) Angry</li>
-              <li>C) Joyful</li>
-              <li>D) Tired</li>
-            </ul>
-            <button class="view-answer-btn" onclick="toggleAnswer('answer2')">
-              View Answer
-            </button>
-            <div class="mcq-answer" id="answer2">
-              <strong>Correct Answer: C) Joyful</strong><br />
-              A synonym is a word that has the same or similar meaning. 'Joyful'
-              means the same as 'happy', expressing a feeling of pleasure or
-              contentment.
-            </div>
+        <!-- Question 3 -->
+        <div class="mcq-question">
+          <h3>3. What is the past tense of "go"?</h3>
+          <ul class="mcq-options">
+            <li>A) went</li>
+            <li>B) goed</li>
+            <li>C) gone</li>
+            <li>D) going</li>
+          </ul>
+          <button class="view-answer-btn" onclick="toggleAnswer('answer3')">
+            View Answer
+          </button>
+          <div class="mcq-answer" id="answer3">
+            <strong>Correct Answer: A) went</strong><br />
+            The past tense of the irregular verb 'go' is 'went'. 'Gone' is the
+            past participle, used with 'have' or 'has'.
           </div>
+        </div>
 
-          <!-- Question 3 -->
-          <div class="mcq-question">
-            <h3>3. What is the past tense of "go"?</h3>
-            <ul class="mcq-options">
-              <li>A) went</li>
-              <li>B) goed</li>
-              <li>C) gone</li>
-              <li>D) going</li>
-            </ul>
-            <button class="view-answer-btn" onclick="toggleAnswer('answer3')">
-              View Answer
-            </button>
-            <div class="mcq-answer" id="answer3">
-              <strong>Correct Answer: A) went</strong><br />
-              The past tense of the irregular verb 'go' is 'went'. 'Gone' is the
-              past participle, used with 'have' or 'has'.
-            </div>
+        <!-- Question 4 -->
+        <div class="mcq-question">
+          <h3>4. Choose the correct form: "I have _____ my homework."</h3>
+          <ul class="mcq-options">
+            <li>A) do</li>
+            <li>B) did</li>
+            <li>C) done</li>
+            <li>D) doing</li>
+          </ul>
+          <button class="view-answer-btn" onclick="toggleAnswer('answer4')">
+            View Answer
+          </button>
+          <div class="mcq-answer" id="answer4">
+            <strong>Correct Answer: C) done</strong><br />
+            With 'have' (present perfect tense), we use the past participle
+            form. The past participle of 'do' is 'done'.
           </div>
+        </div>
 
-          <!-- Question 4 -->
-          <div class="mcq-question">
-            <h3>4. Choose the correct form: "I have _____ my homework."</h3>
-            <ul class="mcq-options">
-              <li>A) do</li>
-              <li>B) did</li>
-              <li>C) done</li>
-              <li>D) doing</li>
-            </ul>
-            <button class="view-answer-btn" onclick="toggleAnswer('answer4')">
-              View Answer
-            </button>
-            <div class="mcq-answer" id="answer4">
-              <strong>Correct Answer: C) done</strong><br />
-              With 'have' (present perfect tense), we use the past participle
-              form. The past participle of 'do' is 'done'.
-            </div>
-          </div>
-
-          <!-- Question 5 -->
-          <div class="mcq-question">
-            <h3>5. Which sentence uses the correct article?</h3>
-            <ul class="mcq-options">
-              <li>A) I saw a elephant at the zoo.</li>
-              <li>B) I saw an elephant at the zoo.</li>
-              <li>C) I saw the elephant at a zoo.</li>
-              <li>D) I saw elephant at zoo.</li>
-            </ul>
-            <button class="view-answer-btn" onclick="toggleAnswer('answer5')">
-              View Answer
-            </button>
-            <div class="mcq-answer" id="answer5">
-              <strong>Correct Answer: B) I saw an elephant at the zoo.</strong
-              ><br />
-              We use 'an' before words that start with a vowel sound (a, e, i,
-              o, u). 'Elephant' starts with a vowel sound, so we use 'an'. 'The
-              zoo' is correct when referring to a specific or known zoo.
-            </div>
+        <!-- Question 5 -->
+        <div class="mcq-question">
+          <h3>5. Which sentence uses the correct article?</h3>
+          <ul class="mcq-options">
+            <li>A) I saw a elephant at the zoo.</li>
+            <li>B) I saw an elephant at the zoo.</li>
+            <li>C) I saw the elephant at a zoo.</li>
+            <li>D) I saw elephant at zoo.</li>
+          </ul>
+          <button class="view-answer-btn" onclick="toggleAnswer('answer5')">
+            View Answer
+          </button>
+          <div class="mcq-answer" id="answer5">
+            <strong>Correct Answer: B) I saw an elephant at the zoo.</strong><br />
+            We use 'an' before words that start with a vowel sound (a, e, i,
+            o, u). 'Elephant' starts with a vowel sound, so we use 'an'. 'The
+            zoo' is correct when referring to a specific or known zoo.
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Footer -->
-    <footer
-      class="footer"
-      style="
+  <!-- Footer -->
+  <footer class="footer" style="
         background: #2f4e71;
         color: white;
         padding: 30px 0;
         margin-top: 50px;
-      "
-    >
-      <div class="container">
-        <div class="row">
-          <div class="pull-left">
-            <p style="color: white; margin: 0">
-              &copy; 2024 Success Planet. All Rights Reserved
-            </p>
-          </div>
-          <div class="pull-right">
-            <a href="index.html" style="color: #f5d76e; text-decoration: none">
-              <i class="fa fa-home"></i> Back to Home
-            </a>
-          </div>
+      ">
+    <div class="container">
+      <div class="row">
+        <div class="pull-left">
+          <p style="color: white; margin: 0">
+            &copy; 2024 Success Planet. All Rights Reserved
+          </p>
+        </div>
+        <div class="pull-right">
+          <a href="index.html" style="color: #f5d76e; text-decoration: none">
+            <i class="fa fa-home"></i> Back to Home
+          </a>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <script src="js/jquery-1.11.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script>
-      function toggleAnswer(answerId) {
-        var answer = document.getElementById(answerId);
-        var button = event.target;
+  <script src="js/jquery-1.11.2.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script>
+    function toggleAnswer(answerId) {
+      var answer = document.getElementById(answerId);
+      var button = event.target;
 
-        if (answer.classList.contains("show")) {
-          answer.classList.remove("show");
-          button.textContent = "View Answer";
-        } else {
-          answer.classList.add("show");
-          button.textContent = "Hide Answer";
-        }
+      if (answer.classList.contains("show")) {
+        answer.classList.remove("show");
+        button.textContent = "View Answer";
+      } else {
+        answer.classList.add("show");
+        button.textContent = "Hide Answer";
       }
-    </script>
-  </body>
+    }
+  </script>
+  <!-- Automatic Progress Tracking -->
+  <script src="js/course-progress.js"></script>
+</body>
+
 </html>

@@ -1,51 +1,80 @@
-# Asset Summary Logic Documentation
+# Success Planet - Online Learning Platform
 
-This document explains how **KeyInsights** and **Recommendations** are calculated for individual assets in the Fleet Intelligence module.
+**Success Planet** is a comprehensive online learning platform designed specifically for 10th-standard students. It provides a user-friendly interface for students to access courses, track their progress, and manage their profiles. The platform also includes a robust Admin Panel for user management.
 
-## Metrics Used
+## 🚀 Project Overview
 
-The following metrics are used for calculation:
+This project demonstrates a complete frontend-based web application with simulated backend functionality using the browser's `localStorage`. It showcases modern web design principles, responsive layouts, and interactive user experiences.
 
-*   **Revenue**: `revenueAchieved`
-*   **Distance**: `achievedDistance`
-*   **Utilization**: `revenueAchievementScore`
-*   **Connectivity**: `downtimeRiskScore`
+### Key Features
 
-## Derived Metrics
+#### 👤 User Features
+- **User Registration**: Secure sign-up form with validation (email check, password strength).
+- **User Login**: Authentication system with "Remember Me" functionality.
+- **User Profile**: Personalized dashboard showing registration details, class, account status, and **Enrolled Courses with Automatic Progress Tracking**.
+- **Interactive Learning**: Progress is automatically tracked as you answer questions in the courses.
+- **Course Browsing**: Interactive course listings (HTML, CSS, Science, etc.).
+- **Responsive Design**: Fully optimized for Desktop, Tablet, and Mobile devices.
 
-*   **Revenue per KM**: `Revenue / Distance` (Calculated for both the asset and the fleet average)
+#### 🛡️ Admin Features
+- **Admin Dashboard**: Real-time statistics (Total Users, Verified vs. Pending).
+- **User Management**:
+  - **View**: List all registered users with search functionality.
+  - **Verify**: Approve new user registrations.
+  - **Edit**: Update user details (Name, Email, Class).
+  - **Progress Tracking**: View and update user progress for enrolled courses.
+  - **Delete**: Remove users from the system.
+  - **Export**: Export user data to Excel (simulated).
+- **Admin Management** (Superadmin Only): Create and manage other admin accounts.
 
-## Deviation Calculation
+## 🛠️ Technology Stack
 
-Deviations are calculated as the percentage difference between the asset's value and the benchmark (Fleet Average or Industry Benchmark).
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Libraries/Frameworks**:
+  - Bootstrap (Grid & Components)
+  - jQuery (DOM Manipulation)
+  - FontAwesome (Icons)
+- **Data Storage**: `localStorage` (Simulating a NoSQL Database)
+- **Styling**: Custom CSS with CSS Variables for theming.
 
-## Logic Table
+## 🏁 How to Start
 
-The following table details the conditions that trigger specific insights and recommendations.
+1. **Clone or Download** the repository.
+2. **Open the Project**:
+   - Navigate to the project folder.
+   - Open `index.html` in any modern web browser (Chrome, Firefox, Edge).
+3. **Explore**:
+   - **Home**: `index.html`
+   - **Register**: `register.html`
+   - **Login**: `login_new.html`
+   - **Admin Panel**: `Admin.html`
 
-| Condition (Logic) | Insight Title | Insight Level | Insight Reason | Recommendation Title | Recommendation Icon |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **High Severity** | | | | | |
-| `RevFleetDiff < -10%` AND `UtilFleetDiff < -5%` | Revenue `X%` lower than fleet average; utilization gap at `Y%`. | High | Revenue < Fleet Avg by >10%; Utilization gap >5%. Indicates poor asset performance or route inefficiency. | Review route allocation and asset deployment. Evaluate downtime and driver productivity. | indianRupee |
-| `DistFleetDiff < -10%` | Distance covered (`X` km) is `Y%` lower than fleet average. | High | Distance < Fleet Avg by >10%. Asset not running enough trips or under-utilized. | Reassign routes or increase trip frequency for optimal usage. | carCrash |
-| `Connectivity < 80%` OR `ConnFleetDiff < -10%` | Connectivity uptime (`X%`) `significantly below fleet average` OR `< 80%` – data reliability risk. | High | Connectivity < Fleet Avg by >10% or below 80% threshold. | Check IoT device health, network stability, or data provider issues. | wifi |
-| `Utilization < 65%` | Underutilized asset showing `X%` utilization for past period. | High | Utilization <65%. | Flag for operational inefficiency; assess maintenance or redeployment needs. | carCrash |
-| **Medium Severity** | | | | | |
-| `-10% <= UtilFleetDiff < -5%` | Utilization at `X%` vs `Y%` fleet average – asset is underused. | Medium | Utilization < Fleet Avg by 5–10%. | Analyze idle time logs, check for maintenance downtime, and reschedule for higher run time. | carCrash |
-| `-10% <= RevenuePerKmDiff < -5%` | Asset lags in revenue per km efficiency by `X%` vs fleet average. | Medium | Revenue/km < Fleet Avg by 5–10%. | Optimize load capacity and review pricing or distance efficiency. | indianRupee |
-| `DistFleetDiff > 10%` AND `|RevFleetDiff| < 10%` | Distance travelled `X%` higher than fleet avg but revenue comparable – low efficiency. | Medium | High distance with no proportional revenue increase. | Check route profitability and operational cost per km. | carCrash |
-| **Low Severity (Neutral/Positive)** | | | | | |
-| `|ConnIndustryDiff| <= 5%` AND `Connectivity >= 80%` | Connectivity uptime (`X%`) close to industry avg (`Y%`). | Low | Connectivity uptime within ±5% of industry avg. | Maintain current IoT uptime; ensure stable data transmission. | wifi |
-| `UtilFleetDiff > 5%` | Asset performing above fleet average in utilization (`X%` vs `Y%`). | Low | Utilization > Fleet Avg by >5%. Positive performance indicator. | Identify as best-practice asset; replicate operating patterns across fleet. | carHealthy |
-| `RevIndustryDiff > 10%` | Revenue `X%` higher than industry benchmark. | Low | Revenue > Industry Avg by >10%. Top performer. | Mark as top performer; continue current driver and route strategy. | indianRupee |
-| **No Insights Generated** | | | | | |
-| `insights.length === 0` | Asset performance is within normal operating parameters compared to fleet and industry benchmarks. | Low | All metrics within acceptable deviation thresholds (<5%). | Continue monitoring asset performance metrics for any emerging trends. | carHealthy |
+## 🔐 Default Credentials
 
-## Definitions
+To access the Admin Panel (`Admin.html`), use the following superadmin credentials:
 
-*   **RevFleetDiff**: Deviation of Asset Revenue from Fleet Average Revenue.
-*   **UtilFleetDiff**: Deviation of Asset Utilization from Fleet Average Utilization.
-*   **DistFleetDiff**: Deviation of Asset Distance from Fleet Average Distance.
-*   **ConnFleetDiff**: Deviation of Asset Connectivity from Fleet Average Connectivity.
-*   **ConnIndustryDiff**: Deviation of Asset Connectivity from Industry Benchmark Connectivity.
-*   **RevenuePerKmDiff**: Deviation of Asset Revenue/KM from Fleet Average Revenue/KM.
+- **Email**: `superadmin@successplanet.com`
+- **Password**: `admin@123`
+
+> **Note**: You can create new users via the Registration page (`register.html`) and new Admins via the Admin Dashboard (if logged in as Superadmin).
+
+## 📂 Project Structure
+
+- `index.html`: Main landing page.
+- `register.html`: User registration page.
+- `login_new.html`: User login page.
+- `profile.html`: User profile page (requires login).
+- `Admin.html`: Administrative dashboard.
+- `css/`: Stylesheets (`main.css`, `bootstrap.min.css`).
+- `js/`: JavaScript files for logic and interactivity.
+- `images/`: Assets and graphics.
+
+## 🔮 Future Improvements
+
+- **Backend Integration**: Connect to a real server (Node.js, Python, or PHP) and Database (MySQL, MongoDB).
+- **Security**: Implement server-side authentication (JWT/Sessions) and data validation.
+- **Course Content**: Add a CMS (Content Management System) to dynamically add/edit courses.
+- **Payment Gateway**: Integrate payment processing for premium courses.
+
+---
+*© 2024 Success Planet. All Rights Reserved.*

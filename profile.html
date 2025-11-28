@@ -722,6 +722,19 @@
                   <p id="accountStatus">Active</p>
                 </div>
 
+                <!-- My Courses Section -->
+                <div class="my-courses-section" style="margin-bottom: 30px;">
+                  <h2
+                    style="color: #273342; font-size: 1.8em; margin-bottom: 20px; border-bottom: 2px solid #f5d76e; padding-bottom: 10px; display: inline-block;">
+                    My Courses</h2>
+                  <div id="coursesGrid" class="profile-info-grid">
+                    <!-- Courses will be injected here -->
+                    <div class="info-card" style="grid-column: 1 / -1; text-align: center; color: #666;">
+                      <p>Loading courses...</p>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="logout-section">
                   <button class="btn-logout" id="logoutBtn">
                     <i class="fa fa-sign-out"></i> Logout
@@ -827,129 +840,133 @@
   <!--for placeholder jquery-->
   <script type="text/javascript" src="js/jquery.placeholder.js"></script>
 
-  <!-- Profile Management Script -->
-  <script type="text/javascript">
+  <script>
+    // Profile Logic
     $(document).ready(function () {
-      // Check if user data exists and is not expired
-      function checkUserData() {
-        var userDataStr = localStorage.getItem("userData");
-        var isLoggedIn = localStorage.getItem("isLoggedIn");
+      checkLogin();
 
-        if (!userDataStr || !isLoggedIn || isLoggedIn !== "true") {
-          return null;
-        }
+      $("#logoutBtn").click(function () {
+        $("#logoutModal").fadeIn(300);
+      });
+    });
 
+    function checkLogin() {
+      var isLoggedIn = localStorage.getItem("isLoggedIn");
+      var userDataStr = localStorage.getItem("userData");
+
+      if (isLoggedIn === "true" && userDataStr) {
         try {
           var userData = JSON.parse(userDataStr);
-          var expirationDate = new Date(userData.expirationDate);
-          var now = new Date();
 
-          if (now > expirationDate) {
-            // Data expired, clear it
-            localStorage.removeItem("userData");
-            localStorage.removeItem("isLoggedIn");
-            return null;
+          // Sync with master list to get latest progress
+          var users = JSON.parse(localStorage.getItem("ls_users") || "[]");
+          var masterUser = users.find(u => u.email === userData.email);
+
+          if (masterUser) {
+            // Update local session with master data (progress might have changed)
+            userData = masterUser;
+            localStorage.setItem("userData", JSON.stringify(userData));
           }
-          return userData;
+
+          showProfile(userData);
         } catch (e) {
-          localStorage.removeItem("userData");
-          localStorage.removeItem("isLoggedIn");
-          return null;
+          console.error("Login check failed:", e);
+          showLoginPrompt();
         }
+      } else {
+        showLoginPrompt();
+      }
+    }
+
+    function showProfile(user) {
+      $("#notLoggedIn").hide();
+      $("#profileCard").fadeIn(500);
+      $("#loginMenuItem").hide();
+      $("#registerMenuItem").hide();
+
+      // Populate Data
+      $("#profileName").text(user.name || user.fullName);
+      $("#profileEmail").text(user.email);
+      $("#infoEmail").text(user.email);
+      $("#infoClass").text((user.class || "Not Set") + "th Standard");
+
+      var regDate = new Date(user.registrationDate);
+      $("#infoRegDate").text(regDate.toLocaleDateString());
+
+      var expDate = new Date(user.expirationDate);
+      $("#infoExpDate").text(expDate.toLocaleDateString());
+
+      // Render Courses
+      renderCourses(user.enrolledCourses || []);
+    }
+
+    function renderCourses(courses) {
+      var $grid = $("#coursesGrid");
+      $grid.empty();
+
+      if (courses.length === 0) {
+        $grid.append(`
+                <div class="info-card" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                    <div class="icon" style="margin: 0 auto 15px; background: #e0e0e0;">
+                        <i class="fa fa-book" style="color: #666;"></i>
+                    </div>
+                    <p style="color: #666; margin-bottom: 15px;">You haven't enrolled in any courses yet.</p>
+                    <a href="index.html#course" class="btn-primary-custom" style="font-size: 0.9em; padding: 10px 25px;">Browse Courses</a>
+                </div>
+            `);
+        return;
       }
 
-      // Load and display profile information
-      function loadProfile() {
-        var userData = checkUserData();
+      var courseLinks = {
+        "HTML": "course1.html",
+        "English": "course2.html",
+        "CSS": "course3.html",
+        "Science": "science-course.html"
+      };
 
-        if (userData) {
-          // User is logged in - show profile card
-          $("#profileCard").show();
-          $("#notLoggedIn").hide();
-          $("#loginMenuItem").hide();
-          $("#registerMenuItem").hide();
-          $("#profileMenuItem").show();
+      courses.forEach(function (course) {
+        // Handle both old string format and new object format
+        var name = typeof course === 'string' ? course : course.name;
+        var progress = typeof course === 'string' ? 0 : (course.progress || 0);
+        var status = typeof course === 'string' ? 'In Progress' : (course.status || 'In Progress');
 
-          // Display user information
-          var classNames = {
-            7: "7th Standard",
-            8: "8th Standard",
-            9: "9th Standard",
-            10: "10th Standard",
-            11: "11th Standard",
-          };
+        // Get link or default to course-details.html
+        var courseLink = courseLinks[name] || "course-details.html";
 
-          var registrationDate = new Date(userData.registrationDate);
-          var expirationDate = new Date(userData.expirationDate);
-          var daysRemaining = Math.ceil(
-            (expirationDate - new Date()) / (1000 * 60 * 60 * 24)
-          );
+        // Determine color based on progress
+        var progressColor = '#f5d76e'; // Default yellow
+        if (progress >= 100) progressColor = '#4caf50'; // Green
+        else if (progress > 50) progressColor = '#2196f3'; // Blue
 
-          // Update profile header
-          $("#profileName").text(userData.fullName);
-          $("#profileEmail").text(userData.email);
-
-          // Update info cards
-          $("#infoEmail").text(userData.email);
-          $("#infoClass").text(classNames[userData.class] || userData.class);
-          $("#infoRegDate").text(
-            registrationDate.toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })
-          );
-          $("#infoExpDate").text(
-            expirationDate.toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })
-          );
-
-          // Update account status
-          if (daysRemaining > 0) {
-            $("#accountStatus").html(
-              '<i class="fa fa-check-circle"></i> Active - ' +
-              daysRemaining +
-              " days remaining"
-            );
-          } else {
-            $("#accountStatus").html(
-              '<i class="fa fa-exclamation-circle"></i> Expired'
-            );
-          }
-        } else {
-          // User is not logged in - show message
-          $("#profileCard").hide();
-          $("#notLoggedIn").show();
-          $("#loginMenuItem").show();
-          $("#registerMenuItem").show();
-          $("#profileMenuItem").hide();
-        }
-      }
-
-      // Logout functionality
-      $("#logoutBtn").on("click", function () {
-        showLogoutModal();
+        var html = `
+                <div class="info-card">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                        <div class="icon" style="margin: 0;">
+                            <i class="fa fa-graduation-cap"></i>
+                        </div>
+                        <span style="background: ${progress >= 100 ? '#e8f5e9' : '#fff3e0'}; color: ${progress >= 100 ? '#2e7d32' : '#ef6c00'}; padding: 4px 10px; border-radius: 12px; font-size: 0.8em; font-weight: bold;">
+                            ${status}
+                        </span>
+                    </div>
+                    
+                    <h3 style="font-size: 1.1em; margin-bottom: 15px;">${name}</h3>
+                    
+                    <div style="margin-bottom: 5px; display: flex; justify-content: space-between; font-size: 0.9em; color: #666; font-weight: 600;">
+                        <span>Progress</span>
+                        <span>${progress}%</span>
+                    </div>
+                    <div style="background: #e0e0e0; height: 8px; border-radius: 4px; overflow: hidden;">
+                        <div style="width: ${progress}%; background: ${progressColor}; height: 100%; border-radius: 4px; transition: width 1s ease;"></div>
+                    </div>
+                    
+                    <div style="margin-top: 20px; text-align: center;">
+                        <a href="${courseLink}" class="btn-primary-custom" style="font-size: 0.8em; padding: 8px 20px; background: #667eea; color: white;">Continue Learning</a>
+                    </div>
+                </div>
+            `;
+        $grid.append(html);
       });
-
-      // Close modal on overlay click
-      $("#logoutModal").on("click", function (e) {
-        if ($(e.target).hasClass("logout-modal-overlay")) {
-          closeLogoutModal();
-        }
-      });
-
-      $("#logoutSuccessModal").on("click", function (e) {
-        if ($(e.target).hasClass("logout-success-modal-overlay")) {
-          closeLogoutSuccessModal();
-        }
-      });
-
-      // Initialize profile on page load
-      loadProfile();
-    });
+    }
 
     // Logout Modal Functions
     function showLogoutModal() {

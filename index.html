@@ -3218,22 +3218,33 @@
         if (userData) {
           if (!userData.enrolledCourses) {
             userData.enrolledCourses = [];
-            saveEnrolledCourses([]);
+            // Don't save empty array immediately to avoid unnecessary writes, 
+            // but return it.
           }
           return userData.enrolledCourses;
         }
         return [];
       }
 
-      // Save enrolled courses for current user
+      // Save enrolled courses for current user AND sync to master list
       function saveEnrolledCourses(courses) {
         var userData = checkUserData();
         if (userData) {
+          // 1. Update Session Data
           userData.enrolledCourses = courses;
           var expirationDate = new Date();
           expirationDate.setDate(expirationDate.getDate() + 3);
           userData.expirationDate = expirationDate.toISOString();
           localStorage.setItem("userData", JSON.stringify(userData));
+
+          // 2. Sync with Master User List (ls_users)
+          var users = JSON.parse(localStorage.getItem("ls_users") || "[]");
+          var userIndex = users.findIndex(function (u) { return u.email === userData.email; });
+
+          if (userIndex !== -1) {
+            users[userIndex].enrolledCourses = courses;
+            localStorage.setItem("ls_users", JSON.stringify(users));
+          }
         }
       }
 
@@ -3264,13 +3275,20 @@
       }
 
       // Update enrolled status for courses
+      // Update enrolled status for courses
       function updateEnrolledStatus() {
         var enrolledCourses = getEnrolledCourses();
+        // Helper to check if enrolled (handles both old string array and new object array)
+        var isEnrolled = function (courseName) {
+          return enrolledCourses.some(function (c) {
+            return (typeof c === 'string' ? c : c.name) === courseName;
+          });
+        };
 
         // Update enroll buttons to show enrolled status
         $(".html-enroll-btn").each(function () {
           var $btn = $(this);
-          if (enrolledCourses.indexOf("HTML") !== -1) {
+          if (isEnrolled("HTML")) {
             $btn
               .text("Enrolled ✓")
               .css({
@@ -3287,7 +3305,7 @@
 
         $(".css-enroll-btn").each(function () {
           var $btn = $(this);
-          if (enrolledCourses.indexOf("CSS") !== -1) {
+          if (isEnrolled("CSS")) {
             $btn
               .text("Enrolled ✓")
               .css({
@@ -3304,7 +3322,7 @@
 
         $(".science-enroll-btn").each(function () {
           var $btn = $(this);
-          if (enrolledCourses.indexOf("Science") !== -1) {
+          if (isEnrolled("Science")) {
             $btn
               .text("Enrolled ✓")
               .css({
@@ -3494,6 +3512,7 @@
       });
 
       // Enrollment Functions
+      // Enrollment Functions
       window.enrollCourse = function (courseName) {
         var userData = checkUserData();
 
@@ -3505,14 +3524,26 @@
         // Get current enrolled courses
         var enrolledCourses = getEnrolledCourses();
 
-        // Check if already enrolled
-        if (enrolledCourses.indexOf(courseName) !== -1) {
+        // Check if already enrolled (handle objects)
+        var isAlreadyEnrolled = enrolledCourses.some(function (c) {
+          return (typeof c === 'string' ? c : c.name) === courseName;
+        });
+
+        if (isAlreadyEnrolled) {
           showAlreadyEnrolledModal(courseName);
           return;
         }
 
-        // Add course to enrolled list
-        enrolledCourses.push(courseName);
+        // Add course to enrolled list as OBJECT
+        var newCourse = {
+          id: courseName.toLowerCase().replace(/\s+/g, '-'),
+          name: courseName,
+          progress: 0,
+          enrolledDate: new Date().toISOString(),
+          status: "In Progress"
+        };
+
+        enrolledCourses.push(newCourse);
         saveEnrolledCourses(enrolledCourses);
 
         // Set the course name in the modal

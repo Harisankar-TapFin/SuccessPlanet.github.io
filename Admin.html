@@ -262,6 +262,59 @@
     .stat-label {
       color: var(--muted);
     }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+        width: 100%;
+      }
+
+      .stat-card {
+        margin-bottom: 15px;
+      }
+
+      /* Stack the header elements */
+      .container>div {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start !important;
+      }
+
+      .logo {
+        margin-bottom: 10px;
+      }
+
+      /* Make tables scrollable */
+      .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* Adjust Modal Width */
+      .modal-content-custom {
+        width: 95%;
+        margin: 10px;
+        padding: 20px;
+      }
+
+      /* Stack Search and Export buttons */
+      .card>div:first-child {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 10px;
+      }
+
+      #searchBox {
+        width: 100% !important;
+      }
+
+      .btn-primary-custom {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 
@@ -374,6 +427,25 @@
     </div>
   </div>
 
+  <!-- Progress Modal -->
+  <div id="progressModal" class="modal-overlay">
+    <div class="modal-content-custom" style="max-width: 600px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <h3 style="margin: 0; color: var(--primary); font-weight:700;">Manage Progress</h3>
+        <button onclick="closeModal('progressModal')"
+          style="background:none; border:none; font-size:20px; cursor:pointer;">&times;</button>
+      </div>
+      <input type="hidden" id="progress_user_id">
+      <div id="courseListContainer" style="max-height: 400px; overflow-y: auto;">
+        <!-- Courses will be injected here -->
+      </div>
+      <div style="text-align: right; margin-top: 25px;">
+        <button class="btn btn-default" onclick="closeModal('progressModal')" style="margin-right:10px;">Close</button>
+        <button class="btn btn-primary-custom" onclick="saveProgress()">Save Progress</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     // ---------- Utilities ----------
     const qs = (s) => document.querySelector(s);
@@ -382,10 +454,11 @@
     // Initialize Superadmin
     const initSuperAdmin = () => {
       const admin = JSON.parse(localStorage.getItem("super_admin") || "null");
-      if (!admin || admin.password !== "admin@3698") {
+      // Force update to new password if it doesn't match or doesn't exist
+      if (!admin || admin.password !== "admin@123") {
         localStorage.setItem("super_admin", JSON.stringify({
           email: "superadmin@successplanet.com",
-          password: "admin@3698"
+          password: "admin@123"
         }));
       }
     };
@@ -466,9 +539,9 @@
 
       return `
           <div style="background: var(--primary); color: white; padding: 15px 0; margin-bottom: 30px;">
-            <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
               <div class="logo">Success Planet <span style="font-size: 0.6em; background: var(--accent); color: #333; padding: 2px 6px; border-radius: 4px;">ADMIN</span></div>
-              <div style="display:flex; align-items:center; gap:15px;">
+              <div style="display:flex; align-items:center; gap:15px; flex-wrap: wrap;">
                 <span>Welcome, ${currentUser.email || "Admin"}</span>
                 ${isSuperAdmin ? `<button class="btn btn-sm btn-custom" onclick="openCreateAdminModal()"><i class="fa fa-plus"></i> Create Admin</button>` : ''}
                 <button class="btn btn-sm btn-danger-custom" onclick="logout()">Logout</button>
@@ -499,10 +572,10 @@
             </div>
 
             <div class="card">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
                 <h3 style="margin: 0; color: var(--primary);">User Management</h3>
-                <div style="display: flex; gap: 10px;">
-                   <input id="searchBox" class="form-control" placeholder="Search users..." style="width: 250px;" oninput="renderTable()" />
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; width: 100%; max-width: 400px; justify-content: flex-end;">
+                   <input id="searchBox" class="form-control" placeholder="Search users..." style="flex-grow: 1;" oninput="renderTable()" />
                    <button class="btn btn-primary-custom" onclick="exportExcel()"><i class="fa fa-download"></i> Export</button>
                 </div>
               </div>
@@ -514,6 +587,7 @@
                       <th>Name</th>
                       <th>Email</th>
                       <th>Class</th>
+                      <th>Courses</th>
                       <th>Status</th>
                       <th>Actions</th>
                     </tr>
@@ -719,6 +793,9 @@
             <td>${u.email}</td>
             <td>${u.class || "N/A"}</td>
             <td>
+                <span class="badge" style="background: #e0e0e0; color: #333;">${(u.enrolledCourses || []).length} Enrolled</span>
+            </td>
+            <td>
               ${u.verified
           ? '<span class="badge-verified">Verified</span>'
           : '<span class="badge-pending">Pending</span>'}
@@ -727,6 +804,7 @@
               <div class="btn-group">
                 ${!u.verified ? `<button class="btn btn-sm btn-success action-btn" data-tooltip="Verify User" onclick="verifyUser(${u.id})"><i class="fa fa-check"></i></button>` : ''}
                 <button class="btn btn-sm btn-info action-btn" data-tooltip="Edit User" onclick="openEditModal(${u.id})"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-sm btn-warning action-btn" data-tooltip="Manage Progress" onclick="openProgressModal(${u.id})"><i class="fa fa-bar-chart"></i></button>
                 <button class="btn btn-sm btn-danger action-btn" data-tooltip="Delete User" onclick="openDeleteModal(${u.id})"><i class="fa fa-trash"></i></button>
               </div>
             </td>
@@ -797,6 +875,86 @@
 
     function closeModal(id) {
       qs("#" + id).classList.remove("active");
+    }
+
+    // Progress Management
+    function openProgressModal(id) {
+      const users = loadUsers();
+      const user = users.find(u => u.id === id);
+      if (!user) return;
+
+      qs("#progress_user_id").value = id;
+      const container = qs("#courseListContainer");
+      container.innerHTML = "";
+
+      const courses = user.enrolledCourses || [];
+
+      if (courses.length === 0) {
+        container.innerHTML = '<p class="text-center text-muted" style="padding: 20px;">User has not enrolled in any courses yet.</p>';
+      } else {
+        courses.forEach((course, index) => {
+          // Handle both string and object formats
+          const name = typeof course === 'string' ? course : course.name;
+          const progress = typeof course === 'string' ? 0 : (course.progress || 0);
+
+          container.innerHTML += `
+              <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid var(--accent);">
+                  <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                      <strong style="font-size:1.1em;">${name}</strong>
+                      <span class="badge" style="background: #e0e0e0; color: #333;">${progress}% Completed</span>
+                  </div>
+                  <div class="form-group" style="margin-bottom:0;">
+                      <label style="font-size:0.9em; color:var(--muted);">Update Progress (0-100%)</label>
+                      <div style="display:flex; gap:10px;">
+                          <input type="range" class="form-control" min="0" max="100" value="${progress}" 
+                              oninput="document.getElementById('prog_val_${index}').innerText = this.value + '%'; document.getElementById('prog_input_${index}').value = this.value;" 
+                              style="flex:1;">
+                          <span id="prog_val_${index}" style="width:40px; font-weight:bold; line-height:35px;">${progress}%</span>
+                          <input type="hidden" id="prog_input_${index}" value="${progress}" class="course-progress-input" data-course-name="${name}">
+                      </div>
+                  </div>
+              </div>
+           `;
+        });
+      }
+
+      qs("#progressModal").classList.add("active");
+    }
+
+    function saveProgress() {
+      const id = Number(qs("#progress_user_id").value);
+      const users = loadUsers();
+      const user = users.find(u => u.id === id);
+
+      if (user) {
+        const inputs = qsa(".course-progress-input");
+
+        // Convert old string courses to objects if needed
+        let updatedCourses = [];
+
+        inputs.forEach(input => {
+          const name = input.getAttribute("data-course-name");
+          const progress = Number(input.value);
+
+          updatedCourses.push({
+            id: name.toLowerCase().replace(/\s+/g, '-'),
+            name: name,
+            progress: progress,
+            status: progress >= 100 ? "Completed" : "In Progress",
+            enrolledDate: new Date().toISOString() // Preserving original date would be better but this is a simple fix
+          });
+        });
+
+        // Only update if there were courses
+        if (updatedCourses.length > 0) {
+          user.enrolledCourses = updatedCourses;
+          saveUsers(users);
+          showSuccess("Progress updated successfully!");
+          closeModal("progressModal");
+        } else {
+          closeModal("progressModal");
+        }
+      }
     }
 
     function showSuccess(msg) {

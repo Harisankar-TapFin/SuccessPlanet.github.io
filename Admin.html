@@ -539,9 +539,9 @@
 
       return `
           <div style="background: var(--primary); color: white; padding: 15px 0; margin-bottom: 30px;">
-            <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <div class="container dashboard-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
               <div class="logo">Success Planet <span style="font-size: 0.6em; background: var(--accent); color: #333; padding: 2px 6px; border-radius: 4px;">ADMIN</span></div>
-              <div style="display:flex; align-items:center; gap:15px; flex-wrap: wrap;">
+              <div class="user-controls" style="display:flex; align-items:center; gap:15px; flex-wrap: wrap;">
                 <span>Welcome, ${currentUser.email || "Admin"}</span>
                 ${isSuperAdmin ? `<button class="btn btn-sm btn-custom" onclick="openCreateAdminModal()"><i class="fa fa-plus"></i> Create Admin</button>` : ''}
                 <button class="btn btn-sm btn-danger-custom" onclick="logout()">Logout</button>

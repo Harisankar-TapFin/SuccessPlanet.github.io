@@ -270,6 +270,13 @@
       flex-wrap: wrap;
     }
 
+    .dashboard-header .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--accent);
+      display: block;
+    }
+
     .user-controls {
       display: flex;
       align-items: center;
@@ -288,50 +295,59 @@
         margin-bottom: 15px;
       }
 
-      /* Stack the header elements */
+      /* Stack the header elements - logo first, controls second */
       .dashboard-header {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0;
-        /* Reset gap, use margins */
-        flex-wrap: nowrap;
-        height: auto;
-        padding-bottom: 10px;
+        display: block !important;
+        text-align: center;
+        padding: 15px 15px 20px;
+        position: relative;
       }
 
-      .user-controls {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        gap: 15px;
-        flex-wrap: nowrap;
-        margin-top: 20px;
-        order: 2 !important;
-        /* Force below logo */
-      }
-
-      .user-controls button {
-        width: 100%;
-        /* Full width buttons */
-        max-width: 300px;
-      }
-
-      .user-controls span {
-        display: block;
-        width: 100%;
-        word-break: break-word;
-        margin-bottom: 5px;
-        font-size: 0.9em;
-      }
-
-      .logo {
-        margin-bottom: 15px;
+      .dashboard-header > .logo {
+        display: block !important;
         width: 100%;
         text-align: center;
-        display: block;
-        order: 1 !important;
-        /* Force to top */
+        font-size: 22px !important;
+        margin-bottom: 18px !important;
+        padding: 8px 0;
+        color: var(--accent) !important;
+        font-weight: bold;
+        position: relative;
+        z-index: 2;
+      }
+
+      .dashboard-header > .logo span {
+        font-size: 0.5em !important;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 8px;
+        background: var(--accent);
+        color: #333;
+        padding: 3px 8px;
+        border-radius: 4px;
+      }
+
+      .dashboard-header > .user-controls {
+        display: block !important;
+        width: 100%;
+        text-align: center;
+        margin-top: 0;
+        padding: 0 10px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .dashboard-header > .user-controls button {
+        display: block !important;
+        width: 100%;
+        max-width: 280px;
+        padding: 12px 20px;
+        font-size: 14px;
+        margin: 0 auto 12px auto;
+      }
+
+      .dashboard-header > .user-controls button:last-child {
+        margin-bottom: 0;
       }
 
       /* Make tables scrollable */
@@ -362,6 +378,94 @@
 
       .btn-primary-custom {
         width: 100%;
+      }
+
+      /* Stat cards row fix */
+      .row {
+        margin-left: -5px;
+        margin-right: -5px;
+      }
+
+      .row > [class*="col-"] {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      /* Card padding fix */
+      .card {
+        padding: 15px;
+      }
+
+      /* User Management header fix */
+      .card h3 {
+        font-size: 1.1em;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 15px !important;
+      }
+
+      /* Search and export section */
+      .card > div:first-child > div {
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: center !important;
+      }
+
+      /* Action buttons in table */
+      .btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: center;
+      }
+
+      .btn-group .btn {
+        padding: 5px 8px;
+        font-size: 12px;
+      }
+    }
+
+    /* Extra small devices */
+    @media (max-width: 480px) {
+      .dashboard-header {
+        padding: 10px 10px 15px;
+      }
+
+      .dashboard-header .logo {
+        font-size: 18px !important;
+      }
+
+      .user-controls button {
+        max-width: 100%;
+        padding: 10px 15px;
+        font-size: 13px;
+      }
+
+      .stat-card {
+        padding: 15px;
+      }
+
+      .stat-number {
+        font-size: 1.5em;
+      }
+
+      .stat-label {
+        font-size: 0.85em;
+      }
+
+      .card {
+        padding: 12px;
+        border-radius: 8px;
+      }
+
+      .modal-content-custom {
+        padding: 15px;
+      }
+
+      .table-custom th,
+      .table-custom td {
+        padding: 8px 5px;
+        font-size: 12px;
       }
     }
   </style>
@@ -588,11 +692,13 @@
 
       return `
           <div style="background: var(--primary); color: white; padding: 15px 0; margin-bottom: 30px;">
-            <div class="container dashboard-header">
-              <div class="logo">Success Planet <span style="font-size: 0.6em; background: var(--accent); color: #333; padding: 2px 6px; border-radius: 4px;">ADMIN</span></div>
-              <div class="user-controls">
-                ${isSuperAdmin ? `<button class="btn btn-sm btn-custom" onclick="openCreateAdminModal()"><i class="fa fa-plus"></i> Create Admin</button>` : ''}
-                <button class="btn btn-sm btn-danger-custom" onclick="logout()">Logout</button>
+            <div class="container">
+              <div class="dashboard-header">
+                <div class="logo">Success Planet <span style="font-size: 0.6em; background: var(--accent); color: #333; padding: 2px 6px; border-radius: 4px; vertical-align: middle;">ADMIN</span></div>
+                <div class="user-controls">
+                  ${isSuperAdmin ? `<button class="btn btn-custom" onclick="openCreateAdminModal()"><i class="fa fa-plus"></i> Create Admin</button>` : ''}
+                  <button class="btn btn-danger-custom" onclick="logout()"><i class="fa fa-sign-out"></i> Logout</button>
+                </div>
               </div>
             </div>
           </div>
